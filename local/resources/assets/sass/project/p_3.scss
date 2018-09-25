@@ -1,0 +1,27 @@
+#p_3 {
+  padding-bottom: 38px;
+  h6 {
+    font-size: 22px;
+    margin-bottom: 21px;
+  }
+  .fac-items{
+    width: 25%;
+    float: left;
+    margin-bottom: 16px;
+    p{
+      padding-left: 10px;
+      font-size: 14px;
+      max-width: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap ;
+    }
+  }
+}
+@media screen and (max-width: 750px) and (min-width: 320px) {
+  #p_3 {
+    .fac-items{
+      width: 50%;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);@charset "UTF-8";
 @font-face {
   font-family: UTMAVO;
   src: url("../fonts/utm-avo.ttf");
@@ -18,7 +18,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1;
-  font-family: UTMAVO !important;
+  font-family: "Fira Sans", sans-serif !important;
 }
 
 blockquote, q {

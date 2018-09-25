@@ -9,12 +9,13 @@
     <meta name="keywords" content="@yield('keyword')">
     <meta name="description" content="@yield('description')">
     <meta name="viewport" content="width=device-width">
-    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:title" content="@yield('title')"/>
     {{--<meta property="og:type" content="article" />--}}
-    <meta property="og:url" content="@yield('url-og')" />
-    <meta property="og:image" content="@yield('image-og')" />
-    <meta property="og:description" content="@yield('description')" />
-    <link rel="shortcut icon" href="images/icon/favicon.ico" type="image/x-icon">
+    <meta property="og:url" content="@yield('url-og')"/>
+    <meta property="og:image" content="@yield('image-og')"/>
+    <meta property="og:description" content="@yield('description')"/>
+    <link rel="shortcut icon" href="{{URL::asset('images/icon/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{URL::asset('images/icon/favicon.ico')}}" type="image/x-icon">
     {{--<meta property="og:site_name" content="Site Name, i.e. Moz" />--}}
     {{ Html::style('css/core.common.css') }}
     {{ Html::style('css/core.frontend.css') }}
@@ -45,8 +46,76 @@
         }
     });
 </script>
-{{--@yield('scripts')--}}
+<script>
+    new WOW().init();
+    $(function () {
+        var count = 0;
+        $('.owl-h2').each(function () {
+            $(this).attr('id', 'owl-demo' + count);
+            $('#owl-demo' + count).owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                pagination: true,
+                loop: true,
+                nav: false,
+                dots: true,
+                singleItem: true,
+                // autoPlay: 2000,
+                autoHeight: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                        loop: true
+                    },
+                    600: {
+                        items: 1,
+                        nav: true,
+                        loop: true
+                    },
+                    1000: {
+                        items: 1,
+                        nav: true,
+                        loop: true
+                    }
+                }
+            });
+
+
+            count++;
+        });
+    });
+
+    $("#menu_click").click(function () {
+        if ($("#menu-left").css('display') == 'none') {
+
+            $("#menu-right").css('display', 'none')
+
+            $("#menu-left").css('display', 'block')
+        } else {
+            $("#menu-left").css('display', 'none')
+
+        }
+
+    });
+
+    $("#menu_search_click").click(function () {
+        if ($("#menu-right").css('display') == 'none') {
+
+            $("#menu-left").css('display', 'none')
+
+            $("#menu-right").css('display', 'block')
+        } else {
+            $("#menu-right").css('display', 'none')
+        }
+
+    });
+
+
+</script>
 {{ Html::script('js/scripts.js') }}
+@yield('jv-scripts')
 <div class="callback d-lg-none d-md-none">
     <div class="phone_animation">
         <div class="phone_animation_circle"></div>
@@ -55,7 +124,7 @@
                                                                             aria-hidden="true"></i></a>
     </div>
 </div>
-<div class="callback d-none d-md-block" style="right: 150px;bottom: -30px;left:inherit">
+<div class="callback d-none d-md-block" style="right: 0px;bottom: -30px;left:inherit">
     <div class="phone_animation">
         <div class="phone_animation_circle"></div>
         <div class="phone_animation_circle_fill"></div>
@@ -63,10 +132,10 @@
                                                                             aria-hidden="true"></i></a>
     </div>
 </div>
-<div class="mess_desk_bot d-none d-md-block" style="position: fixed;bottom:40px;right: 0px;">
-    <a href="tel:0962599482" style="display: block;width: 260px;height: 56px;background: url({{URL::to('images/nenhot.png')}}) no-repeat;text-align: center;padding-top: 10px;color:#fff;font-size: 20px;font-family: 'roboto-bold'">
-    </a>
-</div>
+{{--<div class="mess_desk_bot d-none d-md-block" style="position: fixed;bottom:40px;right: 0px;">--}}
+{{--<a href="tel:0962599482" style="display: block;width: 260px;height: 56px;background: url({{URL::to('images/nenhot.png')}}) no-repeat;text-align: center;padding-top: 10px;color:#fff;font-size: 20px;font-family: 'roboto-bold'">--}}
+{{--</a>--}}
+{{--</div>--}}
 
 
 </body>

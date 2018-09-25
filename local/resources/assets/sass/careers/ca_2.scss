@@ -1,0 +1,36 @@
+#ca_2 {
+
+  p{
+    width: 70%;
+    margin: auto;
+    padding: 10px 0px;
+    line-height: 20px;
+    font-size: 16px;
+  }
+  span{
+    font-size: 12px;
+  }
+  .btn-nav {
+
+    button{
+      height: 60px;
+      background-color: rgba(255,255,255,0.6);
+      border: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 10;
+      width: 28px;
+      color: #777777;
+    }
+    .btn_pre{
+      border-radius: 0px 3px 3px 0px;
+    }
+    .btn_next{
+      position: absolute;
+      right: 0;
+      border-radius: 3px 0px 0px 3px;
+    }
+  }
+}

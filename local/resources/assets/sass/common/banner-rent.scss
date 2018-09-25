@@ -1,0 +1,51 @@
+#banner_rent {
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 68vh;
+  position: relative;
+  .bg-cover {
+    width: 100%;
+    //background: rgba(00, 00, 00, 0.5);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    button{
+      padding: 12px 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      border:1px solid #b9b8b8;
+      cursor: pointer;
+      font-size: 14px;
+      color: #757575;
+    }
+  }
+
+  #price{
+    padding: 15px 20px;
+    background-color: rgba(00,00,00,0.8);
+    color: white;
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+    transition: .3s;
+    opacity: 0;
+    p{
+      font-size: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) and (min-width: 320px) {
+  #banner_rent {
+    height: 50vh;
+    .bg-cover {
+    }
+
+    #price{
+      opacity: 1;
+    }
+  }
+}

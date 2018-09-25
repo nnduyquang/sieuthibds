@@ -1,0 +1,57 @@
+#p_2 {
+  padding-bottom: 38px;
+  h6 {
+    font-size: 22px;
+    margin-bottom: 21px;
+  }
+  .items-ovv {
+    width: 25%;
+    float: left;
+    margin-bottom: 6px;
+    min-height: 36px;
+    i {
+      font-size: 11px;
+    }
+    h5 {
+      margin-bottom: 4px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 13px;
+      color: #838282;
+    }
+  }
+
+  .img-prdetails{
+    max-height: 86px;
+    width: auto;
+    float: left;
+    padding: 3px;
+    margin-bottom: 3px;
+    text-align: center;
+    img{
+      max-height: 86px;
+      width: auto;
+    }
+  }
+
+}
+
+@media screen and (max-width: 750px) and (min-width: 320px) {
+  #p_2 {
+    .items-ovv {
+      width: 50%;
+    }
+
+    .img-prdetails{
+      height: auto;
+      width: 50%;
+      img{
+       width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+

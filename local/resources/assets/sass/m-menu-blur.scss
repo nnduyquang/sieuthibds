@@ -1,5 +1,156 @@
 /* Sidebar
 -----------------------------------------------------------------------------------------*/
+
+.mobile {
+  border-bottom: 1px solid #595959;
+  i {
+    font-size: 22px;
+    padding: 20px;
+    height: 100%;
+  }
+}
+
+#menu-left {
+  border-top: 1px solid #595959;
+  display: none;
+  padding: 0px 5px;
+  text-align: right;
+  padding-bottom: 5px;
+  transition: .3s;
+  ul {
+    list-style-type: none;
+
+    li {
+      display: block;
+      padding: 18px 22px;
+      text-align: left;
+      border-bottom: 1px solid $main-color;
+      a {
+        font-size: 14px;
+        color: #595959;
+        transition: .3s;
+        &:hover {
+          color: #00cc00;
+        }
+      }
+      p {
+        font-size: 14px;
+        color: #595959;
+      }
+      a.active {
+        color: #00cc00;
+      }
+      &:last-child {
+        border-bottom: 2px solid $main-color;;
+      }
+    }
+    li.flag-overlay {
+      &:hover {
+        .flag-content {
+          opacity: 1;
+          z-index: 11;
+          ul {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  img.flag {
+    height: 22px;
+    width: auto;
+    margin-left: 3px;
+  }
+  .flag-content {
+    opacity: 0;
+    min-width: 100px;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    //transform: translateX(-50%);
+    text-align: left;
+    background-color: #e5e5e5;
+    z-index: 0;
+    transition: .3s;
+    ul {
+      display: none;
+      li {
+        width: 100%;
+        padding: 6px 8px;
+        border-bottom: 1px solid white;
+        a {
+          font-size: 12px;
+          &:hover {
+            color: #1b1e21;
+          }
+        }
+      }
+    }
+  }
+}
+
+#menu-right {
+  display: none;
+  padding-top: 28px;
+  .items {
+    width: 90%;
+    border: 1px solid #919191;
+    padding: 15px 14px;
+    font-size: 13px;
+    background: #ffffff;
+    margin: auto;
+    margin-bottom: 15px;
+    position: relative;
+    &:after {
+      content: '\f0d7';
+      font-family: 'Font Awesome\ 5 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 6px;
+      color: #777676;
+      font-size: 13px;
+      font-style: normal;
+      z-index: 9;
+    }
+    .items-content {
+      position: absolute;
+      top: 100%;
+      min-width: 100%;
+      left: 0px;
+      background-color: #fff;
+      z-index: 100 !important;
+      display: none;
+      ul {
+        margin: 0px;
+        border: 1px solid #777676;
+        background-color: #fff;
+        list-style-type: none;
+        position: relative;
+        z-index: 100 !important;
+        li {
+          a {
+            padding: 6px 8px;
+          }
+        }
+      }
+    }
+
+  }
+  .search-btn{
+    width: 90%;
+    margin: auto;
+    background-color: $main-color;
+    border-radius: 3px;
+    text-align: center;
+    padding: 16px 0px;
+    a{
+      color: white;
+    }
+  }
+}
+
 .menusign {
   display: block;
   width: 10px;
@@ -7,6 +158,7 @@
   font-size: 2em;
   margin: .5em;
 }
+
 .menusign br {
   height: 0;
 }
@@ -24,6 +176,7 @@
   -webkit-box-shadow: 0.5em 0 0 0 $sub-color, 0.6em 0 0 0 $sub-color;
   box-shadow: 0.5em 0 0 0 $sub-color, 0.6em 0 0 0 $sub-color;
 }
+
 .sidebar #close {
   //float: right;
   //margin: -5.5rem 1rem;
@@ -37,16 +190,19 @@
   -webkit-box-shadow: 0 0 0 #1ba8ff;
   box-shadow: 0 0 0 #1ba8ff;
 }
+
 .sidebar h2 {
   padding: .5em;
   color: #1abc9c;
 }
+
 .sidebar ul {
   padding: 0;
   padding-top: 50px;
   padding-bottom: 30px;
   margin: 0;
 }
+
 .sidebar ul li {
   width: 90%;
   margin: 5px 10px;
@@ -69,7 +225,8 @@
   user-select: none;
   color: #f3f3f3;
 }
-.sidebar .sidebar-sub-heading{
+
+.sidebar .sidebar-sub-heading {
   border-top: 1px solid #e0e0e0;
   color: #757575;
   display: block;
@@ -77,35 +234,42 @@
   font-size: 16px;
   font-weight: bolder;
 }
-.sidebar .sidebar-hotline{
+
+.sidebar .sidebar-hotline {
   font-size: 16px;
   font-weight: bolder;
   padding: 16px;
   color: #757575;
 }
-.sidebar .sidebar-hotline .sidebar-number{
+
+.sidebar .sidebar-hotline .sidebar-number {
   color: #1ba8ff;
 }
-.sidebar .icon-sidebar{
+
+.sidebar .icon-sidebar {
   width: 56px;
 }
+
 .sidebar ul li a {
   color: #757575;
   text-decoration: none;
 }
+
 .sidebar ul li:hover {
   //background: #17a689;
   //border-color: #17a689;
 
 }
-.sidebar .background-sidebar{
+
+.sidebar .background-sidebar {
   background-image: url(../images/logo/logo_footer.png);
-  height: calc(56px*4);
+  height: calc(56px * 4);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
   background-color: white;
 }
+
 .footer a {
   color: #17a689;
 }
@@ -131,6 +295,7 @@ This class is added to the container
     filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='1');
   }
 }
+
 @keyframes blur {
   66% {
     -webkit-filter: blur(1px);

@@ -1,0 +1,140 @@
+#h_3 {
+  padding: 18px 0px 38px 0px;
+  h5 {
+    font-size: 36px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 38px;
+  }
+  h3{
+    color: #007bff;
+    font-size: 13px;
+    margin-bottom: 3px;
+    margin-top: 8px;
+  }
+  h6{
+    width: 93%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #007bff;
+    font-size: 15px;
+    margin-top: 6px;
+  }
+
+
+  .project-items {
+    width: 96%;
+    margin: auto;
+    .img-pro {
+      position: relative;
+      width: 100%;
+      .img {
+        width: 100%;
+        min-height: 228px;
+        margin: auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+      .price-rent{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(00,00,00,0.8);
+        p{
+          color: white;
+          padding: 1px 20px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .bottom-project{
+      a{
+        border: none;
+        padding: 0px;
+        font-size: 15px;
+        color: #007bff;
+      }
+      i{
+        margin-right: 5px;
+      }
+      p{
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #5a5858;
+      }
+    }
+
+    h4{
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    span{
+      font-size: 10px;
+      color:#b6b6b6;
+    }
+
+    p{
+      font-size: 13px;
+      line-height: 16px;
+      margin: 10px 0px;
+    }
+
+    a{
+      font-size: 12px;
+      padding: 6px 16px;
+      border-radius: 3px;
+      border: 1px solid #b6b6b6;
+      color: #1b1e21;
+      &:hover{
+        color: #007bff;
+      }
+    }
+  }
+
+  button.view-all {
+    font-size: 14px;
+    padding: 13px 26px;
+    border: none;
+    background-color: #1c7430;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  button.btn_pre,button.btn_next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 36px;
+    background-color: transparent;
+    color: #d0d0d0;
+    cursor: pointer;
+    border: none;
+    
+    i{
+      background-color: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  button:focus{
+    outline: none;
+  }
+  button.btn_pre{
+    left: 8px;
+  }
+  button.btn_next{
+    right: 8px;
+
+  }
+}

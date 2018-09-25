@@ -1,0 +1,23 @@
+#p_1{
+padding: 38px 0px;
+  h5{
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .des-content{
+    font-size: 14px;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    p{
+      line-height: 20px;
+      padding: 0px 10px;
+    }
+  }
+  .pr-1-p{
+    p{
+      line-height: 20px;
+      font-size: 15px;
+    }
+  }
+}

@@ -4,6 +4,24 @@
 Route::get('/', function () {
     return view('frontend.home.index');
 });
+
+Route::get('/tuyen-dung.html', function () {
+    return view('frontend.carrers.index');
+});
+
+Route::get('/projects.html', function () {
+    return view('frontend.project.index');
+});
+
+Route::get('/project-details.html', function () {
+    return view('frontend.pr-details.index');
+});
+
+Route::get('/danh-sach-can-ho.html', function () {
+    return view('frontend.rent.index');
+});
+
+
 Route::post('/tim-kiem','FrontendController@getSearch')->name('search');
 
 
