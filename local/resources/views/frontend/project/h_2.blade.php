@@ -3,8 +3,8 @@
 
 
 <div class="container-fluid" id="h_2">
-    <div class="container">
-        <div class="row p-2">
+    <div class="container   p-0">
+        <div class="row">
             <div class="col-12 text-left nav-title">
                 <ul>
                     <li><a href=""><i class="fas fa-hotel"></i> HOME</a></li>
@@ -39,21 +39,10 @@
                 </div>
             </div>
         </div>
-        <div class="row p-2">
+        <div class="row">
             <div class="col-12 text-left">
 
                 <h6>Feature Listings In Masteri Thao Dien</h6>
-                {{--<button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">All</button>--}}
-
-                {{--<p class="d-lg-block d-none">Show 12 result in <span>500 Listing</span> Sort by--}}
-
-                {{--<select>--}}
-                {{--<option value="volvo">Sort Hight to Low</option>--}}
-                {{--<option value="saab">Sort Low to hight</option>--}}
-                {{--<option value="audi" selected>Recent post</option>--}}
-                {{--</select>--}}
-
-                {{--</p>--}}
 
             </div>
 

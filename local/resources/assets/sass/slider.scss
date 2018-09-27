@@ -1,5 +1,6 @@
 #top_slider {
   #slider2 {
+    width: 100%;height: 95vh;z-index:0;position: relative;overflow: hidden;
     .slider2-items {
       width: 100%;
       height: 95vh;
@@ -64,6 +65,10 @@
           padding: 11px 10px;
           font-size: 14px;
         }
+        a{
+          color: white;
+          text-decoration: underline!important;
+        }
       }
     }
   }
@@ -91,12 +96,23 @@
 @media screen and (max-width: 750px) and (min-width: 320px) {
   #top_slider {
     #slider2 {
+      min-height: 80vh;
+      height: auto;
+      .slider2-items{
+        min-height: 80vh;
+        height: auto;
+
+      }
       #filter_box {
         width: 90%;
         h4 {
           font-size: 30px !important;
         }
       }
+      #mobile-show{
+        display: none;
+      }
+
     }
   }
 }
