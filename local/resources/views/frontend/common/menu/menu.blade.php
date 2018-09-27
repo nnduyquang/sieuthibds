@@ -15,7 +15,7 @@
                 <li><a class="{{ request()->is('danh-sach*') ? 'active' : '/' }}" href="{{URL::asset('danh-sach-can-ho.html')}}">Rent</a></li>
                 <li><a class="{{ request()->is('project*') ? 'active' : '/' }}" href="{{URL::asset('projects.html')}}">Project</a></li>
                 <li><a class="li-normal" href="">Blog</a></li>
-                <li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Carrers</a></li>
+                <li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Careers</a></li>
                 <li class="position-relative flag-overlay">
                     <div class="d-flex align-items-center position-relative">
                         <a class="li-normal" href="">English:</a> <img
