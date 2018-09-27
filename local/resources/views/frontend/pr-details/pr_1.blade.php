@@ -41,7 +41,7 @@
 
     <div class="col-12 p-3 r-relate">
         <div class="">
-            <h5>VIEW PROJECT INFO</h5>
+            <h5>VIEW NEIBOURHOOD</h5>
         </div>
         <a href="">
             <div class="d-flex border align-items-center">

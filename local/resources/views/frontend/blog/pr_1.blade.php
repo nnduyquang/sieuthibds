@@ -28,16 +28,10 @@
 
     </div>
 
-    <div class="col-12">
+    <div class="col-12 text-center">
 
         <h6>FANPAGE FACEBOOK</h6>
-        <div class="fb-page" data-href="https://www.facebook.com/annienguyen.store/" data-tabs="timeline"
-             data-width="320px"
-             data-height="200px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-             data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/annienguyen.store/" class="fb-xfbml-parse-ignore"><a
-                        href="https://www.facebook.com/annienguyen.store/">Thước Dây</a></blockquote>
-        </div>
+        <div class="fb-page" data-href="https://www.facebook.com/sieuthicanho.net/" data-tabs="timeline" data-height="280px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/sieuthicanho.net/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/sieuthicanho.net/">Siêu Thị Căn Hộ -  Apartments For Rent Masteri Thao Dien</a></blockquote></div>
 
     </div>
 
