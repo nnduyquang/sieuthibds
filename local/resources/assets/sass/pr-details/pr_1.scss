@@ -7,6 +7,15 @@
       font-size: 16px;
     }
   }
+
+  h6{
+    padding: 12px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #1b1e21;
+    margin-bottom: 10px;
+  }
   p.status {
     width: fit-content;
     margin: auto;
@@ -46,6 +55,13 @@
     }
   }
 
+  .top-1{
+    h4{
+      margin: 15px 0px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
   .img-cover {
     position: absolute;
     width: 80px;

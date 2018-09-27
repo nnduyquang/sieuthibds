@@ -128,25 +128,25 @@
                     <div id="London" class="tabcontent">
                         <div class="row mt-3">
                             @for ($i = 0; $i < 8; $i++)
-                            <div class="col-md-3 col-6 text-left proj-items">
-                                <!--Carousel-->
-                                <div id="owl-demo" class="owl-carousel owl-theme owl-h2" style="margin-top: 20px;">
-                                    @for ($j = 0; $j < 3; $j++)
-                                    <div class="item">
-                                        <img src="{{URL::asset('https://img.hoozing.com/400/Property/137301/636723093484606517_Done-5.jpg')}}" alt="sliderimg{{$j}}">
+                                <div class="col-md-3 col-6 text-left proj-items">
+                                    <!--Carousel-->
+                                    <div id="owl-demo" class="owl-carousel owl-theme owl-h2" style="margin-top: 20px;">
+                                        @for ($j = 0; $j < 3; $j++)
+                                            <div class="item">
+                                                <img src="{{URL::asset('https://img.hoozing.com/400/Property/137301/636723093484606517_Done-5.jpg')}}" alt="sliderimg{{$j}}">
+                                            </div>
+                                        @endfor
                                     </div>
-                                    @endfor
-                                </div>
 
-                                <div><h5>HOUSE CODE H126341</h5></div>
-                                <div><a href="">Sophisticated 3 bedroom apartment in Masteri Thao Dien</a></div>
-                                <div class="thongtin d-flex align-items-center">
-                                    <i class="fas fa-bed"></i> <p>Room</p>
-                                    <i class="fas fa-shower"></i> <p>WC</p>
-                                    <i class="fas fa-map-marked-alt"></i> <p>District1</p>
+                                    <div><a href="{{URL::asset('/project-details.html')}}"><h5>HOUSE CODE H126341</h5></a></div>
+                                    <div><a href="{{URL::asset('/project-details.html')}}">Sophisticated 3 bedroom apartment in Masteri Thao Dien</a></div>
+                                    <div class="thongtin d-flex align-items-center">
+                                        <i class="fas fa-bed"></i> <p>Room</p>
+                                        <i class="fas fa-shower"></i> <p>WC</p>
+                                        <i class="fas fa-map-marked-alt"></i> <p>District 1</p>
+                                    </div>
+                                    <!--Carousel-->
                                 </div>
-                                <!--Carousel-->
-                            </div>
 
                             @endfor
 
@@ -172,8 +172,8 @@
                                         @endfor
                                     </div>
 
-                                    <div><h5>HOUSE CODE H126341</h5></div>
-                                    <div><a href="">Sophisticated 3 bedroom apartment in Masteri Thao Dien</a></div>
+                                    <div><a href="{{URL::asset('/project-details.html')}}"><h5>HOUSE CODE H126341</h5></a></div>
+                                    <div><a href="{{URL::asset('/project-details.html')}}">Sophisticated 3 bedroom apartment in Masteri Thao Dien</a></div>
                                     <div class="thongtin d-flex align-items-center">
                                         <i class="fas fa-bed"></i> <p>Room</p>
                                         <i class="fas fa-shower"></i> <p>WC</p>

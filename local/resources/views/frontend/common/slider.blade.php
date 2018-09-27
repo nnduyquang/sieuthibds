@@ -1,11 +1,24 @@
+<style>
+    #owl-slider .slider-items{
+        width: 100%;
+        height: 100%;
+    }
 
-
+    #owl-slider .slider-items img{
+        width: 100%;
+        height: 100%;
+    }
+</style>
 <div class="container-fluid p-0" id="top_slider">
-    <div style="width: 100%;height: 95vh;z-index:0;position: relative;overflow: hidden">
+    <div style="">
         <div id="slider2">
+            {{--slider--}}
             <div class="slider2-items"
                  style="background-image:url({{URL::asset('https://www.hoozing.com/assets/images/dummy/home1.jpg')}});">
             </div>
+
+            {{--End slider--}}
+
             <div id="filter_box">
                     <div>
                         <h4>Long-Term Rental Made Easy</h4>
@@ -45,7 +58,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="content mb-5">
+
+                    <div class="content mb-5" id="mobile-show">
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="row">
@@ -93,6 +107,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="content d-lg-none d-block">
+                        <div class="row">
+                            <div class="col-12 mt-2 mb-2 text-right">
+                                <a href="javascript:void(0)" id="a-click-filter">More filter</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="content">
                         <button>SEARCH</button>
                     </div>

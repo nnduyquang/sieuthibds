@@ -1,0 +1,27 @@
+.nav-title {
+  ul {
+    list-style-type: none;
+    li {
+      display: inline-block;
+      a {
+        font-size: 13px;
+        color: #919191;
+      }
+      &:not(:last-child) {
+        position: relative;
+        margin-right: 20px;
+        &:after {
+          position: absolute;
+          top: 50%;
+          right: -15px;
+          content: '';
+          width: 8px;
+          height: 8px;
+          border-top: 2px solid #919191;
+          border-right: 2px solid #919191;
+          transform: translateY(-50%) rotate(45deg);
+        }
+      }
+    }
+  }
+}

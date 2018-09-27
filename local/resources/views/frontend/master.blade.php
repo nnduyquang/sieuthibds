@@ -57,8 +57,7 @@
                 slideSpeed: 300,
                 pagination: true,
                 loop: true,
-                nav: false,
-                dots: true,
+                // nav: false,
                 singleItem: true,
                 // autoPlay: 2000,
                 autoHeight: true,
@@ -67,12 +66,14 @@
                     0: {
                         items: 1,
                         nav: true,
-                        loop: true
+                        loop: true,
+                        dots: false,
                     },
                     600: {
                         items: 1,
                         nav: true,
-                        loop: true
+                        loop: true,
+                        dots: false,
                     },
                     1000: {
                         items: 1,
@@ -85,6 +86,19 @@
 
             count++;
         });
+    });
+
+
+    $("#a-click-filter").click(function () {
+
+        if($("#mobile-show").css('display')=='none'){
+            $("#mobile-show").css('display','block');
+            $("#a-click-filter").html('Hide filter')
+            }else{
+            $("#mobile-show").css('display','none');
+            $("#a-click-filter").html('More filter')
+        }
+
     });
 
     $("#menu_click").click(function () {

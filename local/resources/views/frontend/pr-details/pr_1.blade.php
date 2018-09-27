@@ -7,7 +7,7 @@
 
             <textarea name="" id="" cols="30" rows="5" placeholder="Enter your message"></textarea>
 
-            <button>REQUEST SIMILAR LISTIN</button>
+            <button>REQUEST SIMILAR LISTING</button>
 
             <div class="mt-3"><a href=""><i class="fas fa-share-alt-square"></i> Share</a></div>
             <div class="img-cover">

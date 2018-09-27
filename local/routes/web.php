@@ -10,6 +10,18 @@ Route::get('/tuyen-dung.html', function () {
 });
 
 Route::get('/projects.html', function () {
+    return view('frontend.list-project.index');
+});
+
+Route::get('/blogs.html', function () {
+    return view('frontend.blog.index');
+});
+
+Route::get('/blogs-details.html', function () {
+    return view('frontend.blog-details.index');
+});
+
+Route::get('/projects-info.html', function () {
     return view('frontend.project.index');
 });
 
