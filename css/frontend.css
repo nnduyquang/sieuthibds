@@ -834,12 +834,20 @@ This class is added to the container
   cursor: pointer;
 }
 
+#footer #copyright {
+  padding-bottom: 30px;
+  border-top: 1px solid #7d7a7a;
+}
+
+#footer #copyright h5 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 #footer #copyright p {
   color: #3d3c3c;
-  font-size: 14px;
-  border-top: 1px solid #7d7a7a;
-  padding-top: 10px;
-  padding-bottom: 25px;
+  font-size: 15px;
+  padding-top: 6px;
 }
 
 #footer #quick_link h5 {
@@ -1094,6 +1102,7 @@ This class is added to the container
   border: none;
   padding: 11px 10px;
   font-size: 14px;
+  background-color: #fff;
 }
 
 #top_slider #slider2 #filter_box .content a {
@@ -1364,7 +1373,7 @@ This class is added to the container
 }
 
 #h_2 .proj-items a {
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 10px;
   color: #1c7430;
@@ -1456,6 +1465,9 @@ This class is added to the container
 }
 
 @media screen and (max-width: 750px) and (min-width: 320px) {
+  .proj-items a {
+    font-size: 18px;
+  }
   .proj-items .thongtin i {
     font-size: 12px;
     margin-right: 2px;

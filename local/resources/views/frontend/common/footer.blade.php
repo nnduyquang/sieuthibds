@@ -128,7 +128,11 @@
         <div class="row">
 
             <div class="col-md-12">
-                <p>Copyright © Smartlinks All Right Reserved</p>
+                <h5>CÔNG TY TNHH DỊCH VỤ BĐS SIÊU THỊ CĂN HỘ</h5>
+                <p>HOTLINE CSKH: (+84)8 902 806 679</p>
+                <p>Copyright © 2018 www.sieuthicanho.net</p>
+                <p>Email: Sieuthicanho2018@gmail.com</p>
+                <p>Phát triển bởi Smartlinks https://www.smartlinks.com</p>
             </div>
 
         </div>

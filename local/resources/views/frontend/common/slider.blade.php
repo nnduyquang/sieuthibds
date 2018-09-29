@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 d-none d-lg-block">
                                 <select>
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>

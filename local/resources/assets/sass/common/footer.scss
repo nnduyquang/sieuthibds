@@ -88,14 +88,21 @@
       }
     }
   }
-  #copyright p {
-    color: #3d3c3c;
-    font-size: 14px;
+  #copyright {
+    padding-bottom: 30px;
     border-top: 1px solid #7d7a7a;
-    padding-top: 10px;
-    padding-bottom: 25px;
+    h5{
+      font-size: 20px;
+      //font-weight: bold;
+      margin-top: 20px;
+    }
+    p {
+      color: #3d3c3c;
+      font-size: 15px;
+      padding-top: 6px;
+      //padding-bottom: 25px;
+    }
   }
-
   #quick_link {
     h5 {
       font-size: 18px;
