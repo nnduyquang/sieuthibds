@@ -769,6 +769,10 @@ This class is added to the container
   margin-bottom: 5px;
 }
 
+#footer #info span {
+  font-weight: bold;
+}
+
 #footer #info p {
   font-size: 14px;
   line-height: 18px;
@@ -1113,30 +1117,69 @@ This class is added to the container
 #top_slider #slider2 #filter_box .content input {
   width: 100%;
   border: none;
-  padding: 12px 10px;
+  padding: 11px 10px;
   font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+#top_slider #slider2 #filter_box .content input:after {
+  position: absolute;
+  content: '\F5A0';
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900;
+  right: 6px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 10;
+  color: #1b1e21 !important;
 }
 
 #top_slider #slider2 #filter_box .content select {
   border-radius: 0px !important;
   position: relative;
-  width: 100%;
   border: none;
-  padding: 11px 10px;
+  width: 100% !important;
+  padding: 11px 10px 11px 38px;
   font-size: 14px;
   background-color: #fff;
-  font-family: "Font Awesome 5 Free" !important;
+  font-family: 'Font Awesome 5 Free' !important;
   font-weight: 900;
   color: #6b6b6b;
 }
 
-#top_slider #slider2 #filter_box .content select option {
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 900;
+#top_slider #slider2 #filter_box .content .select-box2 {
+  position: relative;
+  width: 100%;
 }
 
-#top_slider #slider2 #filter_box .content select option p {
-  margin-left: 6px;
+#top_slider #slider2 #filter_box .content .select-box2:before {
+  position: absolute;
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900;
+  color: #6b6b6b;
+  left: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 10;
+}
+
+#top_slider #slider2 #filter_box .content .show-box:before {
+  content: '\F2CD' !important;
+}
+
+#top_slider #slider2 #filter_box .content .show-bed:before {
+  content: '\F236' !important;
+}
+
+#top_slider #slider2 #filter_box .content .show-min:before {
+  content: 'Min' !important;
+}
+
+#top_slider #slider2 #filter_box .content .show-max:before {
+  content: 'Max' !important;
 }
 
 #top_slider #slider2 #filter_box .content a {
@@ -1180,6 +1223,9 @@ This class is added to the container
   }
   #top_slider #slider2 #filter_box h4 {
     font-size: 30px !important;
+  }
+  #top_slider #slider2 #filter_box .content .select-box2:before {
+    left: 20px;
   }
   #top_slider #slider2 #mobile-show {
     display: none;

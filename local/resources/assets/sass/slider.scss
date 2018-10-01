@@ -21,14 +21,14 @@
       transform: translate(-50%, -50%);
       width: 60%;
       text-align: center;
-      .select-box{
+      .select-box {
         width: 100%;
         //height: 100%;
         background-color: #fff;
         position: relative;
         padding: 12px 0px;
         font-size: 14px;
-        &:after{
+        &:after {
           position: absolute;
           content: '\f0d7';
           font-family: 'Font Awesome\ 5 Free';
@@ -38,6 +38,7 @@
           transform: translateY(-50%);
           color: #8b8989;
         }
+
       }
       h4 {
         font-size: 38px !important;
@@ -78,26 +79,76 @@
         input {
           width: 100%;
           border: none;
-          padding: 12px 10px;
-          font-size: 14px;
-        }
-        select {
-          border-radius: 0px!important;
-          position: relative;
-          width: 100%;
-          border: none;
           padding: 11px 10px;
           font-size: 14px;
+          position: relative;
+          z-index: 1;
+          &:after {
+            position: absolute;
+            content: '\f5a0';
+            font-family: 'Font Awesome\ 5 Free' !important;
+            font-weight: 900;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            color: #1b1e21 !important;
+          }
+        }
+
+        select {
+          border-radius: 0px !important;
+          position: relative;
+          border: none;
+          //background-color: transparent;
+          width: 100%!important;
+          padding: 11px 10px 11px 38px;
+          font-size: 14px;
           background-color: #fff;
-          font-family: 'Font Awesome\ 5 Free'!important;
+          font-family: 'Font Awesome\ 5 Free' !important;
           font-weight: 900;
           color: #6b6b6b;
-          option {
-            font-family: 'Font Awesome\ 5 Free'!important;
+        }
+
+        .select-box2 {
+          position: relative;
+          width: 100%;
+          //background-color: #fff;
+          &:before {
+            //content: '\f236';
+            position: absolute;
+            font-family: 'Font Awesome\ 5 Free' !important;
             font-weight: 900;
-            p{
-              margin-left: 6px;
-            }
+            color: #6b6b6b;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+          }
+
+        }
+        .show-box{
+          &:before{
+            content: '\f2cd' !important;
+          }
+        }
+        .show-bed{
+          &:before{
+            content: '\f236' !important;
+          }
+        }
+
+        .show-min{
+          //font-size: 13px;
+          &:before{
+            content: 'Min' !important;
+          }
+        }
+
+        .show-max{
+          //font-size: 13px;
+          &:before{
+            content: 'Max' !important;
           }
         }
         a {
@@ -142,6 +193,14 @@
         width: 90%;
         h4 {
           font-size: 30px !important;
+        }
+        .content{
+          .select-box2 {
+            &:before {
+              left: 20px;
+            }
+
+          }
         }
       }
       #mobile-show {
