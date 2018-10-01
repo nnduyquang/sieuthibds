@@ -21,9 +21,11 @@
 
                 <ul>
                     <li><a href="javascript:void(0)"><h4>Apartment Mart Real estate Co.Ltd</h4></a></li>
-                    <li><a href="javascript:void(0)"><h4>Address :</h4> <p>159 Ha Noi hight way St, Thao Dien ward, District 2, Ho Chi Minh City</p></a></li>
-                    <li><a href="javascript:void(0)"><h4>MST:</h4> 0315074213</a></li>
-                    <li><a href="javascript:void(0)"><h4>Hotline:</h4> 0902 806 679</a></li>
+                    <li><a href="javascript:void(0)"><span>Address :</span> <p> 159 Ha Noi hight way St, Thao Dien ward, District 2, Ho Chi Minh City</p></a></li>
+                    <li><a href="javascript:void(0)"><span>MST:</span> 0315074213</a></li>
+                    <li><a href="javascript:void(0)"><span>Email:</span> Sieuthicanho2018@gmail.com</a></li>
+                    <li><a href="javascript:void(0)"><span>Hotline:</span> 0902 806 679</a></li>
+
 
                 </ul>
 
