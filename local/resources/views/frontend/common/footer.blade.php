@@ -101,7 +101,7 @@
     </div>
 
 
-    <div class="container d-lg-block d-none" id="quick_link">
+    <div class="container d-none" id="quick_link">
         <div class="row">
             <div class="col-md-12">
                 <h5>QUICK LINKS</h5>
