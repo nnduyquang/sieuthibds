@@ -48,7 +48,7 @@
                             <input type="text" placeholder="District and Project">
                         </div>
                         <div class="col-md-4 p-lg-1">
-                            <select>
+                            <select style="padding-left: 8px!important;">
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="vw">VW</option>
@@ -89,7 +89,7 @@
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="vw">VW</option>
-                                        <option value="audi" selected>100</option>
+                                        <option value="audi" selected>$100</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3 col-6  mb-3 p-lg-1 select-box2 show-max">
@@ -97,7 +97,7 @@
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="vw">VW</option>
-                                        <option value="audi" selected>5000</option>
+                                        <option value="audi" selected>$5000</option>
                                     </select>
                                 </div>
                             </div>

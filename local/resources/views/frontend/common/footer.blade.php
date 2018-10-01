@@ -25,8 +25,6 @@
                     <li><a href="javascript:void(0)"><span>MST:</span> 0315074213</a></li>
                     <li><a href="javascript:void(0)"><span>Email:</span> Sieuthicanho2018@gmail.com</a></li>
                     <li><a href="javascript:void(0)"><span>Hotline:</span> 0902 806 679</a></li>
-
-
                 </ul>
 
             </div>

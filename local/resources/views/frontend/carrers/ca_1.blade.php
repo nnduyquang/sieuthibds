@@ -6,7 +6,7 @@
     <div class="container mb-3">
         <div class="row">
             <div class="col-12">
-                <h4>Sieuthicanho.com Team Culture</h4>
+                <h4>Sieuthicanho.net Team Culture</h4>
 
                 <p>
                     Hoozing team is a dynamic team in cultures and characteristics. We embrace the differences and seek
