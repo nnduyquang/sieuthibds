@@ -14,7 +14,7 @@
         <div id="slider2">
             {{--slider--}}
             <div class="slider2-items"
-                 style="background-image:url({{URL::asset('https://www.hoozing.com/assets/images/dummy/home1.jpg')}});">
+                 style="background-image:url({{URL::asset('images/bg/ctc_masteri_pc.jpg')}});">
             </div>
 
             {{--End slider--}}
@@ -64,12 +64,9 @@
                             <div class="col-md-8">
                                 <div class="row">
                                     <div class="col-md-3 col-6  mb-3">
-                                        <select>
-                                            <option value="volvo">Volvo</option>
-                                            <option value="saab">Saab</option>
-                                            <option value="vw">VW</option>
-                                            <option value="audi" selected> <i class="fab fa-algolia"></i> Room</option>
-                                        </select>
+                                       <div class="select-box text-left align-items-center">
+                                           <i class="fas fa-bed pl-2"></i> <p></p>
+                                       </div>
                                     </div>
                                     <div class="col-md-3 col-6  mb-3">
                                         <select>

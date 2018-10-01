@@ -25,7 +25,7 @@
             <div class="d-flex  border align-items-center">
                 <a href="">
                 <div class="img"
-                     style="background-image:url(https://d1kurvztuo3cyi.cloudfront.net/200/Project/537/hoozing_0_vinhomes-central-park-apartment-2017-1.png);">
+                     style="background-image:url(images/bg/ctc_masteri_pc.jpg);">
                 </div>
                 </a>
                 <div class="pl-3">

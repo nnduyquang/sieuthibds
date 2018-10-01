@@ -12,7 +12,7 @@
                         <div class="project-items">
                             <div class="img-pro">
                                 <div class="img"
-                                     style="background-image:url(https://d1kurvztuo3cyi.cloudfront.net/400/Project/573/hoozing_0_masteri-thao-dien-t5-3.jpg);">
+                                     style="background-image:url(images/bg/ctc_masteri_pc.jpg);">
                                 </div>
                                 <div class="price-rent"><p>$1,450</p></div>
                             </div>

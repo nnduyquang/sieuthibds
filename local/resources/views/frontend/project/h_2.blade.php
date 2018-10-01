@@ -3,7 +3,7 @@
 
 
 <div class="container-fluid" id="h_2">
-    <div class="container   p-0">
+    <div class="container p-0">
         <div class="row">
             <div class="col-12 text-left nav-title">
                 <ul>
@@ -53,7 +53,7 @@
                         <div id="owl-demo" class="owl-carousel owl-theme owl-h2" style="margin-top: 20px;">
                             @for ($j = 0; $j < 3; $j++)
                                 <div class="item">
-                                    <img src="{{URL::asset('https://img.hoozing.com/400/Property/137301/636723093484606517_Done-5.jpg')}}"
+                                    <img src="{{URL::asset('images/bg/ctc_masteri_pc.jpg')}}"
                                          alt="sliderimg{{$j}}">
                                 </div>
                             @endfor

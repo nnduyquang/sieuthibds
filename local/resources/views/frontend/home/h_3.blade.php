@@ -12,7 +12,7 @@
                         <div class="project-items border">
                             <div class="img-pro">
                                 <div class="img"
-                                     style="background-image:url(https://d1kurvztuo3cyi.cloudfront.net/400/Project/573/hoozing_0_masteri-thao-dien-t5-3.jpg);">
+                                     style="background-image:url(images/bg/ctc_masteri_pc.jpg);">
                                 </div>
                             </div>
                             <div class="p-4">
@@ -22,7 +22,7 @@
                                     outstanding apartments in Ho Chi Minh City. Also, in the center of Th...</p>
 
                                 <div class="mt-3 mb-3">
-                                    <a href=""><i class="fas fa-long-arrow-alt-right pr-1"></i> READ MORE</a>
+                                    <a href=""><i class="fas fa-long-arrow-alt-right pr-1"></i> VIEW MORE</a>
                                     <a href=""><i class="far fa-building pr-1"></i>SEE LIST</a>
                                 </div>
                             </div>

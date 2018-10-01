@@ -149,7 +149,7 @@
         {{----}}
     {{--</div>--}}
     <div class="tel-no bg-success text-center p-3" style="border-radius: 5px">
-        <a class="text-white" href="tel:0902806679">(+84)8 902 806 679</a>
+        <a class="text-white" href="tel:0902806679">(+84) 0902 806 679</a>
     </div>
 
 </div>

@@ -1045,6 +1045,26 @@ This class is added to the container
   text-align: center;
 }
 
+#top_slider #slider2 #filter_box .select-box {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  padding: 12px 0px;
+  font-size: 14px;
+}
+
+#top_slider #slider2 #filter_box .select-box:after {
+  position: absolute;
+  content: '\F0D7';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  right: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #8b8989;
+}
+
 #top_slider #slider2 #filter_box h4 {
   font-size: 38px !important;
   font-weight: bold;
@@ -1098,11 +1118,25 @@ This class is added to the container
 }
 
 #top_slider #slider2 #filter_box .content select {
+  border-radius: 0px !important;
+  position: relative;
   width: 100%;
   border: none;
   padding: 11px 10px;
   font-size: 14px;
   background-color: #fff;
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900;
+  color: #6b6b6b;
+}
+
+#top_slider #slider2 #filter_box .content select option {
+  font-family: "Font Awesome 5 Free" !important;
+  font-weight: 900;
+}
+
+#top_slider #slider2 #filter_box .content select option p {
+  margin-left: 6px;
 }
 
 #top_slider #slider2 #filter_box .content a {

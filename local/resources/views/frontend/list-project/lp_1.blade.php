@@ -9,7 +9,7 @@
         <div class="pro-items d-flex align-items-center">
             <a href="{{URL::asset('projects-info.html')}}">
                 <div class="pro-img"
-                     style="background-image:url({{URL::asset('https://d1kurvztuo3cyi.cloudfront.net/200/Project/537/hoozing_0_vinhomes-central-park-apartment-2017-1.png')}});">
+                     style="background-image:url({{URL::asset('images/bg/ctc_masteri_pc.jpg')}});">
                 </div>
             </a>
             <div class="ml-4 text-left">
