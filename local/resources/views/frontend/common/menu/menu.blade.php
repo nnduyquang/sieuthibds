@@ -1,4 +1,4 @@
-<div id="menu" class="container-fluid d-none d-md-block shadow-lg">
+<div id="menu" class="container-fluid d-none d-md-none d-lg-block shadow-lg">
     <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
             <a class="{{ request()->is('/') ? 'active' : '/' }}" href="{{URL::asset('/')}}">

@@ -4,7 +4,7 @@
 
     <div class="container" id="info">
         <div class="row">
-            <div class="col-md-3 mb-3">
+            <div class="col-lg-3 col-md-6 mb-3">
                 <h5>Stay Connected</h5>
                 <p>Join over 3000 people who receive rental advice and best property deals</p>
                 <div class="subc-email d-flex align-items-center">
@@ -16,7 +16,7 @@
                     <a href=""><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-lg-3 col-md-6 mb-3">
                 <h5>Company</h5>
 
                 <ul>
@@ -28,7 +28,7 @@
                 </ul>
 
             </div>
-            <div class="col-md-3 mb-3" id="project">
+            <div class="col-lg-3 col-md-6 mb-3" id="project">
                 <h5>Project</h5>
                 <ul>
                     <li><a href="">
@@ -67,7 +67,7 @@
                     <button>View All</button>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-6">
                 <h5>Support</h5>
 
                 <ul>
