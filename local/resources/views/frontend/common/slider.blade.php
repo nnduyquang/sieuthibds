@@ -67,16 +67,16 @@
                             <div class="row">
 
                                 <div class="col-md-3 col-6  mb-3  p-lg-1 pl-3 pr-3 pt-0 pb-0">
-                                    <div class="select-box text-left align-items-center">
+                                    <div class="select-box select-box-bed text-left align-items-center">
                                         <span class="bed-count">Any Bed</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('bed-count',this.value)" value="Any bed">Any bed</li>
-                                                <li onclick="setinfo('bed-count',this.value)" value="1">1</li>
-                                                <li onclick="setinfo('bed-count',this.value)" value="2">2</li>
-                                                <li onclick="setinfo('bed-count',this.value)" value="3">3</li>
-                                                <li onclick="setinfo('bed-count',this.value)" value="4">4</li>
-                                                <li onclick="setinfo('bed-count',this.value)" value="5">5</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="Any bed">Any bed</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="1">1</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="2">2</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="3">3</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="4">4</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="5">5</li>
                                             </ul>
                                         </div>
 
@@ -89,12 +89,12 @@
                                         <span class="bath-count">Any Bath</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('bath-count',this.value)"  value="Any Bath">Any Bath</li>
-                                                <li onclick="setinfo('bath-count',this.value)" value="1">1</li>
-                                                <li onclick="setinfo('bath-count',this.value)" value="2">2</li>
-                                                <li onclick="setinfo('bath-count',this.value)" value="3">3</li>
-                                                <li onclick="setinfo('bath-count',this.value)" value="4">4</li>
-                                                <li onclick="setinfo('bath-count',this.value)" value="5">5</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"  value="Any Bath">Any Bath</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="1">1</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="2">2</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="3">3</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="4">4</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="5">5</li>
                                             </ul>
                                         </div>
 
@@ -107,11 +107,11 @@
                                         <span class="min-price align-items-center">100</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('min-price',this.value)" value="100">100</li>
-                                                <li onclick="setinfo('min-price',this.value)" value="200">200</li>
-                                                <li onclick="setinfo('min-price',this.value)" value="300">300</li>
-                                                <li onclick="setinfo('min-price',this.value)" value="400">400</li>
-                                                <li onclick="setinfo('min-price',this.value)" value="500">500</li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="100">100</li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="200">200</li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="300">300</li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="400">400</li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="500">500</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -123,11 +123,11 @@
                                         <span class="max-price align-items-center">1000</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('max-price',this.value)" value="1000">1000</li>
-                                                <li onclick="setinfo('max-price',this.value)" value="2000">2000</li>
-                                                <li onclick="setinfo('max-price',this.value)" value="3000">3000</li>
-                                                <li onclick="setinfo('max-price',this.value)" value="4000">4000</li>
-                                                <li onclick="setinfo('max-price',this.value)" value="5000">5000</li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="1000">1000</li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="2000">2000</li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="3000">3000</li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="4000">4000</li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="5000">5000</li>
                                             </ul>
                                         </div>
                                     </div>

@@ -1141,6 +1141,7 @@ This class is added to the container
   padding: 12px 0px 12px 36px !important;
   height: 38px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 #top_slider #slider2 #filter_box .content .select-box span {
@@ -1171,15 +1172,6 @@ This class is added to the container
           transform: translateY(-50%);
   color: #1b1e21;
   z-index: 10;
-}
-
-#top_slider #slider2 #filter_box .content .select-box:hover .select-content {
-  z-index: 15;
-  opacity: 1;
-}
-
-#top_slider #slider2 #filter_box .content .select-box:hover .select-content ul {
-  display: block;
 }
 
 #top_slider #slider2 #filter_box .content .select-box .select-content {

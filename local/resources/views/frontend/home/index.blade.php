@@ -29,12 +29,39 @@
 @section('jv-scripts')
     <script>
 
-        function setinfo(clinfo,valinfo){
-            // document.getElementsByClassName('clinfo').html(valinfo);
-            // alert(clinfo+' '+valinfo);
+        function setinfo(clinfo,valinfo,clcontent){
             $('.'+clinfo).html(valinfo);
-            // this.$('.select-content').css({'opacity':0,'z-index':0});
+            $('.'+clcontent+' .select-content').css({'opacity':0,'z-index':0});
+            $('.'+clcontent+' .select-content ul').css('display','none');
+
         }
+
+
+        $('.select-box-bed').mousemove(function () {
+            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+            // $('.select-box-bed .select-content ul').css('display','block');
+            $(this).children('.select-content').css({'opacity':1,'z-index':11});
+            $(this).children('.select-content').children(' ul').css('display','block');
+        });
+        $('.select-box-bath').mousemove(function () {
+            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+            // $('.select-box-bed .select-content ul').css('display','block');
+            $(this).children('.select-content').css({'opacity':1,'z-index':11});
+            $(this).children('.select-content').children(' ul').css('display','block');
+        });
+        $('.select-box-min').mousemove(function () {
+            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+            // $('.select-box-bed .select-content ul').css('display','block');
+            $(this).children('.select-content').css({'opacity':1,'z-index':11});
+            $(this).children('.select-content').children(' ul').css('display','block');
+        });
+        $('.select-box-max').mousemove(function () {
+            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+            // $('.select-box-bed .select-content ul').css('display','block');
+            $(this).children('.select-content').css({'opacity':1,'z-index':11});
+            $(this).children('.select-content').children(' ul').css('display','block');
+        });
+
 
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
@@ -93,6 +120,7 @@
         });
 
         $(document).ready(function () {
+
             $('#owl-h1').owlCarousel({
                 loop: true,
                 margin: 10,

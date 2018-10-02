@@ -66,6 +66,7 @@
           padding: 12px 0px 12px 36px !important;
           height: 38px;
           font-size: 14px;
+          cursor: pointer;
           span {
             font-size: 15px;
           }
@@ -91,15 +92,15 @@
             color: #1b1e21;
             z-index: 10;
           }
-          &:hover {
-            .select-content {
-              z-index: 15;
-              opacity: 1;
-              ul {
-                display: block;
-              }
-            }
-          }
+          //&:hover {
+          //  .select-content {
+          //    z-index: 15;
+          //    opacity: 1;
+          //    ul {
+          //      display: block;
+          //    }
+          //  }
+          //}
           .select-content {
             width: 100%;
             position: absolute;
