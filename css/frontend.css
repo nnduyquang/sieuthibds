@@ -4,26 +4,6 @@
 }
 
 CSS
-textarea,
-input.text,
-input[type="text"],
-input[type="button"],
-input[type="submit"],
-.input-checkbox {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
-textarea,
-input.text,
-input[type="text"],
-input[type="button"],
-input[type="submit"],
-.input-checkbox, * {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -999,6 +979,7 @@ This class is added to the container
 }
 
 #menu #search_box {
+  margin-left: 38px;
   background-color: #fff;
   border: 1px solid #9d9d9d;
   border-radius: 3px;
@@ -1019,7 +1000,7 @@ This class is added to the container
 }
 
 #menu #logo {
-  width: 158px;
+  width: 86px;
   height: auto;
 }
 
@@ -1100,50 +1081,22 @@ This class is added to the container
 
 #top_slider #slider2 {
   width: 100%;
+  height: auto;
   z-index: 0;
   position: relative;
-  overflow: hidden;
-}
-
-#top_slider #slider2 .slider2-items {
-  width: 100%;
-  min-height: 85vh;
-  height: auto;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-}
-
-#top_slider #slider2 #filter_box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 60%;
-  height: auto;
   text-align: center;
 }
 
-#top_slider #slider2 #filter_box .select-box {
-  width: 100%;
-  background-color: #fff;
-  position: relative;
-  padding: 12px 0px;
-  font-size: 14px;
-}
-
-#top_slider #slider2 #filter_box .select-box:after {
-  position: absolute;
-  content: '\F0D7';
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  right: 5px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  color: #8b8989;
+#top_slider #slider2 #filter_box {
+  margin: auto;
+  padding: 86px 0px;
+  width: 60%;
+  height: auto;
+  text-align: center;
 }
 
 #top_slider #slider2 #filter_box h4 {
@@ -1181,6 +1134,103 @@ This class is added to the container
   margin-bottom: 10px;
 }
 
+#top_slider #slider2 #filter_box .content .select-box {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  padding: 12px 0px 12px 36px !important;
+  height: 38px;
+  font-size: 14px;
+}
+
+#top_slider #slider2 #filter_box .content .select-box span {
+  font-size: 15px;
+}
+
+#top_slider #slider2 #filter_box .content .select-box:after {
+  position: absolute;
+  content: '\F0D7';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  right: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #8b8989;
+  z-index: 10;
+}
+
+#top_slider #slider2 #filter_box .content .select-box:before {
+  position: absolute;
+  content: '\F236';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  left: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #1b1e21;
+  z-index: 10;
+}
+
+#top_slider #slider2 #filter_box .content .select-box:hover .select-content {
+  z-index: 15;
+  opacity: 1;
+}
+
+#top_slider #slider2 #filter_box .content .select-box:hover .select-content ul {
+  display: block;
+}
+
+#top_slider #slider2 #filter_box .content .select-box .select-content {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#top_slider #slider2 #filter_box .content .select-box .select-content ul {
+  display: none;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+#top_slider #slider2 #filter_box .content .select-box .select-content ul li {
+  padding: 6px 14px;
+  display: block;
+  cursor: pointer;
+}
+
+#top_slider #slider2 #filter_box .content .select-box .select-content ul li:hover {
+  color: #1c7430;
+  background-color: #d9d9d9;
+}
+
+#top_slider #slider2 #filter_box .content .select-box-bath:before {
+  content: '\F2CD';
+}
+
+#top_slider #slider2 #filter_box .content .select-box-min {
+  padding-left: 42px !important;
+}
+
+#top_slider #slider2 #filter_box .content .select-box-min:before {
+  content: 'Min $' !important;
+}
+
+#top_slider #slider2 #filter_box .content .select-box-max {
+  padding-left: 45px !important;
+}
+
+#top_slider #slider2 #filter_box .content .select-box-max:before {
+  content: 'Max $' !important;
+}
+
 #top_slider #slider2 #filter_box .content button {
   padding: 15px 32px 14px 32px;
   cursor: pointer;
@@ -1191,26 +1241,29 @@ This class is added to the container
   color: white;
 }
 
-#top_slider #slider2 #filter_box .content input {
+#top_slider #slider2 #filter_box .content .district-project {
+  position: relative;
+}
+
+#top_slider #slider2 #filter_box .content .district-project input {
   width: 100%;
   border: none;
   padding: 11px 10px;
   font-size: 14px;
-  position: relative;
   z-index: 1;
 }
 
-#top_slider #slider2 #filter_box .content input:after {
+#top_slider #slider2 #filter_box .content .district-project:after {
   position: absolute;
-  content: '\F5A0';
-  font-family: 'Font Awesome 5 Free' !important;
+  content: '\F3C5';
+  font-family: 'Font Awesome 5 Free';
   font-weight: 900;
-  right: 6px;
+  right: 5px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  color: #8b8989;
   z-index: 10;
-  color: #1b1e21 !important;
 }
 
 #top_slider #slider2 #filter_box .content select {

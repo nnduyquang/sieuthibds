@@ -29,6 +29,13 @@
 @section('jv-scripts')
     <script>
 
+        function setinfo(clinfo,valinfo){
+            // document.getElementsByClassName('clinfo').html(valinfo);
+            // alert(clinfo+' '+valinfo);
+            $('.'+clinfo).html(valinfo);
+            // this.$('.select-content').css({'opacity':0,'z-index':0});
+        }
+
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
