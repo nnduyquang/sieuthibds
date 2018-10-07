@@ -140,6 +140,25 @@ img {
   color: green;
 }
 
+.text-title-left {
+  color: #37474f;
+  padding: 20px 30px 20px 15px;
+  font-size: 18px;
+  display: block;
+}
+
+.text-title-right {
+  padding: 20px 30px 20px 15px;
+  background-color: #F2A654;
+  width: 100%;
+  display: block;
+  color: white;
+}
+
+.cke_reset {
+  border: none !important;
+}
+
 #seo-part h3 {
   display: block;
   background-color: white;
@@ -267,6 +286,149 @@ img {
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+#config-text .nav-tabs--vertical {
+  border-bottom: none;
+  border-right: 1px solid #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+#config-text .nav-tabs--left {
+  margin: 0 15px;
+}
+
+#config-text .nav-tabs--left .nav-item + .nav-item {
+  margin-top: .25rem;
+}
+
+#config-text .nav-tabs--left .nav-link {
+  -webkit-transition: border-color .125s ease-in;
+  transition: border-color .125s ease-in;
+  white-space: nowrap;
+}
+
+#config-text .nav-tabs--left .nav-link:hover {
+  background-color: #f7f7f7;
+  border-color: transparent;
+}
+
+#config-text .nav-tabs--left .nav-link.active {
+  border-bottom-color: #ddd;
+  border-right-color: #fff;
+  border-bottom-left-radius: 0.25rem;
+  border-top-right-radius: 0;
+  margin-right: -1px;
+}
+
+#config-text .nav-tabs--left .nav-link.active:hover {
+  background-color: #fff;
+  border-color: #0275d8 #fff #0275d8 #0275d8;
+}
+
+.title-header h2 {
+  display: inline-block;
+  font-size: 18px;
+  height: 100px;
+  line-height: 43px;
+  margin-top: 3px;
+  padding-top: 28px;
+  color: #555;
+  position: relative;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.title-header a {
+  background: #2ecc71;
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  opacity: .9;
+}
+
+.wrap-index {
+  -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 100%;
+}
+
+.wrap-index form#formSearchPost {
+  padding: 30px 0;
+}
+
+.wrap-index form#formSearchPost button#btnSearchPost {
+  margin-left: 10px;
+}
+
+.wrap-index table tr th .wrap-image {
+  display: inline-block;
+  width: 85px;
+  text-align: center;
+}
+
+.wrap-index table tr th .wrap-image .image-flag {
+  width: 24px;
+  height: 20px;
+  display: inline;
+}
+
+.wrap-index table td .group-locale {
+  text-align: center;
+}
+
+.wrap-index table td .group-locale a {
+  font-size: 27px;
+}
+
+.wrap-index table td a.edit-button {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #22A7F0;
+}
+
+.wrap-index table td input.delete-button {
+  background-color: #FA2A00;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.wrap-create-edit {
+  -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+.wrap-create-edit .form-group {
+  padding: 15px;
+}
+
+.delete-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.delete-input span {
+  background-color: red;
+  color: white;
+  display: block;
+  padding: 5px;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 /********** NESTABLE CSS **********/

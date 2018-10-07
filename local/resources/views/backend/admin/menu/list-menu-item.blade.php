@@ -13,7 +13,7 @@
                      data-icon_class="{{ $item->icon_class }}"
                      data-color="{{ $item->color }}"
                      data-route="{{ $item->route }}"
-                     data-parameters="{{ json_encode($item->parameters) }}"
+                     data-parameters="{{ $item->parameters }}"
                 >
                     <i class="voyager-edit"></i> Edit
                 </div>

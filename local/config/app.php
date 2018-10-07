@@ -183,6 +183,8 @@ return [
         App\Providers\MenuServiceProvider::class,
         App\Providers\FrontendServiceProvider::class,
         App\Providers\PostServiceProvider::class,
+        App\Providers\LocaleServiceProvider::class,
+        App\Providers\CategoryItemServiceProvider::class,
 
     ],
 
