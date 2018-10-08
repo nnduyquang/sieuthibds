@@ -370,7 +370,7 @@ img {
 
 .wrap-index table tr th .wrap-image {
   display: inline-block;
-  width: 85px;
+  width: 90px;
   text-align: center;
 }
 
@@ -408,6 +408,10 @@ img {
 }
 
 .wrap-create-edit .form-group {
+  padding: 15px;
+}
+
+.wrap-create-edit .group-more-lang {
   padding: 15px;
 }
 

@@ -77,6 +77,7 @@ Route::group(['middleware' => ['auth']], function () {
     //POST
     Route::get('sml_admin/post', ['as' => 'post.index', 'uses' => 'PostController@index', 'middleware' => ['permission:page-list|page-create|page-edit|page-delete']]);
     Route::post('sml_admin/post/create', ['as' => 'post.store', 'uses' => 'PostController@store', 'middleware' => ['permission:post-create']]);
+    Route::post('sml_admin/post/create-more-post-lang', ['as' => 'post.storeLocale', 'uses' => 'PostController@storeLocale', 'middleware' => ['permission:post-create']]);
     Route::post('sml_admin/post', ['as' => 'post.search', 'uses' => 'PostController@search']);
     Route::get('sml_admin/post/create', ['as' => 'post.create', 'uses' => 'PostController@create', 'middleware' => ['permission:post-create']]);
     Route::get('sml_admin/post/{translation_id}/{locale_id}/create', ['as' => 'post.createLocale', 'uses' => 'PostController@createLocale', 'middleware' => ['permission:post-create']]);
@@ -84,16 +85,48 @@ Route::group(['middleware' => ['auth']], function () {
     Route::patch('sml_admin/post/{id}', ['as' => 'post.update', 'uses' => 'PostController@update', 'middleware' => ['permission:post-edit']]);
     Route::delete('sml_admin/post/{id}', ['as' => 'post.destroy', 'uses' => 'PostController@destroy', 'middleware' => ['permission:post-delete']]);
 
+    //LOCATION
+    Route::get('sml_admin/dia-diem', ['as' => 'location.index', 'uses' => 'LocationController@index', 'middleware' => ['permission:post-list|post-create|post-edit|post-delete']])->defaults('type','categorypost');
+    Route::post('sml_admin/dia-diem/search', ['as' => 'location.search', 'uses' => 'LocationController@search']);
+    Route::post('sml_admin/dia-diem/paste', ['as' => 'location.paste', 'uses' => 'LocationController@paste']);
+    Route::get('sml_admin/dia-diem/create', ['as' => 'location.create', 'uses' => 'LocationController@create', 'middleware' => ['permission:post-create']]);
+    Route::post('sml_admin/dia-diem/create', ['as' => 'location.store', 'uses' => 'LocationController@store', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/dia-diem/{id}/edit', ['as' => 'location.edit', 'uses' => 'LocationController@edit', 'middleware' => ['permission:post-edit']]);
+    Route::patch('sml_admin/dia-diem/{id}', ['as' => 'location.update', 'uses' => 'LocationController@update', 'middleware' => ['permission:post-edit']]);
+    Route::delete('sml_admin/dia-diem/{id}', ['as' => 'location.destroy', 'uses' => 'LocationController@destroy', 'middleware' => ['permission:post-delete']]);
+
+    //FACILITY
+    Route::get('sml_admin/facility', ['as' => 'facility.index', 'uses' => 'FacilityController@index', 'middleware' => ['permission:page-list|page-create|page-edit|page-delete']]);
+    Route::post('sml_admin/facility/create', ['as' => 'facility.store', 'uses' => 'FacilityController@store', 'middleware' => ['permission:post-create']]);
+    Route::post('sml_admin/facility/create-more-facility-lang', ['as' => 'facility.storeLocale', 'uses' => 'FacilityController@storeLocale', 'middleware' => ['permission:post-create']]);
+    Route::post('sml_admin/facility', ['as' => 'facility.search', 'uses' => 'FacilityController@search']);
+    Route::get('sml_admin/facility/create', ['as' => 'facility.create', 'uses' => 'FacilityController@create', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/facility/{translation_id}/{locale_id}/create', ['as' => 'facility.createLocale', 'uses' => 'FacilityController@createLocale', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/facility/{id}/edit', ['as' => 'facility.edit', 'uses' => 'FacilityController@edit', 'middleware' => ['permission:post-edit']]);
+    Route::patch('sml_admin/facility/{id}', ['as' => 'facility.update', 'uses' => 'FacilityController@update', 'middleware' => ['permission:post-edit']]);
+    Route::delete('sml_admin/facility/{id}', ['as' => 'facility.destroy', 'uses' => 'FacilityController@destroy', 'middleware' => ['permission:post-delete']]);
+
+    //UNIT
+    Route::get('sml_admin/unit', ['as' => 'unit.index', 'uses' => 'UnitController@index', 'middleware' => ['permission:page-list|page-create|page-edit|page-delete']]);
+    Route::post('sml_admin/unit/create', ['as' => 'unit.store', 'uses' => 'UnitController@store', 'middleware' => ['permission:post-create']]);
+    Route::post('sml_admin/unit/create-more-unit-lang', ['as' => 'unit.storeLocale', 'uses' => 'UnitController@storeLocale', 'middleware' => ['permission:post-create']]);
+    Route::post('sml_admin/unit', ['as' => 'unit.search', 'uses' => 'UnitController@search']);
+    Route::get('sml_admin/unit/create', ['as' => 'unit.create', 'uses' => 'UnitController@create', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/unit/{translation_id}/{locale_id}/create', ['as' => 'unit.createLocale', 'uses' => 'UnitController@createLocale', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/unit/{id}/edit', ['as' => 'unit.edit', 'uses' => 'UnitController@edit', 'middleware' => ['permission:post-edit']]);
+    Route::patch('sml_admin/unit/{id}', ['as' => 'unit.update', 'uses' => 'UnitController@update', 'middleware' => ['permission:post-edit']]);
+    Route::delete('sml_admin/unit/{id}', ['as' => 'unit.destroy', 'uses' => 'UnitController@destroy', 'middleware' => ['permission:post-delete']]);
+
+
     //CATEGORY PRODUCT
-    Route::get('sml_admin/danh-muc-san-pham', ['as' => 'categoryproduct.index', 'uses' => 'CategoryProductController@index', 'middleware' => ['permission:page-list|page-create|page-edit|page-delete']]);
-    Route::post('sml_admin/danh-muc-san-pham/search', ['as' => 'categoryproduct.search', 'uses' => 'CategoryProductController@search']);
-    Route::post('sml_admin/danh-muc-san-pham/paste', ['as' => 'categoryproduct.paste', 'uses' => 'CategoryProductController@paste']);
-    Route::post('sml_admin/danh-muc-san-pham/create', ['as' => 'categoryproduct.store', 'uses' => 'CategoryProductController@store', 'middleware' => ['permission:page-create']]);
-//    Route::post('sml_admin/danh-muc-bai-vie', ['as' => 'categorypost.search', 'uses' => 'TuyenDungController@search']);
-    Route::get('sml_admin/danh-muc-san-pham/create', ['as' => 'categoryproduct.create', 'uses' => 'CategoryProductController@create', 'middleware' => ['permission:page-create']]);
-    Route::get('sml_admin/danh-muc-san-pham/{id}/edit', ['as' => 'categoryproduct.edit', 'uses' => 'CategoryProductController@edit', 'middleware' => ['permission:page-edit']]);
-    Route::patch('sml_admin/danh-muc-san-pham/{id}', ['as' => 'categoryproduct.update', 'uses' => 'CategoryProductController@update', 'middleware' => ['permission:page-edit']]);
-    Route::delete('sml_admin/danh-muc-san-pham/{id}', ['as' => 'categoryproduct.destroy', 'uses' => 'CategoryProductController@destroy', 'middleware' => ['permission:page-delete']]);
+    Route::get('sml_admin/danh-muc-san-pham', ['as' => 'categoryproduct.index', 'uses' => 'CategoryItemController@index', 'middleware' => ['permission:page-list|page-create|page-edit|page-delete']])->defaults('type','categoryproduct');
+    Route::post('sml_admin/danh-muc-san-pham/search', ['as' => 'categoryproduct.search', 'uses' => 'CategoryItemController@search'])->defaults('type','categoryproduct');
+    Route::post('sml_admin/danh-muc-san-pham/paste', ['as' => 'categoryproduct.paste', 'uses' => 'CategoryItemController@paste'])->defaults('type','categoryproduct');
+    Route::post('sml_admin/danh-muc-san-pham/create', ['as' => 'categoryproduct.store', 'uses' => 'CategoryItemController@store', 'middleware' => ['permission:page-create']])->defaults('type','categoryproduct');
+    Route::get('sml_admin/danh-muc-san-pham/create', ['as' => 'categoryproduct.create', 'uses' => 'CategoryItemController@create', 'middleware' => ['permission:page-create']])->defaults('type','categoryproduct');
+    Route::get('sml_admin/danh-muc-san-pham/{id}/edit', ['as' => 'categoryproduct.edit', 'uses' => 'CategoryItemController@edit', 'middleware' => ['permission:page-edit']])->defaults('type','categoryproduct');
+    Route::patch('sml_admin/danh-muc-san-pham/{id}', ['as' => 'categoryproduct.update', 'uses' => 'CategoryItemController@update', 'middleware' => ['permission:page-edit']])->defaults('type','categoryproduct');
+    Route::delete('sml_admin/danh-muc-san-pham/{id}', ['as' => 'categoryproduct.destroy', 'uses' => 'CategoryItemController@destroy', 'middleware' => ['permission:page-delete']])->defaults('type','categoryproduct');
 
     //PRODUCT
     Route::get('sml_admin/san-pham', ['as' => 'product.index', 'uses' => 'ProductController@index', 'middleware' => ['permission:product-list|product-create|product-edit|product-delete']]);
@@ -104,6 +137,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sml_admin/san-pham/{id}/edit', ['as' => 'product.edit', 'uses' => 'ProductController@edit', 'middleware' => ['permission:product-edit']]);
     Route::patch('sml_admin/san-pham/{id}', ['as' => 'product.update', 'uses' => 'ProductController@update', 'middleware' => ['permission:product-edit']]);
     Route::delete('sml_admin/san-pham/{id}', ['as' => 'product.destroy', 'uses' => 'ProductController@destroy', 'middleware' => ['permission:product-delete']]);
+
 
     //LOCALE
     Route::get('sml_admin/ngon-ngu', ['as' => 'locale.index', 'uses' => 'LocaleController@index']);

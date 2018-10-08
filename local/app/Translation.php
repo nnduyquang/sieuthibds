@@ -9,6 +9,22 @@ class Translation extends Model
     protected $fillable = [
         'is_active', 'type'
     ];
+    public function posts()
+    {
+        return $this->hasMany('App\Post', 'translation_id');
+    }
+    public function facilities()
+    {
+        return $this->hasMany('App\Facility', 'translation_id');
+    }
+    public function units()
+    {
+        return $this->hasMany('App\Unit', 'translation_id');
+    }
+    public function locations()
+    {
+        return $this->hasMany('App\Location', 'translation_id');
+    }
     public function setIsActiveAttribute($value)
     {
         if (!IsNullOrEmptyString($value)) {
@@ -21,5 +37,8 @@ class Translation extends Model
         if (!$parameters->input('is_active')) {
             $parameters->request->add(['is_active' => null]);
         }
+    }
+    public function getAllTranslation($type){
+        return $this->whereType($type)->get();
     }
 }

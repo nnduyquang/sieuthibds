@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Repositories\Backend\Post\PostRepositoryInterface;
@@ -17,6 +18,7 @@ class PostController extends Controller
     {
         $this->postRepository = $postRepository;
     }
+
     public function index(Request $request)
     {
         $data = $this->postRepository->getAllPostByTypeOrderById();
@@ -32,7 +34,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $data=$this->postRepository->showCreatePost();
+        $data = $this->postRepository->showCreatePost();
         $categoryPost = $data['categoryPost'];
         $locales = $data['locales'];
         return view('backend.admin.post.create', compact('roles', 'categoryPost', 'locales'));
@@ -40,10 +42,10 @@ class PostController extends Controller
 
     public function createLocale($translation_id, $locale_id)
     {
-        $data = $this->postRepository->showCreatePost();
+        $data = $this->postRepository->showCreateLangPost($translation_id, $locale_id);
         $categoryPost = $data['categoryPost'];
-        $locales = $data['locales'];
-        return view('backend.admin.post.create', compact('roles', 'categoryPost', 'locales', 'translation_id', 'locale_id'));
+        $langLocale = $data['lang'];
+        return view('backend.admin.post.create', compact('roles', 'categoryPost', 'langLocale', 'translation_id', 'locale_id'));
     }
 
     /**
@@ -55,6 +57,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $this->postRepository->createNewPost($request);
+        return redirect()->route('post.index');
+    }
+    public function storeLocale(Request $request){
+        $data = $this->postRepository->createNewPostLocale($request);
         return redirect()->route('post.index');
     }
 
@@ -77,10 +83,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $data=$this->postRepository->showEditPost($id);
+        $data = $this->postRepository->showEditPost($id);
         $categoryPost = $data['categoryPost'];
         $post = $data['post'];
-        return view('backend.admin.post.edit', compact('categoryPost', 'post'));
+        $locales = $data['locales'];
+        $translation=$data['translation'];
+        return view('backend.admin.post.edit', compact('categoryPost', 'post', 'locales','translation'));
     }
 
 

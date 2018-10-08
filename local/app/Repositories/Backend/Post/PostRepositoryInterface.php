@@ -8,9 +8,13 @@ interface PostRepositoryInterface
 
     public function showCreatePost();
 
+    public function showCreateLangPost($translation_id, $locale_id);
+
     public function showEditPost($id);
 
     public function createNewPost($request);
+
+    public function createNewPostLocale($request);
 
     public function updatePost($request, $id);
 

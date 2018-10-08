@@ -31,6 +31,15 @@
         <li class="nav-item"><a class="nav-link {{ set_active('sml_admin/ngon-ngu') }}" href="{{ route('locale.index') }}"><i class="fa fa-link"></i>
                 <p>Ngôn Ngữ</p></a>
         </li>
+        <li class="nav-item"><a class="nav-link {{ set_active('sml_admin/dia-diem') }}" href="{{ route('location.index') }}"><i class="fa fa-link"></i>
+                <p>Địa Điểm</p></a>
+        </li>
+        <li class="nav-item"><a class="nav-link {{ set_active('sml_admin/facility') }}" href="{{ route('facility.index') }}"><i class="fa fa-link"></i>
+                <p>Cơ Sở Vật Chất</p></a>
+        </li>
+        <li class="nav-item"><a class="nav-link {{ set_active('sml_admin/unit') }}" href="{{ route('unit.index') }}"><i class="fa fa-link"></i>
+                <p>Quản Lý Đơn Vị Tính</p></a>
+        </li>
         <li class="nav-item"><a class="nav-link {{ set_active('sml_admin/menu') }}" href="{{ route('menu.index') }}"><i class="fa fa-link"></i>
                 <p>Menu Builder</p></a>
         </li>

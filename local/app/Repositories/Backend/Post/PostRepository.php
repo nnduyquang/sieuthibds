@@ -21,7 +21,13 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
         $data = [];
         $locale = new Locale();
         $locales = $locale->getAll();
-        $posts=$this->_model::where('post_type', '=', IS_POST)->orderBy('id', 'DESC')->get();
+        $translation=new Translation();
+        $translations=$translation->getAllTranslation(CATEGORY_POST);
+        $posts=array();
+        foreach ($translations as $key=>$item){
+            array_push($posts, $item);
+        }
+
         $data['posts']=$posts;
         $data['locales']=$locales;
         return $data;
@@ -40,13 +46,32 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
         return $data;
     }
 
+    public function showCreateLangPost($translation_id, $locale_id)
+    {
+        $data = [];
+        $locale = new Locale();
+        $categoryItem = new CategoryItem();
+        $lang=$locale->getLocaleById($locale_id);
+        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST);
+        $data['categoryPost'] = $categoryPost;
+        $data['lang'] = $lang;
+        return $data;
+    }
+
+
     public function showEditPost($id)
     {
         $data = [];
         $data['post'] = $this->find($id);
+
+        $translation=$data['post']->translations()->first();
+        $locale = new Locale();
+        $locales = $locale->getAll();
         $categoryItem = new CategoryItem();
         $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST);
         $data['categoryPost'] = $categoryPost;
+        $data['locales'] = $locales;
+        $data['translation']=$translation;
         return $data;
     }
 
@@ -72,8 +97,29 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
         }
         $result->categoryitems(CATEGORY_POST)->attach($attachData);
         return $data;
-
     }
+
+    public function createNewPostLocale($request)
+    {
+        $data = [];
+        $seo = new Seo();
+        if (!$seo->isSeoParameterEmpty($request)) {
+            $seo = Seo::create($request->all());
+            $request->request->add(['seo_id' => $seo->id]);
+        } else {
+            $request->request->add(['seo_id' => null]);
+        }
+        $parameters = $this->_model->prepareParameters($request);
+        $parameters->request->add(['translation_id' => $parameters['translation_id']]);
+        $result = $this->_model->create($parameters->all());
+        $attachData = array();
+        foreach ($parameters['list_category_id'] as $key => $item) {
+            $attachData[$item] = array('type' => CATEGORY_POST);
+        }
+        $result->categoryitems(CATEGORY_POST)->attach($attachData);
+        return $data;
+    }
+
 
     public function updatePost($request, $id)
     {

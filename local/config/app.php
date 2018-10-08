@@ -185,6 +185,10 @@ return [
         App\Providers\PostServiceProvider::class,
         App\Providers\LocaleServiceProvider::class,
         App\Providers\CategoryItemServiceProvider::class,
+        App\Providers\FacilityServiceProvider::class,
+        App\Providers\ProductServiceProvider::class,
+        App\Providers\UnitServiceProvider::class,
+        App\Providers\LocationServiceProvider::class,
 
     ],
 

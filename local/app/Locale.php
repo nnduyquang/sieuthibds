@@ -22,4 +22,7 @@ class Locale extends Model
     public function getAll(){
         return $this->orderBy('sort','ASC')->get();
     }
+    public function getLocaleById($id){
+        return $this->whereId($id)->first();
+    }
 }

@@ -42,3 +42,8 @@ $('#btnBrowseMore').click(function () {
         'directories=0, resizable=1, scrollbars=0, width=800, height=600'
     );
 })
+$('select.select-locale').change(function(){
+    var post_id=$(this).find(':selected').data('post-id');
+    var href=$(this).find(':selected').data('href');
+    window.location.href= href;
+});
