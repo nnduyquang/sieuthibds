@@ -7,10 +7,10 @@
 @section('scripts')
 @stop
 @section('container')
-    <div class="col-lg-12">
+    <div class="col-lg-12 title-header">
         <div class="row">
             <div class="col-md-8">
-                {{--<h2>Tạo Mới Sản Phẩm</h2>--}}
+                <h2>Tạo Mới Bất Động Sản</h2>
             </div>
             <div class="col-md-4 text-right">
                 <a class="btn btn-primary" href="{{ route('product.index') }}"> Back</a>
@@ -27,60 +27,185 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'product.store','method'=>'POST')) !!}
+    @if(isset($translation_id))
+        {!! Form::open(array('route' => 'product.storeLocale','method'=>'POST')) !!}
+    @else
+        {!! Form::open(array('route' => 'product.store','method'=>'POST')) !!}
+    @endif
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
-                <strong>Tên Sản Phẩm:</strong>
-                {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
-                <div class="form-group">
-                    <strong>Mô Tả Ngắn:</strong>
-                    {!! Form::textarea('description',null,array('placeholder' => '','id'=>'description-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                <div class="wrap-create-edit">
+                    @if(isset($translation_id))
+                        {!! Form::hidden('translation_id', $translation_id) !!}
+                        {!! Form::hidden('locale_id', $langLocale->id) !!}
+                    @endif
+                    <strong class="text-title-left">Tên Sản Phẩm</strong>
+                    <div class="form-group">
+                        {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                    </div>
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-left">Mô Tả Ngắn</strong>
+                    <div class="form-group">
+                        {!! Form::textarea('description',null,array('placeholder' => '','id'=>'description-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="form-group">
-                    <strong>Hình Đại Diện: </strong>
-                    {!! Form::text('image', null, array('class' => 'form-control','id'=>'pathImage')) !!}
-                    <br>
-                    {!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Ngôn Ngữ</strong>
+                    @if(!isset($translation_id))
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                <option data-href="{{ route('product.create',['locale_id'=>$item->id]) }}"
+                                        value="{{$item->id}}"
+                                        @if($locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        {!! Form::text('locale_id',$langLocale->name, array('placeholder' => 'Tên','class' => 'form-control','disabled'=>'disabled')) !!}
+                    @endif
                 </div>
-                <div class="form-group">
-                    {{ Html::image('','',array('id'=>'showHinh','class'=>'show-image'))}}
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Hình Đại Diện </strong>
+                    <div class="form-group">
+                        {!! Form::text('image', null, array('class' => 'form-control','id'=>'pathImage')) !!}
+                        <br>
+                        {!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}
+                    </div>
+                    <div class="form-group">
+                        {{ Html::image('','',array('id'=>'showHinh','class'=>'show-image'))}}
+                    </div>
                 </div>
-                <div class="form-group">
-                    <strong>Loại Sản Phẩm</strong>
-                    {!! Form::select('category_product',$dd_category_products, null,array('class' => 'form-control')) !!}
-                </div>
-                <div class="form-group">
-                    <strong>Mã Sản Phẩm</strong>
-                    {!! Form::text('code',null, array('placeholder' => 'Mã SP','class' => 'form-control')) !!}
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Thêm Hình Sản Phẩm </strong>
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <strong>Giá: </strong>
-                            {!! Form::text('price',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                            {!! Form::button('Thêm', array('id' => 'btnBrowseMore','class'=>'btn btn-primary')) !!}
+                        </div>
+                        <div class="form-group">
+                            <div id="add-image" class="row">
+
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <strong>% Giảm Giá: </strong>
-                            {!! Form::text('sale',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
-                        </div>
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Mã Sản Phẩm </strong>
+                    <div class="form-group">
+                        {!! Form::text('code',null, array('placeholder' => 'code','class' => 'form-control')) !!}
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <strong>Giá Giảm: </strong>
-                            {!! Form::text('final_price',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Loại Sản Phẩm</strong>
+                    <div class="category-info">
+                        @include('backend.admin.product.list-select-option-create')
+                    </div>
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Địa Điểm</strong>
+                    <div class="form-group">
+                        <select name="select-city" class="form-control">
+                            <option value="-1">Chọn Tỉnh/Thành Phố</option>
+                            @foreach($cities as $key=>$item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="select-district" class="form-control">
+                            <option value="-1" selected>Chọn Quận/Huyện</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="select-ward" class="form-control">
+                            <option value="-1" selected>Chọn Phường/Xã</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="wrap-create-edit">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Giá: </strong>
+                                {!! Form::text('price',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>ĐVT: </strong>
+                                <select name="select-unit" class="form-control">
+                                    <option value="-1">Chọn Đơn Vị Tính</option>
+                                    @foreach($units as $key=>$item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Diện Tích(m2): </strong>
+                                {!! Form::text('area',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Số Phòng Ngủ </strong>
+                                {!! Form::text('num_bed',null, array('placeholder' => 'Số Phòng','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Số Phòng Tắm </strong>
+                                {!! Form::text('num_bath',null, array('placeholder' => 'Số Phòng','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Số Người ở Tối Đa </strong>
+                                {!! Form::text('num_member',null, array('placeholder' => 'Số Phòng','class' => 'form-control')) !!}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-12 p-0">
-            <strong>Mô Tả Sản Phẩm:</strong>
-            {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+            <div class="wrap-create-edit">
+                <strong class="text-title-left">Chọn Cơ Sở Vật Chất</strong>
+                <div class="row">
+                    @foreach($facilities as $key=>$item)
+                        <div class="col-md-3">
+                            <div class="facility-info">
+                                <label class="check-container">
+                                    {{$item->name}}
+                                    {{ Form::checkbox('list_facility_id[]', $item->id, false, array('class' => '')) }}
+                                    <span class="check-mark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 p-0">
+            <div class="wrap-create-edit">
+                <strong class="text-title-left">Bản Đồ</strong>
+                {!! Form::textarea('map',null,array('placeholder' => '','id'=>'','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+            </div>
+            <div class="show-map">
+
+            </div>
+        </div>
+        <div class="wrap-create-edit">
+            <strong class="text-title-left">Mô Tả Sản Phẩm</strong>
+            <div class="col-md-12 p-0">
+                {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-page','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+            </div>
         </div>
         <hr>
         <div id="seo-part" class="col-md-12 p-0">
@@ -131,6 +256,5 @@
             <button id="btnDanhMuc" type="submit" class="btn btn-primary">Tạo Mới Sản Phẩm</button>
         </div>
     </div>
-
     {!! Form::close() !!}
 @stop

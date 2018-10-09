@@ -27,11 +27,19 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'location.store','method'=>'POST')) !!}
+    @if(isset($translation_id))
+        {!! Form::open(array('route' => 'location.storeLocale','method'=>'POST')) !!}
+    @else
+        {!! Form::open(array('route' => 'location.store','method'=>'POST')) !!}
+    @endif
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
                 <div class="wrap-create-edit">
+                    @if(isset($translation_id))
+                        {!! Form::hidden('translation_id', $translation_id) !!}
+                        {!! Form::hidden('locale_id', $langLocale->id) !!}
+                    @endif
                     <strong  class="text-title-left">Tên Địa Điểm</strong>
                     <div class="form-group">
                         {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
@@ -54,6 +62,20 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Ngôn Ngữ</strong>
+                    @if(!isset($translation_id))
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                <option data-href="{{ route('location.create',['locale_id'=>$item->id]) }}" value="{{$item->id}}" @if($locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        {!! Form::text('locale_id',$langLocale->name, array('placeholder' => 'Tên','class' => 'form-control','disabled'=>'disabled')) !!}
+                    @endif
+                </div>
+            </div>
             {{--<div class="col-md-6">--}}
             {{--<div class="form-group">--}}
             {{--<strong>Hình Đại Diện: </strong>--}}
@@ -68,32 +90,6 @@
         </div>
     </div>
     <hr>
-    <div id="seo-part" class="col-md-12 p-0">
-        <h3>SEO</h3>
-        <div class="content">
-            <div class="show-pattern">
-                <span class="title">Quick Brown Fox and The Lazy Dog - Demo Site</span>
-                <span class="link">example.com/the-quick-brown-fox</span>
-                <span class="description">The story of quick brown fox and the lazy dog. An all time classic children's fairy tale that is helping people with typography and web design.</span>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Từ khóa cần SEO</strong>
-                    {!! Form::text('seo_keywords',null, array('placeholder' => 'từ khóa cách nhau dấu phẩy (tối đa 5 từ)','class' => 'form-control')) !!}
-                    <ul class="error-notice">
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-12 form-group">
-                <strong>Tiêu Đề (title):</strong>
-                {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
-            </div>
-            <div class="col-md-12 form-group">
-                <strong>Mô Tả (description):</strong>
-                {!! Form::textarea('seo_description',null,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
-            </div>
-        </div>
-    </div>
     <div class="col-md-12 form-group">
         <strong>Kích Hoạt:</strong>
         <input name="is_active" data-on="Có" data-off="Không" type="checkbox" data-toggle="toggle">

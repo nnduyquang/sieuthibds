@@ -13,7 +13,7 @@
                 <h2>Quản Lý Địa Điểm</h2>
 
                 @permission(('page-create'))
-                <a class="btn btn-success" href="{{ route('location.create') }}"> Tạo Mới</a>
+                <a class="btn btn-success" href="{{ route('location.create',['locale_id'=>1]) }}"> Tạo Mới</a>
                 @endpermission
             </div>
         </div>
@@ -30,6 +30,13 @@
                     <th>TT</th>
                     <th>ID</th>
                     <th>Tên Địa Điểm</th>
+                    <th>
+                        <div class="wrap-image">
+                            @foreach($locales as $key=>$item)
+                                {{ Html::image($item->icon,'',array('id'=>'','class'=>'image-flag'))}}
+                            @endforeach
+                        </div>
+                    </th>
                     <th>Ngày Đăng</th>
                     <th>Ngày Cập Nhật</th>
                     <th width="280px">Action</th>

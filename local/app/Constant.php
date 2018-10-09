@@ -18,6 +18,8 @@ define("CATEGORY_POST",0);
 define("CATEGORY_PRODUCT",1);
 define("CATEGORY_FACILITY",2);
 define("CATEGORY_UNIT",3);
+define("CATEGORY_LOCATION",4);
+
 
 
 define("ACTIVE",1);

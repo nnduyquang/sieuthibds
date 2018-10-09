@@ -78,6 +78,7 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
 
     public function createNewPost($request)
     {
+        dd($request->all());
         $data = [];
         $seo = new Seo();
         if (!$seo->isSeoParameterEmpty($request)) {

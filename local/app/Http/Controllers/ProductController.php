@@ -21,9 +21,10 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $products = Product::orderBy('id', 'DESC')->paginate(5);
-        $products->makeVisible('id');
-        return view('backend.admin.product.index', compact('products'))->with('i', ($request->input('page', 1) - 1) * 5);
+        $data = $this->productRepository->getAllProduct();
+        $products = $data['products'];
+        $locales = $data['locales'];
+        return view('backend.admin.product.index', compact('products','locales'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -31,14 +32,26 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($locale_id)
     {
-        $data = $this->productRepository->showCreateProduct();
+        $data = $this->productRepository->showCreateProduct($locale_id);
         $cities = $data['cities'];
         $categoryProduct = $data['categoryProduct'];
-        $directions = $data['directions'];
         $units = $data['units'];
-        return view('backend.admin.product.create', compact('roles', 'cities', 'categoryProduct', 'directions', 'units'));
+        $locales=$data['locales'];
+        $facilities=$data['facilities'];
+        return view('backend.admin.product.create', compact('roles', 'cities', 'categoryProduct', 'units','locales','locale_id','facilities'));
+    }
+    public function createLocale($translation_id, $locale_id)
+    {
+        $data = $this->productRepository->showCreateLangProduct($translation_id, $locale_id);
+        $cities = $data['cities'];
+        $categoryProduct = $data['categoryProduct'];
+        $units = $data['units'];
+        $locales=$data['locales'];
+        $facilities=$data['facilities'];
+        $langLocale = $data['lang'];
+        return view('backend.admin.product.create', compact('roles','categoryProduct', 'langLocale','cities','units','locales','facilities', 'translation_id', 'locale_id'));
     }
 
     public function getAllDistrictsByCity(Request $request)
@@ -68,6 +81,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $this->productRepository->createNewProduct($request);
+        return redirect()->route('product.index');
+    }
+    public function storeLocale(Request $request){
+        $data = $this->productRepository->createNewProductLocale($request);
         return redirect()->route('product.index');
     }
 

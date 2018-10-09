@@ -54,6 +54,55 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Ngôn Ngữ</strong>
+                    @php
+                        $localesPost=$translation->locations()->get();
+                        $insertLangArray = array();
+                    @endphp
+                    @if(count($localesPost)!=count($locales))
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                @foreach($localesPost as $key2=>$item2)
+
+                                    @if($item->id==$item2->locale_id)
+                                        <option data-href="{{ route('location.edit',$item2->id) }} "
+                                                data-post-id="{{$item2->id}}" value="{{$item->id}}"
+                                                @if($location->locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                            @foreach($locales as $key=>$item)
+                                @if(!in_array($item->id,$localesPost->pluck('locale_id')->toArray()))
+                                    @php
+                                        array_push($insertLangArray, $item);
+                                    @endphp
+                                @endif
+                            @endforeach
+                        </select>
+                    @else
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                @foreach($localesPost as $key2=>$item2)
+                                    @if($item->id==$item2->locale_id)
+                                        <option data-href="{{ route('location.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }}"
+                                                data-post-id="{{$item2->id}}" value="{{$item->id}}"
+                                                @if($location->locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        </select>
+
+                    @endif
+                    <div class="group-more-lang">
+                        @foreach($insertLangArray as $key=>$item)
+                            <a href="{{ route('location.createLocale',['translation_id'=>$location->translation_id,'locale_id'=>$item->id]) }}">Thêm
+                                Ngôn Ngữ {{$item->name}}</a><br>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
             {{--<div class="col-md-6">--}}
             {{--<div class="form-group">--}}
             {{--<strong>Hình Đại Diện: </strong>--}}
@@ -68,32 +117,6 @@
         </div>
     </div>
     <hr>
-    <div id="seo-part" class="col-md-12 p-0">
-        <h3>SEO</h3>
-        <div class="content">
-            <div class="show-pattern">
-                <span class="title">{{$location->seos->seo_title}}</span>
-                <span class="link">{{URL::to('/')}}/{{$location->path}}</span>
-                <span class="description">{{$location->seos->seo_description}}</span>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <strong>Từ khóa cần SEO</strong>
-                    {!! Form::text('seo_keywords',$location->seos->seo_keywords, array('placeholder' => 'keywords cách nhau dấu phẩy','class' => 'form-control')) !!}
-                    <ul class="error-notice">
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-12 form-group">
-                <strong>Tiêu Đề (title):</strong>
-                {!! Form::text('seo_title',$location->seos->seo_title, array('placeholder' => 'Tên','class' => 'form-control')) !!}
-            </div>
-            <div class="col-md-12 form-group">
-                <strong>Mô Tả (description):</strong>
-                {!! Form::textarea('seo_description',$location->seos->seo_description,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
-            </div>
-        </div>
-    </div>
     <div class="col-md-12 form-group">
         <strong>Kích Hoạt:</strong>
         <input {{$location->is_active==1?'checked':''}} name="is_active" data-on="Có"

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     protected $fillable = [
-        'name', 'path', 'parent_id', 'order', 'is_active', 'seo_id'
+        'name', 'path', 'parent_id', 'order', 'is_active','locale_id','translation_id'
     ];
 
     public function children()
@@ -16,20 +16,20 @@ class Location extends Model
             ->with('children');
     }
 
-    public function seos()
+    public function translations()
     {
-        return $this->belongsTo('App\Seo', 'seo_id');
+        return $this->belongsTo('App\Translation', 'translation_id');
     }
 
-    public function getAllOrderBy($order)
+    public function getAllOrderBy($order,$locale_id)
     {
-        return $this->orderBy($order)->get();
+        return $this->where('locale_id',$locale_id)->orderBy($order)->get();
     }
 
-    public function getAllParent($order)
+    public function getAllParent($order,$locale_id)
     {
         $newArray = array();
-        $locations = self::getAllOrderBy($order);
+        $locations = self::getAllOrderBy($order,$locale_id);
         foreach ($locations as $key => $item) {
             if (!isset($item->parent_id)) {
                 array_push($newArray, $item);
@@ -38,9 +38,9 @@ class Location extends Model
         return $newArray;
     }
 
-    public function getAllCities()
+    public function getAllCities($locale_id)
     {
-        return $this->whereNull('parent_id')->get();
+        return $this->whereNull('parent_id')->where('locale_id',$locale_id)->get();
     }
 
     public function getAllChildById($id)

@@ -4,9 +4,12 @@ namespace App\Repositories\Backend\Product;
 
 use App\CategoryItem;
 use App\Direction;
+use App\Facility;
+use App\Locale;
 use App\Location;
 use App\Repositories\EloquentRepository;
 use App\Seo;
+use App\Translation;
 use App\Unit;
 
 class ProductRepository extends EloquentRepository implements ProductRepositoryInterface
@@ -16,23 +19,41 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         return \App\Product::class;
     }
 
+    public function getAllProduct()
+    {
+        $data = [];
+        $locale = new Locale();
+        $locales = $locale->getAll();
+        $translation=new Translation();
+        $translations=$translation->getAllTranslation(CATEGORY_PRODUCT);
+        $products=array();
+        foreach ($translations as $key=>$item){
+            array_push($products, $item);
+        }
+        $data['products']=$products;
+        $data['locales']=$locales;
+        return $data;
+    }
 
 
-    public function showCreateProduct()
+    public function showCreateProduct($locale_id)
     {
         $data = [];
         $location = new Location();
+        $locale = new Locale();
         $categoryItem = new CategoryItem();
-        $direction = new Direction();
         $unit = new Unit();
+        $facility=new Facility();
+        $locales = $locale->getAll();
         $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT);
-        $cities = $location->getAllCities();
-        $directions = $direction->getAllDirection();
-        $units = $unit->getAllUnit();
+        $cities = $location->getAllCities($locale_id);
+        $units = $unit->getAllUnit($locale_id);
+        $facilities=$facility->getAllFacility($locale_id);
         $data['cities'] = $cities;
         $data['categoryProduct'] = $categoryProduct;
-        $data['directions'] = $directions;
         $data['units'] = $units;
+        $data['locales']=$locales;
+        $data['facilities']=$facilities;
         return $data;
     }
 
@@ -60,15 +81,46 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
 
     public function createNewProduct($request)
     {
+
         $data = [];
-        $seo = Seo::create($request->all());
-        $request->request->add(['seo_id' => $seo->id]);
+        $seo = new Seo();
+        if (!$seo->isSeoParameterEmpty($request)) {
+            $seo = Seo::create($request->all());
+            $request->request->add(['seo_id' => $seo->id]);
+        } else {
+            $request->request->add(['seo_id' => null]);
+        }
         $parameters = $this->_model->prepareParameters($request);
+        $translation=Translation::create(['is_active'=>$parameters['is_active'],'type'=>CATEGORY_PRODUCT]);
+        $parameters->request->add(['translation_id' => $translation->id]);
         $result = $this->_model->create($parameters->all());
         $attachData = array();
         foreach ($parameters['list_category_id'] as $key=>$item){
             $attachData[$item]=array('type'=>CATEGORY_PRODUCT);
         }
+        $result->facilities()->attach($parameters['list_facility_id']);
+        $result->categoryitems(CATEGORY_PRODUCT)->attach($attachData);
+
+        return $data;
+    }
+    public function createNewProductLocale($request)
+    {
+        $data = [];
+        $seo = new Seo();
+        if (!$seo->isSeoParameterEmpty($request)) {
+            $seo = Seo::create($request->all());
+            $request->request->add(['seo_id' => $seo->id]);
+        } else {
+            $request->request->add(['seo_id' => null]);
+        }
+        $parameters = $this->_model->prepareParameters($request);
+        $parameters->request->add(['translation_id' => $parameters['translation_id']]);
+        $result = $this->_model->create($parameters->all());
+        $attachData = array();
+        foreach ($parameters['list_category_id'] as $key => $item) {
+            $attachData[$item] = array('type' => CATEGORY_PRODUCT);
+        }
+        $result->facilities()->attach($parameters['list_facility_id']);
         $result->categoryitems(CATEGORY_PRODUCT)->attach($attachData);
         return $data;
     }
@@ -81,10 +133,7 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         $data['wards']=null;
         $data['ward_id']=null;
         $location = new Location();
-        $direction = new Direction();
         $categoryItem = new CategoryItem();
-        $directions = $direction->getAllDirection();
-        $data['directions'] = $directions;
         $unit = new Unit();
         $units = $unit->getAllUnit();
         $data['units'] = $units;
@@ -140,6 +189,32 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         $this->delete($id);
         return $data;
     }
+
+    public function showCreateLangProduct($translation_id, $locale_id)
+    {
+        $data = [];
+        $locale = new Locale();
+        $lang=$locale->getLocaleById($locale_id);
+        $location = new Location();
+        $locale = new Locale();
+        $categoryItem = new CategoryItem();
+        $unit = new Unit();
+        $facility=new Facility();
+        $locales = $locale->getAll();
+        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT);
+        $cities = $location->getAllCities($locale_id);
+        $units = $unit->getAllUnit($locale_id);
+        $facilities=$facility->getAllFacility($locale_id);
+        $data['cities'] = $cities;
+        $data['categoryProduct'] = $categoryProduct;
+        $data['units'] = $units;
+        $data['locales']=$locales;
+        $data['facilities']=$facilities;
+        $data['lang'] = $lang;
+        return $data;
+    }
+
+
 
 
 }

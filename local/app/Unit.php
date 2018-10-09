@@ -18,4 +18,8 @@ class Unit extends Model
     public function prepareParameters($parameters){
         return $parameters;
     }
+    public function getAllUnit($locale_id)
+    {
+        return $this->where('locale_id',$locale_id)->get();
+    }
 }

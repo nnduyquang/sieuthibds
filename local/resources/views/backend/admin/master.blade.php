@@ -202,6 +202,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 {{ Html::script('js/ulti.js') }}
 {{ Html::script('js/core.backend.js') }}
 {{ Html::script('js/ckeditor/ckeditor.js') }}
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 {{ Html::script('js/backend.js') }}
 </body>
 </html>

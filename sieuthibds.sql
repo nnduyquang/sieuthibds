@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 08, 2018 lúc 11:59 AM
+-- Thời gian đã tạo: Th10 09, 2018 lúc 12:49 PM
 -- Phiên bản máy phục vụ: 10.1.31-MariaDB
 -- Phiên bản PHP: 7.0.29
 
@@ -79,7 +79,9 @@ INSERT INTO `category_many` (`category_id`, `item_id`, `type`, `created_at`, `up
 (1, 5, 0, '2018-10-08 03:53:10', '2018-10-08 03:53:10'),
 (1, 6, 0, '2018-10-08 03:53:30', '2018-10-08 03:53:30'),
 (1, 8, 0, '2018-10-08 04:12:15', '2018-10-08 04:12:15'),
-(1, 9, 0, '2018-10-08 04:12:39', '2018-10-08 04:12:39');
+(1, 9, 0, '2018-10-08 04:12:39', '2018-10-08 04:12:39'),
+(2, 2, 1, '2018-10-09 09:57:59', '2018-10-09 09:57:59'),
+(2, 3, 1, '2018-10-09 10:46:55', '2018-10-09 10:46:55');
 
 -- --------------------------------------------------------
 
@@ -205,6 +207,19 @@ CREATE TABLE `facilities_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `facilities_products`
+--
+
+INSERT INTO `facilities_products` (`product_id`, `facility_id`, `created_at`, `updated_at`) VALUES
+(3, 1, '2018-10-09 10:46:55', '2018-10-09 10:46:55'),
+(2, 2, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(3, 9, '2018-10-09 10:46:55', '2018-10-09 10:46:55'),
+(2, 10, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(2, 12, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(3, 17, '2018-10-09 10:46:55', '2018-10-09 10:46:55'),
+(2, 20, '2018-10-09 09:57:58', '2018-10-09 09:57:58');
+
 -- --------------------------------------------------------
 
 --
@@ -248,6 +263,16 @@ CREATE TABLE `locations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `locations`
+--
+
+INSERT INTO `locations` (`id`, `name`, `path`, `is_active`, `level`, `order`, `parent_id`, `locale_id`, `translation_id`, `created_at`, `updated_at`) VALUES
+(1, 'TP.Hồ Chí Minh', 'tpho-chi-minh', 0, NULL, 1, NULL, 1, 28, '2018-10-09 03:12:11', '2018-10-09 03:12:11'),
+(2, 'Ho Chi Minh City', 'ho-chi-minh-city', 1, NULL, 1, NULL, 2, 28, '2018-10-09 03:33:19', '2018-10-09 03:33:19'),
+(3, 'Quận 1', 'quan-1', 1, NULL, 1, 1, 1, 29, '2018-10-09 03:34:02', '2018-10-09 03:44:49'),
+(4, 'District 1', 'district-1', 1, NULL, 1, 2, 2, 29, '2018-10-09 03:34:21', '2018-10-09 04:12:31');
 
 -- --------------------------------------------------------
 
@@ -480,6 +505,14 @@ CREATE TABLE `products` (
   `seo_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `path`, `is_active`, `image`, `sub_image`, `description`, `content`, `num_bath`, `num_bed`, `location_district`, `num_member`, `area`, `furniture_full`, `map`, `code`, `price`, `order`, `user_id`, `created_at`, `updated_at`, `unit_id`, `location_id`, `locale_id`, `translation_id`, `seo_id`) VALUES
+(2, 'tên sản phẩm', '', 1, 'http://localhost:8080/sieuthibds/images/uploads/images/gt_1.jpg', 'images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg', '<p>\r\n	Mô tả ngắn\r\n</p>', '<p>\r\n	Mô tả sản phẩm\r\n</p>', 2, 5, 0, 4, '5000', 0, NULL, NULL, '5000', 1, 1, '2018-10-09 09:57:58', '2018-10-09 09:57:58', 2, 3, 1, 36, NULL),
+(3, 'English product', '', 1, 'http://localhost:8080/sieuthibds/images/uploads/images/gt_1.jpg', 'images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg', '<p>\r\n	short description\r\n</p>', '<p>\r\n	content product\r\n</p>', 3, 2, 0, 6, '500', 0, NULL, '123456', '5000', 1, 1, '2018-10-09 10:46:55', '2018-10-09 10:46:55', 1, 4, 2, 36, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -579,7 +612,11 @@ INSERT INTO `translations` (`id`, `is_active`, `type`, `created_at`, `updated_at
 (23, 0, 2, '2018-10-08 07:59:12', '2018-10-08 07:59:12'),
 (24, 0, 2, '2018-10-08 07:59:39', '2018-10-08 07:59:39'),
 (25, 0, 2, '2018-10-08 08:00:05', '2018-10-08 08:00:05'),
-(26, 1, 3, '2018-10-08 09:36:03', '2018-10-08 09:36:03');
+(26, 1, 3, '2018-10-08 09:36:03', '2018-10-08 09:36:03'),
+(27, 1, 0, '2018-10-09 03:10:41', '2018-10-09 03:10:41'),
+(28, 0, 4, '2018-10-09 03:12:11', '2018-10-09 03:12:11'),
+(29, 1, 4, '2018-10-09 03:34:02', '2018-10-09 03:34:02'),
+(36, 1, 1, '2018-10-09 09:57:58', '2018-10-09 09:57:58');
 
 -- --------------------------------------------------------
 
@@ -812,19 +849,19 @@ ALTER TABLE `facilities`
 -- AUTO_INCREMENT cho bảng `facilities_products`
 --
 ALTER TABLE `facilities_products`
-  MODIFY `facility_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `facility_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `locales`
 --
 ALTER TABLE `locales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `menus`
@@ -854,7 +891,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `roles`
@@ -872,7 +909,7 @@ ALTER TABLE `seos`
 -- AUTO_INCREMENT cho bảng `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT cho bảng `units`

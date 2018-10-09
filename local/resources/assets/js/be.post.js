@@ -43,7 +43,6 @@ $('#btnBrowseMore').click(function () {
     );
 })
 $('select.select-locale').change(function(){
-    var post_id=$(this).find(':selected').data('post-id');
     var href=$(this).find(':selected').data('href');
     window.location.href= href;
 });

@@ -89,9 +89,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sml_admin/dia-diem', ['as' => 'location.index', 'uses' => 'LocationController@index', 'middleware' => ['permission:post-list|post-create|post-edit|post-delete']])->defaults('type','categorypost');
     Route::post('sml_admin/dia-diem/search', ['as' => 'location.search', 'uses' => 'LocationController@search']);
     Route::post('sml_admin/dia-diem/paste', ['as' => 'location.paste', 'uses' => 'LocationController@paste']);
-    Route::get('sml_admin/dia-diem/create', ['as' => 'location.create', 'uses' => 'LocationController@create', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/dia-diem/{locale_id}/create', ['as' => 'location.create', 'uses' => 'LocationController@create', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/dia-diem/{translation_id}/{locale_id}/create', ['as' => 'location.createLocale', 'uses' => 'LocationController@createLocale', 'middleware' => ['permission:post-create']]);
     Route::post('sml_admin/dia-diem/create', ['as' => 'location.store', 'uses' => 'LocationController@store', 'middleware' => ['permission:post-create']]);
-    Route::get('sml_admin/dia-diem/{id}/edit', ['as' => 'location.edit', 'uses' => 'LocationController@edit', 'middleware' => ['permission:post-edit']]);
+    Route::post('sml_admin/dia-diem/create-more-post-lang', ['as' => 'location.storeLocale', 'uses' => 'LocationController@storeLocale', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/dia-diem/{id}/{locale_id}/edit', ['as' => 'location.edit', 'uses' => 'LocationController@edit', 'middleware' => ['permission:post-edit']]);
     Route::patch('sml_admin/dia-diem/{id}', ['as' => 'location.update', 'uses' => 'LocationController@update', 'middleware' => ['permission:post-edit']]);
     Route::delete('sml_admin/dia-diem/{id}', ['as' => 'location.destroy', 'uses' => 'LocationController@destroy', 'middleware' => ['permission:post-delete']]);
 
@@ -131,12 +133,16 @@ Route::group(['middleware' => ['auth']], function () {
     //PRODUCT
     Route::get('sml_admin/san-pham', ['as' => 'product.index', 'uses' => 'ProductController@index', 'middleware' => ['permission:product-list|product-create|product-edit|product-delete']]);
     Route::post('sml_admin/san-pham/create', ['as' => 'product.store', 'uses' => 'ProductController@store', 'middleware' => ['permission:product-create']]);
+    Route::post('sml_admin/san-pham/create-more-unit-lang', ['as' => 'product.storeLocale', 'uses' => 'ProductController@storeLocale', 'middleware' => ['permission:post-create']]);
     Route::post('sml_admin/san-pham/search', ['as' => 'product.search', 'uses' => 'ProductController@search']);
     Route::post('sml_admin/san-pham/past', ['as' => 'product.paste', 'uses' => 'ProductController@paste']);
-    Route::get('sml_admin/san-pham/create', ['as' => 'product.create', 'uses' => 'ProductController@create', 'middleware' => ['permission:product-create']]);
+    Route::get('sml_admin/san-pham/{locale_id}/create', ['as' => 'product.create', 'uses' => 'ProductController@create', 'middleware' => ['permission:product-create']]);
+    Route::get('sml_admin/san-pham/{translation_id}/{locale_id}/create', ['as' => 'product.createLocale', 'uses' => 'ProductController@createLocale', 'middleware' => ['permission:post-create']]);
     Route::get('sml_admin/san-pham/{id}/edit', ['as' => 'product.edit', 'uses' => 'ProductController@edit', 'middleware' => ['permission:product-edit']]);
     Route::patch('sml_admin/san-pham/{id}', ['as' => 'product.update', 'uses' => 'ProductController@update', 'middleware' => ['permission:product-edit']]);
     Route::delete('sml_admin/san-pham/{id}', ['as' => 'product.destroy', 'uses' => 'ProductController@destroy', 'middleware' => ['permission:product-delete']]);
+    Route::post('sml_admin/san-pham/getAllDistrictsByCity', 'ProductController@getAllDistrictsByCity');
+    Route::post('sml_admin/san-pham/getAllWardsByDistrict', 'ProductController@getAllWardsByDistrict');
 
 
     //LOCALE
