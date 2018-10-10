@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 class CategoryItem extends Model
 {
     protected $fillable = [
-        'name','path','description','image','image_mobile','level','parent_id','type','seo_id','locale_id','translation_id','order','is_active'
+        'name','path','description','content','image','image_mobile','level','parent_id','type','seo_id','locale_id','translation_id','order','is_active'
     ];
     protected $table = 'category_items';
     protected $hidden = ['id'];
@@ -92,6 +92,14 @@ class CategoryItem extends Model
             }
         }
         return $newArray;
+    }
+    public function getCategoryItemByPath($path){
+        $locale_id=self::getLanguage();
+        return $this->where('path',$path)->where('locale_id',$locale_id)->first();
+    }
+    public function getCategoryItemOther($id){
+        $locale_id=self::getLanguage();
+        return $this->where('id','!=',$id)->where('locale_id',$locale_id)->get();
     }
     public function setIsActiveAttribute($value)
     {

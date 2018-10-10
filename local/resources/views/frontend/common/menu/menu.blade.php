@@ -11,11 +11,12 @@
         </div>
         <div id="nav-content">
             <ul>
-
-                <li><a class="{{ request()->is('danh-sach*') ? 'active' : '/' }}" href="{{URL::asset('danh-sach-can-ho.html')}}">Rent</a></li>
-                <li><a class="{{ request()->is('project*') ? 'active' : '/' }}" href="{{URL::asset('projects.html')}}">Project</a></li>
-                <li><a class="{{ request()->is('blog*') ? 'active' : '/' }}" href="{{URL::asset('blogs.html')}}">Blog</a></li>
-                <li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Careers</a></li>
+                @foreach($listMenu as $key=>$item)
+                <li><a class="{{ request()->is($item->link()) ? 'active' : '/' }}" href="{{URL::to($item->link())}}">@lang($item->title)</a></li>
+                @endforeach
+                {{--<li><a class="{{ request()->is('project*') ? 'active' : '/' }}" href="{{URL::asset('projects.html')}}">Project</a></li>--}}
+                {{--<li><a class="{{ request()->is('blog*') ? 'active' : '/' }}" href="{{URL::asset('blogs.html')}}">Blog</a></li>--}}
+                {{--<li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Careers</a></li>--}}
                 <li class="position-relative flag-overlay">
 
                     <div class="d-flex align-items-center position-relative">

@@ -132,6 +132,12 @@
             </div>
         </div>
     </div>
+    <div class="wrap-create-edit">
+        <strong class="text-title-left">Nội Dung Bài Viết:</strong>
+        <div class="col-md-12 p-0">
+            {!! Form::textarea('content',null,array('placeholder' => '','id'=>'content-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+        </div>
+    </div>
     <hr>
     <div id="seo-part" class="col-md-12 p-0">
         <h3>SEO</h3>

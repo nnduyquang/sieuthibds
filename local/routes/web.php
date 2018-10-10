@@ -6,7 +6,11 @@ Route::group(['middleware' => 'locale'], function() {
 //        return view('frontend.home.index');
 //    });
     Route::get('/', 'FrontendController@getFrontend');
-    Route::get('/du-an/{path}', 'FrontendController@getDuAnDetail');
+    Route::get('/san-pham/{path}', 'FrontendController@getSanPhamDetail');
+    Route::get('/du-an/{path}','FrontendController@getDuAnDetail');
+    Route::get('/du-an.html', 'FrontendController@getAllDuAn');
+    Route::get('/danh-sach-san-pham/{path}','FrontendController@getDanhSachSanPhamTheoDuAn');
+    Route::get('/danh-sach-san-pham.html','FrontendController@getDanhSachAllSanPham');
 });
 //Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
 
@@ -30,18 +34,18 @@ Route::get('/blogs-details.html', function () {
     return view('frontend.blog-details.index');
 });
 
-Route::get('/projects-info.html', function () {
-    return view('frontend.project.index');
-});
+//Route::get('/projects-info.html', function () {
+//    return view('frontend.project.index');
+//});
 
-Route::get('/project-details.html', function () {
-    return view('frontend.pr-details.index');
-});
+//Route::get('/project-details.html', function () {
+//    return view('frontend.pr-details.index');
+//});
 
 
-Route::get('/danh-sach-can-ho.html', function () {
-    return view('frontend.rent.index');
-});
+//Route::get('/danh-sach-can-ho.html', function () {
+//    return view('frontend.rent.index');
+//});
 
 
 Route::post('/tim-kiem','FrontendController@getSearch')->name('search');

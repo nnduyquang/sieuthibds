@@ -5,7 +5,9 @@ namespace App\Repositories\Frontend;
 
 use App\CategoryItem;
 use App\Config;
+use App\Facility;
 use App\Location;
+use App\Menu;
 use App\Post;
 use App\Product;
 
@@ -43,12 +45,69 @@ class FrontendRepository implements FrontendRepositoryInterface
         return $data;
     }
 
-    public function getDuAnDetail($path)
+    public function getSanPhamDetail($path)
     {
         $data = [];
         $product = new Product();
         $data['product'] = $product->findProductByPath($path);
         $data['other']=$product->findOtherProductByPath($data['product']->id);
+        return $data;
+    }
+
+    public function getAllDuAn()
+    {
+        $data = [];
+        $categoryItem = new CategoryItem();
+        $categories=$categoryItem->getAllCategoryByType(CATEGORY_PRODUCT);
+        $data['categories']=$categories;
+        return $data;
+    }
+
+
+    public function getDuAnDetail($path)
+    {
+        $data = [];
+        $categoryItem = new CategoryItem();
+        $facility=new Facility();
+        $category=$categoryItem->getCategoryItemByPath($path);
+        $other=$categoryItem->getCategoryItemOther($category->id);
+        $facilities=$facility->getFacilityAll();
+        $category['products']=$category->products()->get();
+        $data['category']=$category;
+        $data['other']=$other;
+        $data['facilities']=$facilities;
+        return $data;
+    }
+
+    public function getDanhSachSanPhamTheoDuAn($path)
+    {
+        $data = [];
+        $categoryItem = new CategoryItem();
+        $category=$categoryItem->getCategoryItemByPath($path);
+        $category['products']=$category->products()->get();
+        $data['category']=$category;
+        $data['type']=1;
+        return $data;
+
+    }
+
+    public function getDanhSachAllSanPham()
+    {
+        $data = [];
+        $product=new Product();
+        $products=$product->getAllProductByLocale();
+
+        $data['type']=2;
+        $data['products']=$products;
+        return $data;
+    }
+
+
+    public function getAllMenuFrontend()
+    {
+        $data = [];
+        $menu = new Menu();
+        $data = $menu->getAllOrderBy('order');
         return $data;
     }
 

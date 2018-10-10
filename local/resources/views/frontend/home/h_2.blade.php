@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 p-0">
-                <h4>Feature Properties</h4>
+                <h4>@lang('content.home_feature_properties')</h4>
                 <div class="tab">
                     <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">All</button>
                     @foreach($data['featuredProperties'] as $key=>$item)
@@ -25,17 +25,27 @@
                                                 $j=0
                                             @endphp
                                             @foreach($listImage as $key3=>$item3)
-                                                <div class="item">
-                                                    <img src="{{URL::asset($item3)}}"
-                                                         alt="sliderimg{{$j}}">
+                                                {{--<div class="item">--}}
+                                                    {{--<img  src="{{URL::asset($item3)}}"--}}
+                                                         {{--alt="sliderimg{{$j}}">--}}
+                                                {{--</div>--}}
+                                                <div class="owl-img"
+                                                     style="background-image: url({{URL::asset($item3)}});background-size: cover;
+                                                             background-position: center center;
+                                                             height: 250px;
+                                                             width: 100%;
+                                                             overflow: hidden;">
                                                 </div>
                                                 @php
                                                     $j++;
                                                 @endphp
+                                                @if($j==3)
+                                                    @break
+                                                @endif
                                             @endforeach
                                         </div>
 
-                                        <div><a href="{{URL::to('du-an/'.$item2->path)}}"><h5>{{$item2->name}}</h5>
+                                        <div><a href="{{URL::to('san-pham/'.$item2->path)}}"><h5>{{$item2->name}}</h5>
                                             </a></div>
                                         {{--<div><a href="{{URL::asset('/project-details.html')}}">Sophisticated 3 bedroom--}}
                                         {{--apartment in Masteri Thao Dien</a></div>--}}
@@ -76,21 +86,27 @@
                                                 $j=0
                                                 @endphp
                                                 @foreach($listImage as $key3=>$item3)
-                                                    <div class="item">
-                                                        <img src="{{URL::asset($item3)}}"
-                                                             alt="sliderimg{{$j}}">
+                                                    <div class="owl-img"
+                                                         style="background-image: url({{URL::asset($item3)}});background-size: cover;
+                                                                 background-position: center center;
+                                                                 height: 250px;
+                                                                 width: 100%;
+                                                                 overflow: hidden;">
                                                     </div>
-                                                      @php
-                                                          $j++;
-                                                      @endphp
+                                                    @php
+                                                        $j++;
+                                                    @endphp
+                                                    @if($j==3)
+                                                        @break
+                                                    @endif
                                                 @endforeach
                                             </div>
 
-                                            <div><a href="{{URL::to('du-an/'.$item2->path)}}"><h5>{{$item2->name}}</h5>
+                                            <div><a href="{{URL::to('san-pham/'.$item2->path)}}"><h5>{{$item2->name}}</h5>
                                                 </a></div>
                                             {{--<div><a href="{{URL::asset('/project-details.html')}}">Sophisticated 3--}}
-                                                    {{--bedroom--}}
-                                                    {{--apartment in Masteri Thao Dien</a></div>--}}
+                                            {{--bedroom--}}
+                                            {{--apartment in Masteri Thao Dien</a></div>--}}
                                             <div class="thongtin d-flex align-items-center">
                                                 <i class="fas fa-bed"></i>
                                                 <p>Room</p>
@@ -118,18 +134,18 @@
                     @endforeach
 
                     {{--<div id="District2" class="tabcontent">--}}
-                        {{--<h3>Tokyo</h3>--}}
-                        {{--<p>Tokyo is the capital of Japan.</p>--}}
+                    {{--<h3>Tokyo</h3>--}}
+                    {{--<p>Tokyo is the capital of Japan.</p>--}}
                     {{--</div>--}}
 
                     {{--<div id="District3" class="tabcontent">--}}
-                        {{--<h3>Tokyo</h3>--}}
-                        {{--<p>Tokyo is the capital of Japan.</p>--}}
+                    {{--<h3>Tokyo</h3>--}}
+                    {{--<p>Tokyo is the capital of Japan.</p>--}}
                     {{--</div>--}}
 
                     {{--<div id="District4" class="tabcontent">--}}
-                        {{--<h3>Tokyo</h3>--}}
-                        {{--<p>Tokyo is the capital of Japan.</p>--}}
+                    {{--<h3>Tokyo</h3>--}}
+                    {{--<p>Tokyo is the capital of Japan.</p>--}}
                     {{--</div>--}}
                 </div>
             </div>

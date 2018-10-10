@@ -81,6 +81,7 @@
                             @endforeach
                         </div>
                     </th>
+                    <th>Code</th>
                     <th>Hình</th>
                     <th>Giá</th>
                     <th>Diện Tích</th>
@@ -115,6 +116,7 @@
                                     @endforeach
                         </div>
                     </td>
+                    <td>{{ $data->products()->first()->code }}</td>
                     <td>{{Html::image($data->products()->first()->image,'',array('class'=>'product-img'))}}</td>
                     <td>
                         @if(!is_null($data->products()->first()->unit_id))
@@ -124,7 +126,7 @@
                         @endif
                     </td>
                     <td>
-                        @if(!is_null($data->area))
+                        @if(!is_null($data->products()->first()->area))
                             {{$data->products()->first()->area}} m2
                         @else
                             Không xác định

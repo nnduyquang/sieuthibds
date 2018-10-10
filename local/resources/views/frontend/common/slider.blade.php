@@ -22,11 +22,11 @@
             <div id="filter_box">
 
                 <div>
-                    <h4>Long-Term Rental Made Easy</h4>
+                    <h4>@lang('content.home_slider_title')</h4>
                 </div>
                 <ul class="d-lg-block d-none">
                     <li>
-                        <h5 class="">popular Areas:</h5>
+                        <h5 class="">@lang('content.home_popular_areas')</h5>
                     </li>
                     <li><a href="">
                             District 1
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-8 mb-2 p-lg-1">
                             <div class="district-project">
-                            <input type="text" placeholder="District and Project">
+                            <input type="text" placeholder="@lang('content.home_district_project')">
                             </div>
                         </div>
                         <div class="col-md-4 p-lg-1">
@@ -55,7 +55,7 @@
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="vw">VW</option>
-                                <option value="audi" selected>All Properties</option>
+                                <option value="audi" selected>@lang('content.home_all_project')</option>
                             </select>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
 
                                 <div class="col-md-3 col-6  mb-3  p-lg-1 pl-3 pr-3 pt-0 pb-0">
                                     <div class="select-box select-box-bed text-left align-items-center">
-                                        <span class="bed-count">Any Bed</span>
+                                        <span class="bed-count">@lang('content.home_any_bed')</span>
                                         <div class="select-content">
                                             <ul>
                                                 <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="Any bed">Any bed</li>
@@ -86,7 +86,7 @@
 
                                 <div class="col-md-3 col-6  mb-3  p-lg-1 pl-3 pr-3 pt-0 pb-0">
                                     <div class="select-box select-box-bath text-left align-items-center">
-                                        <span class="bath-count">Any Bath</span>
+                                        <span class="bath-count">@lang('content.home_any_bath')</span>
                                         <div class="select-content">
                                             <ul>
                                                 <li onclick="setinfo('bath-count',this.value,'select-box-bath')"  value="Any Bath">Any Bath</li>
@@ -172,9 +172,9 @@
 
 <div id="slider_under" class="d-lg-block d-none">
     <ul>
-        <li><p><i class="fas fa-trophy"></i> Verified Listing</p></li>
-        <li><p><i class="fab fa-squarespace"></i> Easy to rent</p></li>
-        <li><p><i class="fas fa-coffee"></i> Relax space</p></li>
+        <li><p><i class="fas fa-trophy"></i> @lang('content.home_verified')</p></li>
+        <li><p><i class="fab fa-squarespace"></i> @lang('content.home_easy')</p></li>
+        <li><p><i class="fas fa-coffee"></i> @lang('content.home_relax')</p></li>
     </ul>
 </div>
 

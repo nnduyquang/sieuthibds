@@ -47,6 +47,10 @@ class Product extends Model
     public function getAllProduct(){
         return $this->get();
     }
+    public function getAllProductByLocale(){
+        $locale_id=self::getLanguage();
+        return $this->where('locale_id',$locale_id)->get();
+    }
     public function prepareParameters($parameters)
     {
         $city = $parameters->input('select-city');

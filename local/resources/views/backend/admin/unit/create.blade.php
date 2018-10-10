@@ -45,7 +45,7 @@
                         {!! Form::hidden('locale_id', $langLocale->id) !!}
                     @endif
 
-                    <strong class="text-title-left">Tên Cơ Sở Vật Chất</strong>
+                    <strong class="text-title-left">Tên Đơn Vị Tính</strong>
                     <div class="form-group">
                         {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
                     </div>

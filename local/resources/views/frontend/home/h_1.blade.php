@@ -11,24 +11,24 @@
             <div class="row">
                 <div class="col-3 easy-items">
                     <i class="fas fa-map-marked-alt"></i>
-                    <h5>Search</h5>
-                    <p>Find a long-term rental place that fits your preferences</p>
+                    <h5>@lang('content.home_search')</h5>
+                    <p>@lang('content.home_search_des')</p>
                 </div>
                 <div class="col-3 easy-items">
                     <i class="fas fa-map-signs"></i>
-                    <h5>Visit</h5>
-                    <p>Finalise a date and time to visit the homes you like</p>
+                    <h5>@lang('content.home_visit')</h5>
+                    <p>@lang('content.home_visit_des')</p>
 
                 </div>
                 <div class="col-3 easy-items">
                     <i class="far fa-handshake"></i>
-                    <h5>Contract</h5>
-                    <p>Pay deposit to lock your favorite place and sign contract</p>
+                    <h5>@lang('content.home_contract')</h5>
+                    <p>@lang('content.home_contract_des')</p>
                 </div>
                 <div class="col-3 easy-items">
                     <i class="fas fa-bed"></i>
-                    <h5>Move-In</h5>
-                    <p>Move in and seek our support until you feel comfortable</p>
+                    <h5>@lang('content.home_movein')</h5>
+                    <p>@lang('content.home_movein_des')</p>
                 </div>
             </div>
         </div>

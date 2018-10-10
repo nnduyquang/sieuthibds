@@ -1,6 +1,7 @@
 var plugins = {
     menuSideBar: $('.sidebar'),
     slider: $('#slider'),
+    owlCarouselHH2:$('.hh2')
 };
 $(document).ready(function () {
     function sidebar() {
@@ -27,7 +28,21 @@ $(document).ready(function () {
             controlNav: false,
         });
     }
+    function runOwlCarouselHH2() {
+        plugins.owlCarouselHH2.owlCarousel({
+            lazyLoad:true,
+            items:1,
+            autoplay: true,
+            smartSpeed: 1500,
+            nav:true,
+            dots: true,
+            loop : true,
+        });
+    }
     if (plugins.slider.length) {
         runSlider();
+    }
+    if(plugins.owlCarouselHH2.length){
+        runOwlCarouselHH2();
     }
 });

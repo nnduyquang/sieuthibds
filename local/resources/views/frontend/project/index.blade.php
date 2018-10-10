@@ -24,9 +24,9 @@
 
     @include('frontend.project.h_2')
     @include('frontend.project.p_1')
-    @include('frontend.project.p_2')
+    {{--@include('frontend.project.p_2')--}}
     @include('frontend.project.p_3')
-    @include('frontend.project.p_4')
+    {{--@include('frontend.project.p_4')--}}
     @include('frontend.project.h_3')
 
 @stop

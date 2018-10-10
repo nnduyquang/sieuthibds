@@ -15,14 +15,14 @@
                                      style="background-image:url({{URL::to($item->image)}});">
                                 </div>
                                 @if(!is_null($item->price)&&!is_null($item->unit_id))
-                                    <div class="price-rent"><p>{{$item->price}}{{$item->units()->name}}</p></div>
+                                    <div class="price-rent"><p>{{$item->price}} {{$item->units->name}}</p></div>
                                 @endif
                             </div>
                             <div class="bottom-project">
                                 @if(!is_null($item->code))
-                                <h3>HOUSE CODE H05440</h3>
+                                <h3>HOUSE CODE {{$item->code}}</h3>
                                 @endif
-                                <h6><a href="{{URL::to('du-an/'.$item->path)}}">{{$item->name}}</a></h6>
+                                <h6><a href="{{URL::to('san-pham/'.$item->path)}}">{{$item->name}}</a></h6>
 
                                 <div class="thongtin d-flex align-items-center">
                                     <i class="fas fa-bed"></i>
@@ -30,7 +30,7 @@
                                     <i class="fas fa-shower"></i>
                                     <p>WC</p>
                                     <i class="fas fa-map-marked-alt"></i>
-                                    <p>District1</p>
+                                    <p>District2</p>
                                 </div>
                             </div>
                         </div>

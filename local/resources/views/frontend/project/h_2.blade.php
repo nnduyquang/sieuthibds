@@ -23,15 +23,15 @@
                                 <p>Description</p>
                             </a>
                         </li>
-                        <li><a class="nav-r" id="h_1_nav" href="#p_2">
-                                <p>Overview</p>
-                            </a></li>
+                        {{--<li><a class="nav-r" id="h_1_nav" href="#p_2">--}}
+                                {{--<p>Overview</p>--}}
+                            {{--</a></li>--}}
                         <li><a class="nav-r" id="h_2_nav" href="#p_3">
                                 <p>Facilities</p>
                             </a></li>
-                        <li><a class="nav-r" id="h_3_nav" href="#p_4">
-                                <p>Location</p>
-                            </a></li>
+                        {{--<li><a class="nav-r" id="h_3_nav" href="#p_4">--}}
+                                {{--<p>Location</p>--}}
+                            {{--</a></li>--}}
                         <li><a class="nav-r" id="h_4_nav" href="#h_4">
                                 <p>Listing</p>
                             </a></li>
@@ -42,41 +42,63 @@
         <div class="row">
             <div class="col-12 text-left">
 
-                <h6>Feature Listings In Masteri Thao Dien</h6>
+                <h6>@lang('content.project_feature_listings_in') {{$data['category']->name}}</h6>
 
             </div>
 
-            @for ($i = 0; $i < 8; $i++)
+            @foreach($data['category']->products as $key=>$item)
                 <div class="col-md-3 col-6 text-left proj-items">
                     <!--Carousel-->
                     <div class="position-relative">
                         <div id="owl-demo" class="owl-carousel owl-theme owl-h2" style="margin-top: 20px;">
-                            @for ($j = 0; $j < 3; $j++)
-                                <div class="item">
-                                    <img src="{{URL::asset('images/bg/ctc_masteri_pc.jpg')}}"
-                                         alt="sliderimg{{$j}}">
-                                </div>
-                            @endfor
+                            <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
+                                 style="margin-top: 20px;">
+                                @php
+                                    $listImage=explode(';',$item->sub_image);
+                                    $j=0
+                                @endphp
+                                @foreach($listImage as $key2=>$item2)
+                                    {{--<div class="item">--}}
+                                    {{--<img  src="{{URL::asset($item3)}}"--}}
+                                    {{--alt="sliderimg{{$j}}">--}}
+                                    {{--</div>--}}
+                                    <div class="owl-img"
+                                         style="background-image: url({{URL::asset($item2)}});background-size: cover;
+                                                 background-position: center center;
+                                                 height: 250px;
+                                                 width: 100%;
+                                                 overflow: hidden;">
+                                    </div>
+                                    @php
+                                        $j++;
+                                    @endphp
+                                    @if($j==3)
+                                        @break
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
-
+                        @if(!is_null($item->price)&&!is_null($item->unit_id))
                         <div class="price">
-                            $2000
+                            {{$item->price}} {{$item->units->name}}
                         </div>
+                        @endif
                     </div>
-
-                    <div><h5>HOUSE CODE H126341</h5></div>
-                    <div><a href="{{URL::asset('project-details.html')}}">Sophisticated 3 bedroom apartment in Masteri Thao Dien</a></div>
+                    @if(!is_null($item->code))
+                    <div><h5>HOUSE CODE {{$item->code}}</h5></div>
+                    @endif
+                    <div><a href="{{URL::to('san-pham/'.$item->path)}}">{{$item->name}}</a></div>
                     <div class="thongtin d-flex align-items-center">
                         <i class="fas fa-bed"></i>
                         <p>Room</p>
                         <i class="fas fa-shower"></i>
                         <p>WC</p>
                         <i class="fas fa-map-marked-alt"></i>
-                        <p>District1</p>
+                        <p>District2</p>
                     </div>
                     <!--Carousel-->
                 </div>
-            @endfor
+            @endforeach
 
             {{--<div class="col-12 text-center mt-5 mb-4">--}}
             {{--<div style="width: fit-content;margin: auto">--}}

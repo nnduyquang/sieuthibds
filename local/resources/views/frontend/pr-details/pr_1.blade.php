@@ -2,8 +2,10 @@
 
     <div class="col-12">
         <div class="border p-4 text-center pt-5 pb-5 position-relative">
-            <h5>$1,450 <span>per month</span></h5>
-            <p class="status">Rented <i class="fas fa-fingerprint"></i></p>
+            @if(!is_null($data['product']->price)&&!is_null($data['product']->unit_id))
+            <h5>{{$data['product']->price}} <span>{{$data['product']->units->name}}</span></h5>
+            @endif
+            {{--<p class="status">Rented <i class="fas fa-fingerprint"></i></p>--}}
 
             <textarea name="" id="" cols="30" rows="5" placeholder="Enter your message"></textarea>
 

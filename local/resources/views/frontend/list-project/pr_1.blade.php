@@ -4,22 +4,21 @@
         <div class="">
             <h5>TOP 10 PROJECT</h5>
         </div>
-
-        @for ($i = 0; $i < 10; $i++)
+        @foreach($data['categories'] as $key=>$item)
             <div class="d-flex  border align-items-center mb-3">
                 <a href="">
                 <div class="img"
-                     style="background-image:url(images/bg/ctc_masteri_pc.jpg);">
+                     style="background-image:url({{URL::to($item->image)}});">
                 </div>
                 </a>
                 <div class="pl-3">
                     <a href="">
-                    <h4>Vinhomes Central Park</h4>
+                    <h4>{{$item->name}}</h4>
                     </a>
-                    <p>Summary: Located on Nguyen Huu Canh, the major ...</p>
+                    {{--<p>Summary: Located on Nguyen Huu Canh, the major ...</p>--}}
                 </div>
             </div>
-        @endfor
+        @endforeach
 
     </div>
 

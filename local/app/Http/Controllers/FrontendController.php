@@ -26,9 +26,25 @@ class FrontendController extends Controller
         $data = $this->frontendRepository->getFrontend();
         return view('frontend.home.index', compact('data'));
     }
+    public function getSanPhamDetail($path){
+        $data = $this->frontendRepository->getSanPhamDetail($path);
+        return view('frontend.pr-details.index', compact('data'));
+    }
     public function getDuAnDetail($path){
         $data = $this->frontendRepository->getDuAnDetail($path);
-        return view('frontend.pr-details.index', compact('data'));
+        return view('frontend.project.index', compact('data'));
+    }
+    public function getDanhSachSanPhamTheoDuAn($path){
+        $data = $this->frontendRepository->getDanhSachSanPhamTheoDuAn($path);
+        return view('frontend.rent.index', compact('data'));
+    }
+    public function getDanhSachAllSanPham(){
+        $data = $this->frontendRepository->getDanhSachAllSanPham();
+        return view('frontend.rent.index', compact('data'));
+    }
+    public function getAllDuAn(){
+        $data = $this->frontendRepository->getAllDuAn();
+        return view('frontend.list-project.index', compact('data'));
     }
 
 }

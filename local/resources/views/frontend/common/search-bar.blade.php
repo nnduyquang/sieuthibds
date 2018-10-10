@@ -84,11 +84,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 text-right">
-                <button class="btn-filter">
-                    MORE FILTER
-                </button>
-            </div>
+            {{--<div class="col-md-4 text-right">--}}
+                {{--<button class="btn-filter">--}}
+                    {{--MORE FILTER--}}
+                {{--</button>--}}
+            {{--</div>--}}
         </div>
     </div>
 
