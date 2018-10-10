@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class CategoryItem extends Model
 {
     protected $fillable = [
-        'name','path','description','image','image_mobile','level','parent_id','type','seo_id','order','is_active'
+        'name','path','description','image','image_mobile','level','parent_id','type','seo_id','locale_id','translation_id','order','is_active'
     ];
     protected $table = 'category_items';
     protected $hidden = ['id'];
@@ -19,9 +20,16 @@ class CategoryItem extends Model
         return $this->hasMany('App\CategoryItem', 'parent_id')
             ->with('children');
     }
+    public function translations()
+    {
+        return $this->belongsTo('App\Translation', 'translation_id');
+    }
 
     public function posts(){
         return $this->belongsToMany('App\Post','category_many','category_id','item_id')->withTimestamps();
+    }
+    public function products(){
+        return $this->belongsToMany('App\Product','category_many','category_id','item_id')->withTimestamps();
     }
 
     public function prepareParameters($parameters,$type)
@@ -35,7 +43,7 @@ class CategoryItem extends Model
                 $parameters->request->add(['type' => CATEGORY_PRODUCT]);
                 break;
             case'categorypost':
-                $parameters->request->add(['level' => CATEGORY_POST]);
+                $parameters->request->add(['type' => CATEGORY_POST]);
                 break;
         }
         $parent_id = $parameters->input('parent_id');
@@ -57,20 +65,27 @@ class CategoryItem extends Model
     public function getChildCategoryByParentId($parent_id){
         return $this->where('parent_id',$parent_id)->where('is_active', ACTIVE)->get();
     }
+    public function getLanguage(){
+        $lang=Session::get('website_language');
+        $locale=new Locale();
+        $locale_id=$locale->getLocaleIdByShortLang($lang);
+        return $locale_id;
+    }
 
     public function getAllCategoryByType($type)
     {
-        return $this->where('type', $type)->orderBy('order')->get();
+        $locale_id=self::getLanguage();
+        return $this->where('type', $type)->where('locale_id',$locale_id)->orderBy('order')->get();
     }
-    public function getAllOrderBy($order,$type)
+    public function getAllOrderBy($order,$type,$locale_id)
     {
-        return $this->where('type', $type)->orderBy($order)->get();
+        return $this->where('type', $type)->where('locale_id',$locale_id)->orderBy($order)->get();
     }
 
-    public function getAllParent($order, $type)
+    public function getAllParent($order, $type,$locale_id)
     {
         $newArray = array();
-        $categoryItems = self::getAllOrderBy($order,$type);
+        $categoryItems = self::getAllOrderBy($order,$type,$locale_id);
         foreach ($categoryItems as $key => $item) {
             if (!isset($item->parent_id)) {
                 array_push($newArray, $item);
@@ -97,6 +112,13 @@ class CategoryItem extends Model
     {
         if (IsNullOrEmptyString($value))
             $this->attributes['order'] = 1;
+    }
+    public function setImageAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['image'] = substr($value, strpos($value, 'images'), strlen($value) - 1);
+        } else
+            $this->attributes['image'] = null;
     }
     protected static function boot()
     {

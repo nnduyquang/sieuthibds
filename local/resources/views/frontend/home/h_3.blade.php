@@ -8,18 +8,17 @@
             <div class="col-md-12 p-4 position-relative">
 
                 <div id="owl-project" class="owl-carousel owl-theme">
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach($data['featuredProject'] as $key=>$item)
                         <div class="project-items border">
                             <div class="img-pro">
                                 <div class="img"
-                                     style="background-image:url(images/bg/ctc_masteri_pc.jpg);">
+                                     style="background-image:url({{URL::to($item->image)}}">
                                 </div>
                             </div>
                             <div class="p-4">
-                                <h4>MASTERI THAO DIEN</h4>
-                                <span>159 XA LỘ HÀ NỘI, THẢO ĐIỀN, QUẬN 2 - 40 FLOOR</span>
-                                <p>Thao Dien - An ideal place for many Expats choosing to settle down in one of the
-                                    outstanding apartments in Ho Chi Minh City. Also, in the center of Th...</p>
+                                <h4>{{$item->name}}</h4>
+                                {{--<span>159 XA LỘ HÀ NỘI, THẢO ĐIỀN, QUẬN 2 - 40 FLOOR</span>--}}
+                                <p>{!! $item->description !!}</p>
 
                                 <div class="mt-3 mb-3">
                                     <a href=""><i class="fas fa-long-arrow-alt-right pr-1"></i> VIEW MORE</a>
@@ -27,7 +26,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
 
                 <button class="btn_pre"> <i class="fas fa-chevron-circle-left"></i> </button>

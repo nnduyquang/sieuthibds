@@ -33,13 +33,13 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
         return $data;
     }
 
-    public function showCreatePost()
+    public function showCreatePost($locale_id)
     {
 
         $data = [];
         $categoryItem = new CategoryItem();
         $locale = new Locale();
-        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST);
+        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST,$locale_id);
         $locales = $locale->getAll();
         $data['categoryPost'] = $categoryPost;
         $data['locales'] = $locales;
@@ -52,14 +52,14 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
         $locale = new Locale();
         $categoryItem = new CategoryItem();
         $lang=$locale->getLocaleById($locale_id);
-        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST);
+        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST,$locale_id);
         $data['categoryPost'] = $categoryPost;
         $data['lang'] = $lang;
         return $data;
     }
 
 
-    public function showEditPost($id)
+    public function showEditPost($id, $locale_id)
     {
         $data = [];
         $data['post'] = $this->find($id);
@@ -67,7 +67,7 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
         $locale = new Locale();
         $locales = $locale->getAll();
         $categoryItem = new CategoryItem();
-        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST);
+        $categoryPost = $categoryItem->getAllParent('order', CATEGORY_POST,$locale_id);
         $data['categoryPost'] = $categoryPost;
         $data['locales'] = $locales;
         $data['translation']=$translation;
@@ -77,7 +77,6 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
 
     public function createNewPost($request)
     {
-        dd($request->all());
         $data = [];
         $seo = new Seo();
         if (!$seo->isSeoParameterEmpty($request)) {

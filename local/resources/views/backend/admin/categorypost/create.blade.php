@@ -26,11 +26,19 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'categorypost.store','method'=>'POST')) !!}
+    @if(isset($translation_id))
+        {!! Form::open(array('route' => 'categorypost.storeLocale','method'=>'POST')) !!}
+    @else
+        {!! Form::open(array('route' => 'categorypost.store','method'=>'POST')) !!}
+    @endif
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
                 <div class="wrap-create-edit">
+                    @if(isset($translation_id))
+                        {!! Form::hidden('translation_id', $translation_id) !!}
+                        {!! Form::hidden('locale_id', $langLocale->id) !!}
+                    @endif
                     <strong class="text-title-left">Tên Chuyên Mục</strong>
                     <div class="form-group">
                         {!! Form::text('name',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
@@ -59,17 +67,29 @@
                 </div>
             </div>
             <div class="col-md-6">
-                {{--<div class="wrap-create-edit">--}}
-                {{--<strong class="text-title-right">Hình Đại Diện</strong>--}}
-                {{--<div class="form-group">--}}
-                {{--{!! Form::text('image', null, array('class' => 'form-control','id'=>'pathImage')) !!}--}}
-                {{--<br>--}}
-                {{--{!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                {{--{{ Html::image('','',array('id'=>'showHinh','class'=>'show-image'))}}--}}
-                {{--</div>--}}
-                {{--</div>--}}
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Ngôn Ngữ</strong>
+                    @if(!isset($translation_id))
+                        <select class="form-control" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    @else
+                        {!! Form::text('locale_id',$langLocale->name, array('placeholder' => 'Tên','class' => 'form-control','disabled'=>'disabled')) !!}
+                    @endif
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Hình Đại Diện</strong>
+                    <div class="form-group">
+                        {!! Form::text('image', null, array('class' => 'form-control','id'=>'pathImage')) !!}
+                        <br>
+                        {!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}
+                    </div>
+                    <div class="form-group">
+                        {{ Html::image('','',array('id'=>'showHinh','class'=>'show-image'))}}
+                    </div>
+                </div>
                 {{--<div class="wrap-create-edit">--}}
                 {{--<strong class="text-title-right">Hình Đại Diện Trên Mobile</strong>--}}
                 {{--<div class="form-group">--}}

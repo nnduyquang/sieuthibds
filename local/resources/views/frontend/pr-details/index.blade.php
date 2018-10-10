@@ -28,7 +28,7 @@
                 @include('frontend.pr-details.h_2')
                 @include('frontend.pr-details.p_2')
                 @include('frontend.pr-details.p_1')
-                @include('frontend.project.p_3')
+                @include('frontend.pr-details.p_3')
             </div>
 
             <div class="col-md-4">
@@ -38,7 +38,7 @@
         </div>
 
     </div>
-    @include('frontend.project.p_4')
+    @include('frontend.pr-details.p_4')
     @include('frontend.pr-details.h_3')
 @stop
 

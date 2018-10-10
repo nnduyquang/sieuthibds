@@ -29,6 +29,10 @@ class Translation extends Model
     {
         return $this->hasMany('App\Product', 'translation_id');
     }
+    public function categoryitems()
+    {
+        return $this->hasMany('App\CategoryItem', 'translation_id');
+    }
     public function setIsActiveAttribute($value)
     {
         if (!IsNullOrEmptyString($value)) {

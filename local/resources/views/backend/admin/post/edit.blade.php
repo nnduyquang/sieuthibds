@@ -64,7 +64,7 @@
                                 @foreach($localesPost as $key2=>$item2)
 
                                     @if($item->id==$item2->locale_id)
-                                        <option data-href="{{ route('post.edit',$item2->id) }} "
+                                        <option data-href="{{ route('post.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }} "
                                                 data-post-id="{{$item2->id}}" value="{{$item->id}}"
                                                 @if($post->locale_id==$item->id) selected @endif>{{$item->name}}</option>
                                     @endif
@@ -83,7 +83,7 @@
                             @foreach($locales as $key=>$item)
                                 @foreach($localesPost as $key2=>$item2)
                                     @if($item->id==$item2->locale_id)
-                                        <option data-href="{{ route('post.edit',$item2->id) }}"
+                                        <option data-href="{{ route('post.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }}"
                                                 data-post-id="{{$item2->id}}" value="{{$item->id}}"
                                                 @if($post->locale_id==$item->id) selected @endif>{{$item->name}}</option>
                                     @endif

@@ -45,7 +45,7 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         $unit = new Unit();
         $facility=new Facility();
         $locales = $locale->getAll();
-        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT);
+        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT,$locale_id);
         $cities = $location->getAllCities($locale_id);
         $units = $unit->getAllUnit($locale_id);
         $facilities=$facility->getAllFacility($locale_id);
@@ -141,7 +141,7 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         $categoryItem = new CategoryItem();
         $units = $unit->getAllUnit($locale_id);
         $data['units'] = $units;
-        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT);
+        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT,$locale_id);
         $facilities = $facility->getAllFacility($locale_id);
         $data['categoryProduct'] = $categoryProduct;
         $data['locales'] = $locales;
@@ -227,7 +227,7 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         $unit = new Unit();
         $facility=new Facility();
         $locales = $locale->getAll();
-        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT);
+        $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT,$locale_id);
         $cities = $location->getAllCities($locale_id);
         $units = $unit->getAllUnit($locale_id);
         $facilities=$facility->getAllFacility($locale_id);

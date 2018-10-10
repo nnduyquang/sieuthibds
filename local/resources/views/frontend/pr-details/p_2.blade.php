@@ -7,12 +7,14 @@
 
             <div class="col-12">
 
-                <div class="items-ovv d-flex align-items-center">
-                    <i class="fas fa-shower"></i>
-                    <div class="pl-2">
-                        <h5>2 Bathroom(s)</h5>
+                @if(!is_null($data['product']->num_bath))
+                    <div class="items-ovv d-flex align-items-center">
+                        <i class="fas fa-shower"></i>
+                        <div class="pl-2">
+                            <h5>{{$data['product']->num_bed}} Bathroom(s)</h5>
+                        </div>
                     </div>
-                </div>
+                @endif
                 <div class="items-ovv d-flex align-items-center">
                     <i class="far fa-building"></i>
                     <div class="pl-2">
@@ -20,13 +22,14 @@
                         {{--<p>Project status</p>--}}
                     </div>
                 </div>
-
-                <div class="items-ovv d-flex align-items-center">
-                    <i class="fas fa-bed"></i>
-                    <div class="pl-2">
-                        <h5>2 Bedroom(s)</h5>
+                @if(!is_null($data['product']->num_bath))
+                    <div class="items-ovv d-flex align-items-center">
+                        <i class="fas fa-bed"></i>
+                        <div class="pl-2">
+                            <h5>{{$data['product']->num_bath}} Bedroom(s)</h5>
+                        </div>
                     </div>
-                </div>
+                @endif
 
 
                 <div class="items-ovv d-flex align-items-center">
@@ -38,21 +41,24 @@
                 </div>
 
 
-                <div class="items-ovv d-flex align-items-center">
-                    <i class="fas fa-users"></i>
-                    <div class="pl-2">
-                        <h5>5 Accommodate(s)</h5>
+                @if(!is_null($data['product']->num_member))
+                    <div class="items-ovv d-flex align-items-center">
+                        <i class="fas fa-users"></i>
+                        <div class="pl-2">
+                            <h5>{{$data['product']->num_member}} Accommodate(s)</h5>
 
+                        </div>
                     </div>
-                </div>
+                @endif
+                @if(!is_null($data['product']->area))
+                    <div class="items-ovv d-flex align-items-center">
+                        <i class="fas fa-chart-area"></i>
+                        <div class="pl-2">
+                            <h5>{{$data['product']->area}}</h5>
 
-                <div class="items-ovv d-flex align-items-center">
-                    <i class="fas fa-chart-area"></i>
-                    <div class="pl-2">
-                        <h5>90.6m2</h5>
-
+                        </div>
                     </div>
-                </div>
+                @endif
 
                 <div class="items-ovv d-flex align-items-center">
                     <i class="fas fa-umbrella"></i>
@@ -64,13 +70,16 @@
             </div>
 
             <div class="col-12 text-center">
-                @for ($i = 0; $i < 8; $i++)
+                @php
+                    $listImage=explode(';',$data['product']->sub_image);
+                @endphp
+                @foreach($listImage as $key=>$item)
                     <div class="img-prdetails">
-                        <a href=""><img src="https://img.hoozing.com/400/Property/112031/hoozing_0_42128_done-03242.jpg"
+                        <a href=""><img src="{{URL::to($item)}}"
                                         alt="">
                         </a>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Product extends Model
 {
@@ -33,6 +34,12 @@ class Product extends Model
     public function translations()
     {
         return $this->belongsTo('App\Translation', 'translation_id');
+    }
+    public function getLanguage(){
+        $lang=Session::get('website_language');
+        $locale=new Locale();
+        $locale_id=$locale->getLocaleIdByShortLang($lang);
+        return $locale_id;
     }
     public function getAllProductActiveOrderById(){
         return $this->where('isActive',ACTIVE)->orderBy('id','DESC')->get();
@@ -97,6 +104,30 @@ class Product extends Model
         }
         return $parameters;
     }
+    public function getAllProductHasTake($take){
+        return $this->take($take)->get();
+    }
+    public function getAllProductByArrayLocationId($arrayLocationId){
+        return $this->whereIn('location_id', $arrayLocationId)->get();
+    }
+    public function findProductByPath($path){
+        $locale_id=self::getLanguage();
+        return $this->wherePath($path)->first()->translations()->first()->products()->where('locale_id',$locale_id)->first();
+    }
+    public function findOtherProductByPath($id){
+        $locale_id=self::getLanguage();
+        $categories=$this->where('id',$id)->first()->categoryitems(CATEGORY_PRODUCT)->get();
+
+        $other=array();
+        foreach ($categories as $key=>$item){
+            $products=$item->products()->where('id','!=',$id)->where('locale_id',$locale_id)->get();
+
+            foreach ($products as $key2=>$item2){
+                array_push($other,$item2);
+            }
+        }
+        return $other;
+    }
     public function setIsActiveAttribute($value)
     {
         if (!IsNullOrEmptyString($value)) {
@@ -119,6 +150,8 @@ class Product extends Model
         if (IsNullOrEmptyString($value))
             $this->attributes['path'] = chuyen_chuoi_thanh_path($this->name);
     }
+
+
 
     protected static function boot()
     {

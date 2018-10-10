@@ -68,9 +68,9 @@
                 <div class="wrap-create-edit">
                     <strong class="text-title-right">Ngôn Ngữ</strong>
                     @if(!isset($translation_id))
-                        <select class="form-control" name="locale_id">
+                        <select class="form-control select-locale" name="locale_id">
                             @foreach($locales as $key=>$item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                <option data-href="{{ route('post.create',['locale_id'=>$item->id]) }}" value="{{$item->id}}"  @if($locale_id==$item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
                     @else

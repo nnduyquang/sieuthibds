@@ -72,6 +72,13 @@
                 <th></th>
                 <th>ID</th>
                 <th>Tên Chuyên Mục</th>
+                <th>
+                    <div class="wrap-image">
+                        @foreach($locales as $key=>$item)
+                            {{ Html::image($item->icon,'',array('id'=>'','class'=>'image-flag'))}}
+                        @endforeach
+                    </div>
+                </th>
                 <th>Ngày Đăng</th>
                 <th>Ngày Cập Nhật</th>
                 <th width="280px">Action</th>

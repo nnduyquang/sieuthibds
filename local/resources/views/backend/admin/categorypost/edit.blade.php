@@ -60,17 +60,64 @@
                 </div>
             </div>
             <div class="col-md-6">
-                {{--<div class="wrap-create-edit">--}}
-                {{--<strong class="text-title-right">Hình Đại Diện</strong>--}}
-                {{--<div class="form-group">--}}
-                {{--{!! Form::text('image', url('/').'/'.$categoryitem->image, array('class' => 'form-control','id'=>'pathImage')) !!}--}}
-                {{--<br>--}}
-                {{--{!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                {{--{{ Html::image($categoryitem->image,'',array('id'=>'showHinh','class'=>'show-image'))}}--}}
-                {{--</div>--}}
-                {{--</div>--}}
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Ngôn Ngữ</strong>
+                    @php
+                        $localesPost=$translation->categoryitems()->get();
+                        $insertLangArray = array();
+                    @endphp
+                    @if(count($localesPost)!=count($locales))
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                @foreach($localesPost as $key2=>$item2)
+
+                                    @if($item->id==$item2->locale_id)
+                                        <option data-href="{{ route('categorypost.edit',$item2->id) }} "
+                                                data-post-id="{{$item2->id}}" value="{{$item->id}}"
+                                                @if($categoryItem->locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                            @foreach($locales as $key=>$item)
+                                @if(!in_array($item->id,$localesPost->pluck('locale_id')->toArray()))
+                                    @php
+                                        array_push($insertLangArray, $item);
+                                    @endphp
+                                @endif
+                            @endforeach
+                        </select>
+                    @else
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                @foreach($localesPost as $key2=>$item2)
+                                    @if($item->id==$item2->locale_id)
+                                        <option data-href="{{ route('categorypost.edit',$item2->id) }}"
+                                                data-post-id="{{$item2->id}}" value="{{$item->id}}"
+                                                @if($categoryItem->locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        </select>
+
+                    @endif
+                    <div class="group-more-lang">
+                        @foreach($insertLangArray as $key=>$item)
+                            <a href="{{ route('categorypost.createLocale',['translation_id'=>$categoryItem->translation_id,'locale_id'=>$item->id]) }}">Thêm
+                                Ngôn Ngữ {{$item->name}}</a><br>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Hình Đại Diện</strong>
+                    <div class="form-group">
+                        {!! Form::text('image', url('/').'/'.$categoryItem->image, array('class' => 'form-control','id'=>'pathImage')) !!}
+                        <br>
+                        {!! Form::button('Tìm', array('id' => 'btnBrowseImage','class'=>'btn btn-primary')) !!}
+                    </div>
+                    <div class="form-group">
+                        {{ Html::image($categoryItem->image,'',array('id'=>'showHinh','class'=>'show-image'))}}
+                    </div>
+                </div>
                 {{--<div class="wrap-create-edit">--}}
                 {{--<strong class="text-title-right">Hình Đại Diện Trên Mobile</strong>--}}
                 {{--<div class="form-group">--}}

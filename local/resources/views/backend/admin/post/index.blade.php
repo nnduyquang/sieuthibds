@@ -12,7 +12,7 @@
             <div class="col-md-8">
                 <h2>Quản Lý Bài Viết</h2>
                 @permission(('post-create'))
-                <a class="btn btn-success" href="{{ route('post.create') }}"> Tạo Mới Bài Viết</a>
+                <a class="btn btn-success" href="{{ route('post.create',['locale_id'=>1]) }}"> Tạo Mới Bài Viết</a>
                 @endpermission
             </div>
         </div>
@@ -99,7 +99,7 @@
                     <td>{{$arrayCategoryItem->implode('name',',')}}</td>
                     <td>
                         @permission(('post-edit'))
-                        <a class="btn btn-primary" href="{{ route('post.edit',$data->posts()->first()->id) }}">Cập
+                        <a class="btn btn-primary" href="{{ route('post.edit',['id'=>$data->posts()->first()->id,'locale_id'=>$data->posts()->first()->locale_id]) }}">Cập
                             Nhật</a>
                         @endpermission
                         @permission(('post-delete'))

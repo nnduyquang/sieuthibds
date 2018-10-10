@@ -32,12 +32,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($locale_id)
     {
-        $data = $this->postRepository->showCreatePost();
+        $data = $this->postRepository->showCreatePost($locale_id);
         $categoryPost = $data['categoryPost'];
         $locales = $data['locales'];
-        return view('backend.admin.post.create', compact('roles', 'categoryPost', 'locales'));
+        return view('backend.admin.post.create', compact('roles', 'categoryPost', 'locales','locale_id'));
     }
 
     public function createLocale($translation_id, $locale_id)
@@ -81,9 +81,9 @@ class PostController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$locale_id)
     {
-        $data = $this->postRepository->showEditPost($id);
+        $data = $this->postRepository->showEditPost($id,$locale_id);
         $categoryPost = $data['categoryPost'];
         $post = $data['post'];
         $locales = $data['locales'];

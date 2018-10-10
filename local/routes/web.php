@@ -2,21 +2,15 @@
 
 Route::group(['middleware' => 'locale'], function() {
     Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
-    Route::get('/', function(){
-        return view('frontend.home.index');
-    });
+//    Route::get('/', function(){
+//        return view('frontend.home.index');
+//    });
+    Route::get('/', 'FrontendController@getFrontend');
+    Route::get('/du-an/{path}', 'FrontendController@getDuAnDetail');
 });
-Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
+//Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
 
-//Route::get('change-language/{language}', function($language) {
-//    session(['website_language' => $language]);
-//    return back();
-//})->name('user.change-language');
-//Route::get('/', function(){
-//    $currentLocale=session('website_language');
-//    if($currentLocale) app()->setLocale($currentLocale);
-//    return view('frontend.home.index');
-//});
+
 
 
 
@@ -43,6 +37,7 @@ Route::get('/projects-info.html', function () {
 Route::get('/project-details.html', function () {
     return view('frontend.pr-details.index');
 });
+
 
 Route::get('/danh-sach-can-ho.html', function () {
     return view('frontend.rent.index');
@@ -84,7 +79,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('sml_admin/danh-muc-bai-viet', ['as' => 'categorypost.index', 'uses' => 'CategoryItemController@index', 'middleware' => ['permission:page-list|page-create|page-edit|page-delete']])->defaults('type','categorypost');
     Route::post('sml_admin/danh-muc-bai-viet/search', ['as' => 'categorypost.search', 'uses' => 'CategoryItemController@search'])->defaults('type','categorypost');
     Route::post('sml_admin/danh-muc-bai-viet/create', ['as' => 'categorypost.store', 'uses' => 'CategoryItemController@store', 'middleware' => ['permission:page-create']])->defaults('type','categorypost');
+    Route::post('sml_admin/danh-muc-bai-viet/create-more-unit-lang', ['as' => 'categorypost.storeLocale', 'uses' => 'CategoryItemController@storeLocale', 'middleware' => ['permission:post-create']])->defaults('type','categorypost');
     Route::get('sml_admin/danh-muc-bai-viet/create', ['as' => 'categorypost.create', 'uses' => 'CategoryItemController@create', 'middleware' => ['permission:page-create']])->defaults('type','categorypost');
+    Route::get('sml_admin/danh-muc-bai-viet/{translation_id}/{locale_id}/create', ['as' => 'categorypost.createLocale', 'uses' => 'CategoryItemController@createLocale', 'middleware' => ['permission:post-create']])->defaults('type','categorypost');
     Route::get('sml_admin/danh-muc-bai-viet/{id}/edit', ['as' => 'categorypost.edit', 'uses' => 'CategoryItemController@edit', 'middleware' => ['permission:page-edit']])->defaults('type','categorypost');
     Route::patch('sml_admin/danh-muc-bai-viet/{id}', ['as' => 'categorypost.update', 'uses' => 'CategoryItemController@update', 'middleware' => ['permission:page-edit']])->defaults('type','categorypost');
     Route::delete('sml_admin/danh-muc-bai-viet/{id}', ['as' => 'categorypost.destroy', 'uses' => 'CategoryItemController@destroy', 'middleware' => ['permission:page-delete']])->defaults('type','categorypost');
@@ -94,9 +91,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('sml_admin/post/create', ['as' => 'post.store', 'uses' => 'PostController@store', 'middleware' => ['permission:post-create']]);
     Route::post('sml_admin/post/create-more-post-lang', ['as' => 'post.storeLocale', 'uses' => 'PostController@storeLocale', 'middleware' => ['permission:post-create']]);
     Route::post('sml_admin/post', ['as' => 'post.search', 'uses' => 'PostController@search']);
-    Route::get('sml_admin/post/create', ['as' => 'post.create', 'uses' => 'PostController@create', 'middleware' => ['permission:post-create']]);
+    Route::get('sml_admin/post/{locale_id}/create', ['as' => 'post.create', 'uses' => 'PostController@create', 'middleware' => ['permission:post-create']]);
     Route::get('sml_admin/post/{translation_id}/{locale_id}/create', ['as' => 'post.createLocale', 'uses' => 'PostController@createLocale', 'middleware' => ['permission:post-create']]);
-    Route::get('sml_admin/post/{id}/edit', ['as' => 'post.edit', 'uses' => 'PostController@edit', 'middleware' => ['permission:post-edit']]);
+    Route::get('sml_admin/post/{id}/{locale_id}/edit', ['as' => 'post.edit', 'uses' => 'PostController@edit', 'middleware' => ['permission:post-edit']]);
     Route::patch('sml_admin/post/{id}', ['as' => 'post.update', 'uses' => 'PostController@update', 'middleware' => ['permission:post-edit']]);
     Route::delete('sml_admin/post/{id}', ['as' => 'post.destroy', 'uses' => 'PostController@destroy', 'middleware' => ['permission:post-delete']]);
 
@@ -140,7 +137,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('sml_admin/danh-muc-san-pham/search', ['as' => 'categoryproduct.search', 'uses' => 'CategoryItemController@search'])->defaults('type','categoryproduct');
     Route::post('sml_admin/danh-muc-san-pham/paste', ['as' => 'categoryproduct.paste', 'uses' => 'CategoryItemController@paste'])->defaults('type','categoryproduct');
     Route::post('sml_admin/danh-muc-san-pham/create', ['as' => 'categoryproduct.store', 'uses' => 'CategoryItemController@store', 'middleware' => ['permission:page-create']])->defaults('type','categoryproduct');
+    Route::post('sml_admin/danh-muc-san-pham/create-more-unit-lang', ['as' => 'categoryproduct.storeLocale', 'uses' => 'CategoryItemController@storeLocale', 'middleware' => ['permission:post-create']])->defaults('type','categoryproduct');
     Route::get('sml_admin/danh-muc-san-pham/create', ['as' => 'categoryproduct.create', 'uses' => 'CategoryItemController@create', 'middleware' => ['permission:page-create']])->defaults('type','categoryproduct');
+    Route::get('sml_admin/danh-muc-san-pham/{translation_id}/{locale_id}/create', ['as' => 'categoryproduct.createLocale', 'uses' => 'CategoryItemController@createLocale', 'middleware' => ['permission:post-create']])->defaults('type','categoryproduct');
     Route::get('sml_admin/danh-muc-san-pham/{id}/edit', ['as' => 'categoryproduct.edit', 'uses' => 'CategoryItemController@edit', 'middleware' => ['permission:page-edit']])->defaults('type','categoryproduct');
     Route::patch('sml_admin/danh-muc-san-pham/{id}', ['as' => 'categoryproduct.update', 'uses' => 'CategoryItemController@update', 'middleware' => ['permission:page-edit']])->defaults('type','categoryproduct');
     Route::delete('sml_admin/danh-muc-san-pham/{id}', ['as' => 'categoryproduct.destroy', 'uses' => 'CategoryItemController@destroy', 'middleware' => ['permission:page-delete']])->defaults('type','categoryproduct');

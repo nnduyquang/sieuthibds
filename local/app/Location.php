@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class Location extends Model
 {
@@ -36,6 +37,16 @@ class Location extends Model
             }
         }
         return $newArray;
+    }
+    public function getLanguage(){
+        $lang=Session::get('website_language');
+        $locale=new Locale();
+        $locale_id=$locale->getLocaleIdByShortLang($lang);
+        return $locale_id;
+    }
+    public function getLocationByLevelHasTake($take){
+        $locale_id=self::getLanguage();
+        return $this->where('level',1)->where('locale_id',$locale_id)->take($take)->get();
     }
 
     public function getAllCities($locale_id)

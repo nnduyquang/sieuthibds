@@ -20,6 +20,8 @@ class Locale
     {
         if ( Session::has('website_language')) {
             App::setLocale(Session::get('website_language'));
+        }else{
+            Session::put('website_language',app()->getLocale());
         }
         return $next($request);
     }

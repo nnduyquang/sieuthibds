@@ -25,4 +25,7 @@ class Locale extends Model
     public function getLocaleById($id){
         return $this->whereId($id)->first();
     }
+    public function getLocaleIdByShortLang($lang){
+        return $this->where('short',$lang)->first()->id;
+    }
 }

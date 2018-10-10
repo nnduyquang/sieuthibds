@@ -1,4 +1,4 @@
-@foreach($data as $key=>$item)
+@foreach($categoryItems as $key=>$item)
     <option value="{{$item->id}}">
         @if(isset($dash))
             @php
