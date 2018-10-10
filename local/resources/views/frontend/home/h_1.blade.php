@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="col-12 text-center">
-                    <h4>Hassle-Free Renting</h4>
+                    <h4>@lang('content.home_title_hassle_free_renting')</h4>
                 </div>
             </div>
         </div>

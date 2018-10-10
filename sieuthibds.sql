@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 09, 2018 lúc 12:49 PM
--- Phiên bản máy phục vụ: 10.1.31-MariaDB
--- Phiên bản PHP: 7.0.29
+-- Host: 127.0.0.1
+-- Generation Time: Oct 10, 2018 at 02:36 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `sieuthibds`
+-- Database: `sieuthibds`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category_items`
+-- Table structure for table `category_items`
 --
 
 CREATE TABLE `category_items` (
@@ -46,7 +44,7 @@ CREATE TABLE `category_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category_items`
+-- Dumping data for table `category_items`
 --
 
 INSERT INTO `category_items` (`id`, `name`, `path`, `description`, `image`, `image_mobile`, `level`, `parent_id`, `type`, `order`, `is_active`, `created_at`, `updated_at`, `seo_id`) VALUES
@@ -56,7 +54,7 @@ INSERT INTO `category_items` (`id`, `name`, `path`, `description`, `image`, `ima
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category_many`
+-- Table structure for table `category_many`
 --
 
 CREATE TABLE `category_many` (
@@ -68,7 +66,7 @@ CREATE TABLE `category_many` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category_many`
+-- Dumping data for table `category_many`
 --
 
 INSERT INTO `category_many` (`category_id`, `item_id`, `type`, `created_at`, `updated_at`) VALUES
@@ -77,16 +75,14 @@ INSERT INTO `category_many` (`category_id`, `item_id`, `type`, `created_at`, `up
 (1, 3, 0, '2018-10-08 03:23:35', '2018-10-08 03:23:35'),
 (1, 4, 0, '2018-10-08 03:25:11', '2018-10-08 03:25:11'),
 (1, 5, 0, '2018-10-08 03:53:10', '2018-10-08 03:53:10'),
-(1, 6, 0, '2018-10-08 03:53:30', '2018-10-08 03:53:30'),
-(1, 8, 0, '2018-10-08 04:12:15', '2018-10-08 04:12:15'),
-(1, 9, 0, '2018-10-08 04:12:39', '2018-10-08 04:12:39'),
-(2, 2, 1, '2018-10-09 09:57:59', '2018-10-09 09:57:59'),
-(2, 3, 1, '2018-10-09 10:46:55', '2018-10-09 10:46:55');
+(2, 2, 1, '2018-10-09 09:57:59', '2018-10-09 12:51:40'),
+(2, 3, 1, '2018-10-09 10:46:55', '2018-10-09 12:51:50'),
+(2, 14, 1, '2018-10-09 13:54:45', '2018-10-09 13:58:22');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category_permissions`
+-- Table structure for table `category_permissions`
 --
 
 CREATE TABLE `category_permissions` (
@@ -97,7 +93,7 @@ CREATE TABLE `category_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `category_permissions`
+-- Dumping data for table `category_permissions`
 --
 
 INSERT INTO `category_permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -111,7 +107,7 @@ INSERT INTO `category_permissions` (`id`, `name`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `configs`
+-- Table structure for table `configs`
 --
 
 CREATE TABLE `configs` (
@@ -126,16 +122,16 @@ CREATE TABLE `configs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `configs`
+-- Dumping data for table `configs`
 --
 
 INSERT INTO `configs` (`id`, `name`, `content`, `description`, `order`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'config-contact', '<p>\r\n	<strong><em><span style=\"background-color:#f1c40f;\">Hotline đặt hàng</span>:</em></strong><em>&nbsp;&nbsp;<strong>097.388.9336 - 0914.675.777</strong></em>\r\n</p>\r\n\r\n<p>\r\n	<strong><em>Hotline hỗ trợ tư vấn và phản hồi ý kiến</em></strong><em>:&nbsp;&nbsp;<strong>097.388.9336</strong></em>\r\n</p>\r\n\r\n<p>\r\n	<strong><em>Hân hạnh được phục vụ quý khách hàng.!</em></strong>\r\n</p>\r\n\r\n<p>\r\n	<strong><em>Thông tin liên hệ với chúng tôi:</em></strong>\r\n</p>\r\n\r\n<p>\r\n	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<strong>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ THÉP KHÁNH NAM</strong>\r\n</p>\r\n\r\n<p>\r\n	<strong>TRỤ SỞ CHÍNH:</strong>&nbsp;<em>201 Bình Thành, KP 4, P. Bình Hưng Hòa, Q. Bình Tân, thành phố Hồ Chí Minh</em>\r\n</p>\r\n\r\n<p>\r\n	<strong>Di động:</strong><em>&nbsp;097.388.9336 - 0914.675.777</em>\r\n</p>', NULL, NULL, 1, NULL, '2018-03-30 09:07:51');
+(1, 'config-contact', '<p>\r\n	<strong><em><span style="background-color:#f1c40f;">Hotline đặt hàng</span>:</em></strong><em>&nbsp;&nbsp;<strong>097.388.9336 - 0914.675.777</strong></em>\r\n</p>\r\n\r\n<p>\r\n	<strong><em>Hotline hỗ trợ tư vấn và phản hồi ý kiến</em></strong><em>:&nbsp;&nbsp;<strong>097.388.9336</strong></em>\r\n</p>\r\n\r\n<p>\r\n	<strong><em>Hân hạnh được phục vụ quý khách hàng.!</em></strong>\r\n</p>\r\n\r\n<p>\r\n	<strong><em>Thông tin liên hệ với chúng tôi:</em></strong>\r\n</p>\r\n\r\n<p>\r\n	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<strong>CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ THÉP KHÁNH NAM</strong>\r\n</p>\r\n\r\n<p>\r\n	<strong>TRỤ SỞ CHÍNH:</strong>&nbsp;<em>201 Bình Thành, KP 4, P. Bình Hưng Hòa, Q. Bình Tân, thành phố Hồ Chí Minh</em>\r\n</p>\r\n\r\n<p>\r\n	<strong>Di động:</strong><em>&nbsp;097.388.9336 - 0914.675.777</em>\r\n</p>', NULL, NULL, 1, NULL, '2018-03-30 09:07:51');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `facilities`
+-- Table structure for table `facilities`
 --
 
 CREATE TABLE `facilities` (
@@ -149,7 +145,7 @@ CREATE TABLE `facilities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `facilities`
+-- Dumping data for table `facilities`
 --
 
 INSERT INTO `facilities` (`id`, `name`, `icon`, `locale_id`, `translation_id`, `created_at`, `updated_at`) VALUES
@@ -197,7 +193,7 @@ INSERT INTO `facilities` (`id`, `name`, `icon`, `locale_id`, `translation_id`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `facilities_products`
+-- Table structure for table `facilities_products`
 --
 
 CREATE TABLE `facilities_products` (
@@ -208,22 +204,25 @@ CREATE TABLE `facilities_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `facilities_products`
+-- Dumping data for table `facilities_products`
 --
 
 INSERT INTO `facilities_products` (`product_id`, `facility_id`, `created_at`, `updated_at`) VALUES
 (3, 1, '2018-10-09 10:46:55', '2018-10-09 10:46:55'),
 (2, 2, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(2, 6, '2018-10-09 12:35:21', '2018-10-09 12:35:21'),
 (3, 9, '2018-10-09 10:46:55', '2018-10-09 10:46:55'),
 (2, 10, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
-(2, 12, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(2, 14, '2018-10-09 12:35:21', '2018-10-09 12:35:21'),
 (3, 17, '2018-10-09 10:46:55', '2018-10-09 10:46:55'),
-(2, 20, '2018-10-09 09:57:58', '2018-10-09 09:57:58');
+(2, 20, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(14, 34, '2018-10-09 13:54:45', '2018-10-09 13:54:45'),
+(14, 36, '2018-10-09 13:54:45', '2018-10-09 13:54:45');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `locales`
+-- Table structure for table `locales`
 --
 
 CREATE TABLE `locales` (
@@ -237,7 +236,7 @@ CREATE TABLE `locales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `locales`
+-- Dumping data for table `locales`
 --
 
 INSERT INTO `locales` (`id`, `icon`, `name`, `short`, `sort`, `created_at`, `updated_at`) VALUES
@@ -247,7 +246,7 @@ INSERT INTO `locales` (`id`, `icon`, `name`, `short`, `sort`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `locations`
+-- Table structure for table `locations`
 --
 
 CREATE TABLE `locations` (
@@ -265,19 +264,21 @@ CREATE TABLE `locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `locations`
+-- Dumping data for table `locations`
 --
 
 INSERT INTO `locations` (`id`, `name`, `path`, `is_active`, `level`, `order`, `parent_id`, `locale_id`, `translation_id`, `created_at`, `updated_at`) VALUES
-(1, 'TP.Hồ Chí Minh', 'tpho-chi-minh', 0, NULL, 1, NULL, 1, 28, '2018-10-09 03:12:11', '2018-10-09 03:12:11'),
-(2, 'Ho Chi Minh City', 'ho-chi-minh-city', 1, NULL, 1, NULL, 2, 28, '2018-10-09 03:33:19', '2018-10-09 03:33:19'),
-(3, 'Quận 1', 'quan-1', 1, NULL, 1, 1, 1, 29, '2018-10-09 03:34:02', '2018-10-09 03:44:49'),
-(4, 'District 1', 'district-1', 1, NULL, 1, 2, 2, 29, '2018-10-09 03:34:21', '2018-10-09 04:12:31');
+(1, 'TP.Hồ Chí Minh', 'tpho-chi-minh', 0, 0, 1, NULL, 1, 28, '2018-10-09 03:12:11', '2018-10-09 03:12:11'),
+(2, 'Ho Chi Minh City', 'ho-chi-minh-city', 1, 0, 1, NULL, 2, 28, '2018-10-09 03:33:19', '2018-10-09 03:33:19'),
+(3, 'Quận 1', 'quan-1', 1, 1, 1, 1, 1, 29, '2018-10-09 03:34:02', '2018-10-09 03:44:49'),
+(4, 'District 1', 'district-1', 1, 1, 1, 2, 2, 29, '2018-10-09 03:34:21', '2018-10-09 04:12:31'),
+(5, 'Quận 2', 'quan-2', 1, 1, 1, 1, 1, 38, '2018-10-09 12:45:21', '2018-10-09 12:45:21'),
+(6, 'District 2', 'district-2', 1, 1, 1, 2, 2, 38, '2018-10-09 12:48:52', '2018-10-09 12:48:52');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `menus`
+-- Table structure for table `menus`
 --
 
 CREATE TABLE `menus` (
@@ -296,7 +297,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `menus`
+-- Dumping data for table `menus`
 --
 
 INSERT INTO `menus` (`id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
@@ -307,7 +308,7 @@ INSERT INTO `menus` (`id`, `title`, `url`, `target`, `icon_class`, `color`, `par
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -317,7 +318,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -338,7 +339,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -350,7 +351,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -364,7 +365,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `category_permission_id`, `created_at`, `updated_at`) VALUES
@@ -396,7 +397,7 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `categor
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `permission_role`
+-- Table structure for table `permission_role`
 --
 
 CREATE TABLE `permission_role` (
@@ -405,7 +406,7 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `permission_role`
+-- Dumping data for table `permission_role`
 --
 
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -437,7 +438,7 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `posts`
+-- Table structure for table `posts`
 --
 
 CREATE TABLE `posts` (
@@ -457,7 +458,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `posts`
+-- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `image`, `post_type`, `user_id`, `created_at`, `updated_at`, `seo_id`, `locale_id`, `translation_id`) VALUES
@@ -465,15 +466,12 @@ INSERT INTO `posts` (`id`, `title`, `path`, `description`, `content`, `image`, `
 (2, 'Post In English', 'post-in-english', NULL, NULL, NULL, 1, 1, '2018-10-08 02:08:16', '2018-10-08 02:08:16', NULL, 2, 1),
 (3, 'Bài Viết Tiếng Việt 2', 'bai-viet-tieng-viet-2', NULL, NULL, NULL, 1, 1, '2018-10-08 03:23:35', '2018-10-08 03:23:35', NULL, 1, 2),
 (4, 'Post In English 3', 'post-in-english-3', NULL, NULL, NULL, 1, 1, '2018-10-08 03:25:11', '2018-10-08 03:25:11', NULL, 2, 3),
-(5, 'Bài Tiếng Việt 3', 'bai-tieng-viet-3', NULL, NULL, NULL, 1, 1, '2018-10-08 03:53:10', '2018-10-08 03:53:10', NULL, 1, 3),
-(6, 'Bài Tiếng Việt 4', 'bai-tieng-viet-4', NULL, NULL, NULL, 1, 1, '2018-10-08 03:53:30', '2018-10-08 03:53:30', NULL, 1, 4),
-(8, 'Post In English 6', 'post-in-english-6', NULL, NULL, NULL, 1, 1, '2018-10-08 04:12:15', '2018-10-08 04:12:15', NULL, 2, 5),
-(9, 'Bài Viết Tiếng Việt 6', 'bai-viet-tieng-viet-6', NULL, NULL, NULL, 1, 1, '2018-10-08 04:12:39', '2018-10-08 04:12:39', NULL, 1, 5);
+(5, 'Bài Tiếng Việt 3', 'bai-tieng-viet-3', NULL, NULL, NULL, 1, 1, '2018-10-08 03:53:10', '2018-10-08 03:53:10', NULL, 1, 3);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -498,7 +496,7 @@ CREATE TABLE `products` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `unit_id` int(10) UNSIGNED NOT NULL,
+  `unit_id` int(10) UNSIGNED DEFAULT NULL,
   `location_id` int(11) NOT NULL,
   `locale_id` int(10) UNSIGNED NOT NULL,
   `translation_id` int(10) UNSIGNED NOT NULL,
@@ -506,17 +504,18 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `path`, `is_active`, `image`, `sub_image`, `description`, `content`, `num_bath`, `num_bed`, `location_district`, `num_member`, `area`, `furniture_full`, `map`, `code`, `price`, `order`, `user_id`, `created_at`, `updated_at`, `unit_id`, `location_id`, `locale_id`, `translation_id`, `seo_id`) VALUES
-(2, 'tên sản phẩm', '', 1, 'http://localhost:8080/sieuthibds/images/uploads/images/gt_1.jpg', 'images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg', '<p>\r\n	Mô tả ngắn\r\n</p>', '<p>\r\n	Mô tả sản phẩm\r\n</p>', 2, 5, 0, 4, '5000', 0, NULL, NULL, '5000', 1, 1, '2018-10-09 09:57:58', '2018-10-09 09:57:58', 2, 3, 1, 36, NULL),
-(3, 'English product', '', 1, 'http://localhost:8080/sieuthibds/images/uploads/images/gt_1.jpg', 'images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg', '<p>\r\n	short description\r\n</p>', '<p>\r\n	content product\r\n</p>', 3, 2, 0, 6, '500', 0, NULL, '123456', '5000', 1, 1, '2018-10-09 10:46:55', '2018-10-09 10:46:55', 1, 4, 2, 36, NULL);
+(2, 'tên sản phẩm', 'ten-san-pham', 1, 'images/uploads/images/gt_1.jpg', 'images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg', '<p>\r\n	Mô tả ngắn 2\r\n</p>', '<p>\r\n	Mô tả sản phẩm\r\n</p>', 5, 5, 0, 4, '5000', 0, NULL, NULL, '5000', 1, 1, '2018-10-09 09:57:58', '2018-10-09 12:51:40', 2, 3, 1, 36, NULL),
+(3, 'English product', 'english-product', 1, 'images/uploads/images/gt_1.jpg', 'images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg;images/uploads/images/gt_1.jpg', '<p>\r\n	short description\r\n</p>', '<p>\r\n	content product\r\n</p>', 3, 2, 0, 6, '500', 0, NULL, '123456', '5000', 1, 1, '2018-10-09 10:46:55', '2018-10-09 12:51:50', 1, 4, 2, 36, NULL),
+(14, 'san pham 2', 'san-pham-2', 1, 'images/uploads/images/gt_1.jpg', '', NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, NULL, 1, 1, '2018-10-09 13:54:45', '2018-10-09 13:58:22', NULL, 1, 1, 46, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -529,7 +528,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
@@ -538,7 +537,7 @@ INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `role_user`
+-- Table structure for table `role_user`
 --
 
 CREATE TABLE `role_user` (
@@ -547,7 +546,7 @@ CREATE TABLE `role_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `role_user`
+-- Dumping data for table `role_user`
 --
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
@@ -556,7 +555,7 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `seos`
+-- Table structure for table `seos`
 --
 
 CREATE TABLE `seos` (
@@ -571,7 +570,7 @@ CREATE TABLE `seos` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `translations`
+-- Table structure for table `translations`
 --
 
 CREATE TABLE `translations` (
@@ -583,15 +582,13 @@ CREATE TABLE `translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `translations`
+-- Dumping data for table `translations`
 --
 
 INSERT INTO `translations` (`id`, `is_active`, `type`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, '2018-10-07 14:59:41', '2018-10-07 14:59:41'),
 (2, 1, 0, '2018-10-08 03:23:35', '2018-10-08 03:23:35'),
 (3, 1, 0, '2018-10-08 03:25:11', '2018-10-08 03:25:11'),
-(4, 1, 0, '2018-10-08 03:53:30', '2018-10-08 03:53:30'),
-(5, 1, 0, '2018-10-08 04:12:15', '2018-10-08 04:12:15'),
 (6, 1, 2, '2018-10-08 07:37:01', '2018-10-08 07:37:01'),
 (7, 0, 2, '2018-10-08 07:47:37', '2018-10-08 07:47:37'),
 (8, 0, 2, '2018-10-08 07:48:10', '2018-10-08 07:48:10'),
@@ -613,15 +610,16 @@ INSERT INTO `translations` (`id`, `is_active`, `type`, `created_at`, `updated_at
 (24, 0, 2, '2018-10-08 07:59:39', '2018-10-08 07:59:39'),
 (25, 0, 2, '2018-10-08 08:00:05', '2018-10-08 08:00:05'),
 (26, 1, 3, '2018-10-08 09:36:03', '2018-10-08 09:36:03'),
-(27, 1, 0, '2018-10-09 03:10:41', '2018-10-09 03:10:41'),
 (28, 0, 4, '2018-10-09 03:12:11', '2018-10-09 03:12:11'),
 (29, 1, 4, '2018-10-09 03:34:02', '2018-10-09 03:34:02'),
-(36, 1, 1, '2018-10-09 09:57:58', '2018-10-09 09:57:58');
+(36, 1, 1, '2018-10-09 09:57:58', '2018-10-09 09:57:58'),
+(38, 1, 4, '2018-10-09 12:45:21', '2018-10-09 12:45:21'),
+(46, 1, 1, '2018-10-09 13:54:45', '2018-10-09 13:54:45');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `units`
+-- Table structure for table `units`
 --
 
 CREATE TABLE `units` (
@@ -634,7 +632,7 @@ CREATE TABLE `units` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `units`
+-- Dumping data for table `units`
 --
 
 INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`, `locale_id`, `translation_id`) VALUES
@@ -644,7 +642,7 @@ INSERT INTO `units` (`id`, `name`, `created_at`, `updated_at`, `locale_id`, `tra
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -658,45 +656,45 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'nnduyquang', 'nnduyquang@gmail.com', '$2y$10$mStg572JFNI89/0Cg7TOGOUkACFaBl/nsNeOvx8zglr1qyJPA0tj6', NULL, '2018-03-14 07:24:10', NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `category_items`
+-- Indexes for table `category_items`
 --
 ALTER TABLE `category_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_items_seo_id_foreign` (`seo_id`);
 
 --
--- Chỉ mục cho bảng `category_many`
+-- Indexes for table `category_many`
 --
 ALTER TABLE `category_many`
   ADD PRIMARY KEY (`category_id`,`item_id`);
 
 --
--- Chỉ mục cho bảng `category_permissions`
+-- Indexes for table `category_permissions`
 --
 ALTER TABLE `category_permissions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `category_permissions_name_unique` (`name`);
 
 --
--- Chỉ mục cho bảng `configs`
+-- Indexes for table `configs`
 --
 ALTER TABLE `configs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `configs_user_id_foreign` (`user_id`);
 
 --
--- Chỉ mục cho bảng `facilities`
+-- Indexes for table `facilities`
 --
 ALTER TABLE `facilities`
   ADD PRIMARY KEY (`id`),
@@ -704,19 +702,19 @@ ALTER TABLE `facilities`
   ADD KEY `facilities_locale_id_foreign` (`locale_id`);
 
 --
--- Chỉ mục cho bảng `facilities_products`
+-- Indexes for table `facilities_products`
 --
 ALTER TABLE `facilities_products`
   ADD PRIMARY KEY (`facility_id`,`product_id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `locales`
+-- Indexes for table `locales`
 --
 ALTER TABLE `locales`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `locations`
+-- Indexes for table `locations`
 --
 ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`),
@@ -724,25 +722,25 @@ ALTER TABLE `locations`
   ADD KEY `locations_locale_id_foreign` (`locale_id`);
 
 --
--- Chỉ mục cho bảng `menus`
+-- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
@@ -750,14 +748,14 @@ ALTER TABLE `permissions`
   ADD KEY `permissions_category_permission_id_foreign` (`category_permission_id`);
 
 --
--- Chỉ mục cho bảng `permission_role`
+-- Indexes for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `permission_role_role_id_foreign` (`role_id`);
 
 --
--- Chỉ mục cho bảng `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -767,7 +765,7 @@ ALTER TABLE `posts`
   ADD KEY `posts_locale_id_foreign` (`locale_id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
@@ -777,33 +775,33 @@ ALTER TABLE `products`
   ADD KEY `products_locale_id_foreign` (`locale_id`);
 
 --
--- Chỉ mục cho bảng `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_unique` (`name`);
 
 --
--- Chỉ mục cho bảng `role_user`
+-- Indexes for table `role_user`
 --
 ALTER TABLE `role_user`
   ADD PRIMARY KEY (`user_id`,`role_id`),
   ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
--- Chỉ mục cho bảng `seos`
+-- Indexes for table `seos`
 --
 ALTER TABLE `seos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `translations`
+-- Indexes for table `translations`
 --
 ALTER TABLE `translations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `units`
+-- Indexes for table `units`
 --
 ALTER TABLE `units`
   ADD PRIMARY KEY (`id`),
@@ -811,163 +809,146 @@ ALTER TABLE `units`
   ADD KEY `units_locale_id_foreign` (`locale_id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `category_items`
+-- AUTO_INCREMENT for table `category_items`
 --
 ALTER TABLE `category_items`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT cho bảng `category_permissions`
+-- AUTO_INCREMENT for table `category_permissions`
 --
 ALTER TABLE `category_permissions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
--- AUTO_INCREMENT cho bảng `configs`
+-- AUTO_INCREMENT for table `configs`
 --
 ALTER TABLE `configs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT cho bảng `facilities`
+-- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-
 --
--- AUTO_INCREMENT cho bảng `facilities_products`
+-- AUTO_INCREMENT for table `facilities_products`
 --
 ALTER TABLE `facilities_products`
-  MODIFY `facility_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
+  MODIFY `facility_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
--- AUTO_INCREMENT cho bảng `locales`
+-- AUTO_INCREMENT for table `locales`
 --
 ALTER TABLE `locales`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT cho bảng `locations`
+-- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT cho bảng `menus`
+-- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
--- AUTO_INCREMENT cho bảng `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
 --
--- AUTO_INCREMENT cho bảng `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT cho bảng `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT cho bảng `seos`
+-- AUTO_INCREMENT for table `seos`
 --
 ALTER TABLE `seos`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT cho bảng `translations`
+-- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
--- AUTO_INCREMENT cho bảng `units`
+-- AUTO_INCREMENT for table `units`
 --
 ALTER TABLE `units`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Constraints for dumped tables
+--
 
 --
--- Các ràng buộc cho các bảng đã đổ
---
-
---
--- Các ràng buộc cho bảng `category_items`
+-- Constraints for table `category_items`
 --
 ALTER TABLE `category_items`
   ADD CONSTRAINT `category_items_seo_id_foreign` FOREIGN KEY (`seo_id`) REFERENCES `seos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `configs`
+-- Constraints for table `configs`
 --
 ALTER TABLE `configs`
   ADD CONSTRAINT `configs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `facilities`
+-- Constraints for table `facilities`
 --
 ALTER TABLE `facilities`
   ADD CONSTRAINT `facilities_locale_id_foreign` FOREIGN KEY (`locale_id`) REFERENCES `locales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `facilities_translation_id_foreign` FOREIGN KEY (`translation_id`) REFERENCES `translations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `locations`
+-- Constraints for table `locations`
 --
 ALTER TABLE `locations`
   ADD CONSTRAINT `locations_locale_id_foreign` FOREIGN KEY (`locale_id`) REFERENCES `locales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `locations_translation_id_foreign` FOREIGN KEY (`translation_id`) REFERENCES `translations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `permissions`
+-- Constraints for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD CONSTRAINT `permissions_category_permission_id_foreign` FOREIGN KEY (`category_permission_id`) REFERENCES `category_permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `permission_role`
+-- Constraints for table `permission_role`
 --
 ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `posts`
+-- Constraints for table `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_locale_id_foreign` FOREIGN KEY (`locale_id`) REFERENCES `locales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -976,7 +957,7 @@ ALTER TABLE `posts`
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `products`
+-- Constraints for table `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_locale_id_foreign` FOREIGN KEY (`locale_id`) REFERENCES `locales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -985,19 +966,18 @@ ALTER TABLE `products`
   ADD CONSTRAINT `products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `role_user`
+-- Constraints for table `role_user`
 --
 ALTER TABLE `role_user`
   ADD CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `units`
+-- Constraints for table `units`
 --
 ALTER TABLE `units`
   ADD CONSTRAINT `units_locale_id_foreign` FOREIGN KEY (`locale_id`) REFERENCES `locales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `units_translation_id_foreign` FOREIGN KEY (`translation_id`) REFERENCES `translations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -46,6 +46,53 @@
             </div>
             <div class="col-md-6">
                 <div class="wrap-create-edit">
+                    <strong class="text-title-right">Ngôn Ngữ</strong>
+                    @php
+                        $localesPost=$translation->products()->get();
+                        $insertLangArray = array();
+                    @endphp
+                    @if(count($localesPost)!=count($locales))
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                @foreach($localesPost as $key2=>$item2)
+
+                                    @if($item->id==$item2->locale_id)
+                                        <option data-href="{{ route('product.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }} "
+                                                data-post-id="{{$item2->id}}" value="{{$item->id}}"
+                                                @if($product->locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                            @foreach($locales as $key=>$item)
+                                @if(!in_array($item->id,$localesPost->pluck('locale_id')->toArray()))
+                                    @php
+                                        array_push($insertLangArray, $item);
+                                    @endphp
+                                @endif
+                            @endforeach
+                        </select>
+                    @else
+                        <select class="form-control select-locale" name="locale_id">
+                            @foreach($locales as $key=>$item)
+                                @foreach($localesPost as $key2=>$item2)
+                                    @if($item->id==$item2->locale_id)
+                                        <option data-href="{{ route('product.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }}"
+                                                data-post-id="{{$item2->id}}" value="{{$item->id}}"
+                                                @if($product->locale_id==$item->id) selected @endif>{{$item->name}}</option>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        </select>
+
+                    @endif
+                    <div class="group-more-lang">
+                        @foreach($insertLangArray as $key=>$item)
+                            <a href="{{ route('product.createLocale',['translation_id'=>$product->translation_id,'locale_id'=>$item->id]) }}">Thêm
+                                Ngôn Ngữ {{$item->name}}</a><br>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="wrap-create-edit">
                     <strong class="text-title-right">Hình Đại Diện</strong>
                     <div class="form-group">
                         {!! Form::text('image', url('/').'/'.$product->image, array('class' => 'form-control','id'=>'pathImage')) !!}
@@ -77,6 +124,13 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Mã Sản Phẩm </strong>
+                    <div class="form-group">
+                        {!! Form::text('code',null, array('placeholder' => 'code','class' => 'form-control')) !!}
+                    </div>
+
                 </div>
                 <div class="wrap-create-edit">
                     <strong class="text-title-right">Loại Sản Phẩm</strong>
@@ -114,17 +168,6 @@
                     </div>
                 </div>
                 <div class="wrap-create-edit">
-                    <strong class="text-title-right">Hướng</strong>
-                    <div class="form-group">
-                        <select name="direction_id" class="form-control">
-                            <option value="-1">Chọn Hướng</option>
-                            @foreach($directions as $key=>$item)
-                                <option {{($product->direction_id=== $item->id)?'selected':''}}   value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="wrap-create-edit">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -152,11 +195,49 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <strong>Số Phòng </strong>
+                                <strong>Số Phòng Ngủ </strong>
                                 {!! Form::text('num_bed',null, array('placeholder' => 'Số Phòng','class' => 'form-control')) !!}
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Số Phòng Tắm </strong>
+                                {!! Form::text('num_bath',null, array('placeholder' => 'Số Phòng','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <strong>Số Người ở Tối Đa </strong>
+                                {!! Form::text('num_member',null, array('placeholder' => 'Số Phòng','class' => 'form-control')) !!}
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 p-0">
+            <div class="wrap-create-edit">
+                <strong class="text-title-left">Chọn Cơ Sở Vật Chất</strong>
+                <div class="row">
+                    @php
+                        $arrayFacilities=$product->facilities()->get();
+                    @endphp
+                    @foreach($facilities as $key=>$item)
+                        <div class="col-md-3">
+                            <div class="facility-info">
+                                <label class="check-container">
+                                    {{$item->name}}
+                                    @if(in_array($item->id,explode(',',$arrayFacilities->implode('id',','))))
+                                        {{ Form::checkbox('list_facility_id[]', $item->id, true, array('class' => '')) }}
+                                        <span class="check-mark"></span>
+                                    @else
+                                        {{ Form::checkbox('list_facility_id[]', $item->id, false, array('class' => '')) }}
+                                        <span class="check-mark"></span>
+                                    @endif
+                                </label>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -184,47 +265,45 @@
             <h3>SEO</h3>
             <div class="content">
                 <div class="show-pattern">
-                    <span class="title">{{$product->seos->seo_title}}</span>
+                    @if(!is_null($product->seo_id))
+                        <span class="title">{{$post->seos->seo_title}}</span>
+                    @else
+                        <span class="title"></span>
+                    @endif
                     <span class="link">{{URL::to('/')}}/{{$product->path}}</span>
-                    <span class="description">{{$product->seos->seo_description}}</span>
+                    @if(!is_null($product->seo_id))
+                        <span class="description">{{$product->seos->seo_description}}</span>
+                    @else
+                        <span class="description"></span>
+                    @endif
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <strong>Từ khóa cần SEO</strong>
-                        {!! Form::text('seo_keywords',$product->seos->seo_keywords, array('placeholder' => 'keywords cách nhau dấu phẩy','class' => 'form-control')) !!}
+                        @if(!is_null($product->seo_id))
+                            {!! Form::text('seo_keywords',$product->seos->seo_keywords, array('placeholder' => 'keywords cách nhau dấu phẩy','class' => 'form-control')) !!}
+                        @else
+                            {!! Form::text('seo_keywords',null, array('placeholder' => 'keywords cách nhau dấu phẩy','class' => 'form-control')) !!}
+                        @endif
                         <ul class="error-notice">
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-12 form-group">
                     <strong>Tiêu Đề (title):</strong>
-                    {!! Form::text('seo_title',$product->seos->seo_title, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                    @if(!is_null($product->seo_id))
+                        {!! Form::text('seo_title',$product->seos->seo_title, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                    @else
+                        {!! Form::text('seo_title',null, array('placeholder' => 'Tên','class' => 'form-control')) !!}
+                    @endif
                 </div>
                 <div class="col-md-12 form-group">
                     <strong>Mô Tả (description):</strong>
-                    {!! Form::textarea('seo_description',$product->seos->seo_description,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
-                </div>
-            </div>
-            <h3>Mạng Xã Hội</h3>
-            <div class="content">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <strong>Chọn hình đại diện hiển thị MXH: </strong>
-                        @if($product->seos->seo_image!='')
-                            {!! Form::text('seo_image', url('/').'/'.$product->seos->seo_image, array('class' => 'form-control','id'=>'pathImageMXH')) !!}
-                        @else
-                            {!! Form::text('seo_image', '', array('class' => 'form-control','id'=>'pathImageMXH')) !!}
-                        @endif
-                        <br>
-                        {!! Form::button('Tìm', array('id' => 'btnBrowseImageMXH','class'=>'btn btn-primary')) !!}
-                    </div>
-                    <div class="form-group">
-                        @if($product->seos->seo_image!='')
-                            {{ Html::image($product->seos->seo_image,'',array('id'=>'showHinhMXH','class'=>'show-image'))}}
-                        @else
-                            {{ Html::image('','',array('id'=>'showHinhMXH','class'=>'show-image'))}}
-                        @endif
-                    </div>
+                    @if(!is_null($product->seo_id))
+                        {!! Form::textarea('seo_description',$product->seos->seo_description,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                    @else
+                        {!! Form::textarea('seo_description',null,array('placeholder' => '','id'=>'seo-description-post','class' => 'form-control','rows'=>'10','style'=>'resize:none')) !!}
+                    @endif
                 </div>
             </div>
         </div>

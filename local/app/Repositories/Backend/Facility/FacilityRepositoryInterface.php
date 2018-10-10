@@ -17,4 +17,6 @@ interface FacilityRepositoryInterface
 
     public function updateFacility($request, $id);
 
+    public function deleteFacility($id);
+
 }

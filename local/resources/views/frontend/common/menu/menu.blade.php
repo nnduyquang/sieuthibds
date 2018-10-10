@@ -17,8 +17,9 @@
                 <li><a class="{{ request()->is('blog*') ? 'active' : '/' }}" href="{{URL::asset('blogs.html')}}">Blog</a></li>
                 <li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Careers</a></li>
                 <li class="position-relative flag-overlay">
+
                     <div class="d-flex align-items-center position-relative">
-                        <a class="li-normal" href="">English:</a> <img
+                        <a class="li-normal" href="">Ngôn Ngữ</a> <img
                                 src="{{URL::asset('images/icon/united-kingdom.png')}}" alt="" class="flag">
                     </div>
                     <div class="flag-content">
@@ -28,17 +29,19 @@
                                     <img
                                             src="{{URL::asset('images/icon/vietnam.png')}}" alt=""
                                             class="flag pr-2">
-                                    <a href="">Vietnamese</a>
+                                    <a href="{{ route('user.change-language', ['language'=>'vi'])}}">Vietnamese</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="d-flex align-items-center">
                                     <img
-                                            src="{{URL::asset('images/icon/united-kingdom.png')}}" alt="" class="flag pr-2">
-                                    <a href="">English</a>
+                                            src="{{URL::asset('images/icon/united-kingdom.png')}}" alt=""
+                                            class="flag pr-2">
+                                    <a href="{{ route('user.change-language', ['language'=>'en']) }}">English</a>
                                 </div>
                             </li>
                         </ul>
+
                     </div>
                 </li>
 

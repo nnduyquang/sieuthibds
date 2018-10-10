@@ -3,6 +3,7 @@
 namespace App\Repositories\Backend\Facility;
 
 use App\Locale;
+use App\Product;
 use App\Repositories\EloquentRepository;
 use App\Translation;
 
@@ -86,6 +87,25 @@ class FacilityRepository extends EloquentRepository implements FacilityRepositor
         $data = [];
         $parameters = $this->_model->prepareParameters($request);
         $result = $this->update($id, $parameters->all());
+        return $data;
+    }
+
+    public function deleteFacility($id)
+    {
+        $data = [];
+        $facilities = $this->find($id)->translations()->first()->facilities()->get();
+        $translation = $this->find($id)->translations()->first();
+        $arrayIDFacility=array();
+        foreach ($facilities as $key => $item) {
+            array_push($arrayIDFacility,$item->id);
+            $this->delete($item->id);
+        }
+        $product=new Product();
+        $products=$product->getAllProduct();
+        foreach ($products as $key=>$item){
+            $item->facilities()->detach($arrayIDFacility);
+        }
+        Translation::destroy($translation->id);
         return $data;
     }
 

@@ -105,9 +105,9 @@ class ProductController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$locale_id)
     {
-        $data = $this->productRepository->showEditProduct($id);
+        $data = $this->productRepository->showEditProduct($id,$locale_id);
         $product = $data['product'];
         $cities = $data['cities'];
         $city_id = $data['city_id'];
@@ -115,10 +115,12 @@ class ProductController extends Controller
         $district_id = $data['district_id'];
         $wards = $data['wards'];
         $ward_id = $data['ward_id'];
-        $directions = $data['directions'];
         $units = $data['units'];
+        $translation=$data['translation'];
         $categoryProduct = $data['categoryProduct'];
-        return view('backend.admin.product.edit', compact('product', 'cities', 'city_id', 'districts', 'district_id', 'wards', 'ward_id', 'directions', 'units', 'categoryProduct'));
+        $locales=$data['locales'];
+        $facilities=$data['facilities'];
+        return view('backend.admin.product.edit', compact('product', 'cities', 'city_id', 'districts', 'district_id', 'wards', 'ward_id', 'translation', 'units', 'categoryProduct','locales','facilities'));
     }
 
     /**

@@ -12,7 +12,7 @@ interface ProductRepositoryInterface
 
     public function createNewProduct($request);
 
-    public function showEditProduct($id);
+    public function showEditProduct($id,$locale_id);
 
     public function updateProduct($request, $id);
 

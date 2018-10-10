@@ -1,9 +1,24 @@
 <?php
 
-
-Route::get('/', function () {
-    return view('frontend.home.index');
+Route::group(['middleware' => 'locale'], function() {
+    Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
+    Route::get('/', function(){
+        return view('frontend.home.index');
+    });
 });
+Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
+
+//Route::get('change-language/{language}', function($language) {
+//    session(['website_language' => $language]);
+//    return back();
+//})->name('user.change-language');
+//Route::get('/', function(){
+//    $currentLocale=session('website_language');
+//    if($currentLocale) app()->setLocale($currentLocale);
+//    return view('frontend.home.index');
+//});
+
+
 
 Route::get('/tuyen-dung.html', function () {
     return view('frontend.carrers.index');
@@ -138,7 +153,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('sml_admin/san-pham/past', ['as' => 'product.paste', 'uses' => 'ProductController@paste']);
     Route::get('sml_admin/san-pham/{locale_id}/create', ['as' => 'product.create', 'uses' => 'ProductController@create', 'middleware' => ['permission:product-create']]);
     Route::get('sml_admin/san-pham/{translation_id}/{locale_id}/create', ['as' => 'product.createLocale', 'uses' => 'ProductController@createLocale', 'middleware' => ['permission:post-create']]);
-    Route::get('sml_admin/san-pham/{id}/edit', ['as' => 'product.edit', 'uses' => 'ProductController@edit', 'middleware' => ['permission:product-edit']]);
+    Route::get('sml_admin/san-pham/{id}/{locale_id}/edit', ['as' => 'product.edit', 'uses' => 'ProductController@edit', 'middleware' => ['permission:product-edit']]);
     Route::patch('sml_admin/san-pham/{id}', ['as' => 'product.update', 'uses' => 'ProductController@update', 'middleware' => ['permission:product-edit']]);
     Route::delete('sml_admin/san-pham/{id}', ['as' => 'product.destroy', 'uses' => 'ProductController@destroy', 'middleware' => ['permission:product-delete']]);
     Route::post('sml_admin/san-pham/getAllDistrictsByCity', 'ProductController@getAllDistrictsByCity');

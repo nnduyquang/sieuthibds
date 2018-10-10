@@ -29,8 +29,16 @@ class Product extends Model
     {
         return $this->belongsToMany('App\CategoryItem', 'category_many', 'item_id', 'category_id')->withPivot('type')->wherePivot('type',$type)->withTimestamps();
     }
+
+    public function translations()
+    {
+        return $this->belongsTo('App\Translation', 'translation_id');
+    }
     public function getAllProductActiveOrderById(){
         return $this->where('isActive',ACTIVE)->orderBy('id','DESC')->get();
+    }
+    public function getAllProduct(){
+        return $this->get();
     }
     public function prepareParameters($parameters)
     {
@@ -96,5 +104,32 @@ class Product extends Model
         } else {
             $this->attributes['is_active'] = 0;
         }
+    }
+
+    public function setImageAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['image'] = substr($value, strpos($value, 'images'), strlen($value) - 1);
+        } else
+            $this->attributes['image'] = null;
+    }
+
+    public function setPathAttribute($value)
+    {
+        if (IsNullOrEmptyString($value))
+            $this->attributes['path'] = chuyen_chuoi_thanh_path($this->name);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($product) { // before delete() method call this
+            if (!is_null($product->seo_id))
+                $product->seos->delete();
+            $product->categoryitems(CATEGORY_PRODUCT)->detach();
+            $product->facilities()->detach();
+        });
+
     }
 }

@@ -63,7 +63,6 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
     {
         $data = [];
         $data['post'] = $this->find($id);
-
         $translation=$data['post']->translations()->first();
         $locale = new Locale();
         $locales = $locale->getAll();
@@ -151,7 +150,12 @@ class PostRepository extends EloquentRepository implements PostRepositoryInterfa
     public function deletePost($id)
     {
         $data = [];
-        $this->delete($id);
+        $posts = $this->find($id)->translations()->first()->posts()->get();
+        $translation = $this->find($id)->translations()->first();
+        foreach ($posts as $key => $item) {
+            $this->delete($item->id);
+        }
+        Translation::destroy($translation->id);
         return $data;
     }
 

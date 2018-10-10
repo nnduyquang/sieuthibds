@@ -125,24 +125,32 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         return $data;
     }
 
-    public function showEditProduct($id)
+    public function showEditProduct($id, $locale_id)
     {
         $data['product'] = $this->find($id);
         $data['districts']=null;
         $data['district_id']=null;
         $data['wards']=null;
         $data['ward_id']=null;
+        $facility = new Facility();
+        $locale = new Locale();
         $location = new Location();
-        $categoryItem = new CategoryItem();
         $unit = new Unit();
-        $units = $unit->getAllUnit();
+        $translation = $data['product']->translations()->first();
+        $locales = $locale->getAll();
+        $categoryItem = new CategoryItem();
+        $units = $unit->getAllUnit($locale_id);
         $data['units'] = $units;
         $categoryProduct = $categoryItem->getAllParent('order', CATEGORY_PRODUCT);
+        $facilities = $facility->getAllFacility($locale_id);
         $data['categoryProduct'] = $categoryProduct;
+        $data['locales'] = $locales;
+        $data['translation'] = $translation;
+        $data['facilities'] = $facilities;
         $level = $location->findLevelById($data['product']->location_id);
         switch ($level) {
             case 0:
-                $data['cities']=$location->getAllCities();
+                $data['cities'] = $location->getAllCities($locale_id);
                 $data['city_id']=$data['product']->location_id;
                 $data['districts']=$location->getAllChildById($data['product']->location_id);
                 break;
@@ -150,7 +158,7 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
                 $parentIdDistrict=$location->findParentById($data['product']->location_id);
                 $data['districts']=$location->getAllChildById($parentIdDistrict);
                 $data['district_id']=$data['product']->location_id;
-                $data['cities']=$location->getAllCities();
+                $data['cities'] = $location->getAllCities($locale_id);
                 $data['city_id']=$parentIdDistrict;
                 $data['wards'] = $location->getAllChildById($data['product']->location_id);
                 break;
@@ -162,7 +170,7 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
                 $data['district_id']=$parentIdDistrict;
                 $parentIDCity=$location->findParentById($parentIdDistrict);
                 $data['districts']=$location->getAllChildById($parentIDCity);
-                $data['cities']=$location->getAllCities();
+                $data['cities'] = $location->getAllCities($locale_id);
                 $data['city_id']=$parentIDCity;
                 break;
         }
@@ -174,11 +182,24 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
         $data = [];
         $parameters = $this->_model->prepareParameters($request);
         $result = $this->update($id,$parameters->all());
-        $result->seos->update($parameters->all());
+        $seo = new Seo();
+        if (!$seo->isSeoParameterEmpty($request)) {
+            if (is_null($result->seo_id)) {
+                $data = Seo::create($request->all());
+                $result->update(['seo_id' => $data->id]);
+            } else {
+                $result->seos->update($parameters->all());
+            }
+        } else {
+            if (!is_null($result->seo_id)) {
+                $result->seos->delete();
+            }
+        }
         $syncData = array();
         foreach ($parameters['list_category_id'] as $key=>$item){
             $syncData[$item]=array('type'=>CATEGORY_PRODUCT);
         }
+        $result->facilities()->sync($parameters['list_facility_id']);
         $result->categoryitems(CATEGORY_PRODUCT)->sync($syncData);
         return $data;
     }
@@ -186,7 +207,12 @@ class ProductRepository extends EloquentRepository implements ProductRepositoryI
     public function deleteProduct($id)
     {
         $data = [];
-        $this->delete($id);
+        $product = $this->find($id)->translations()->first()->products()->get();
+        $translation = $this->find($id)->translations()->first();
+        foreach ($product as $key => $item) {
+            $this->delete($item->id);
+        }
+        Translation::destroy($translation->id);
         return $data;
     }
 

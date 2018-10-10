@@ -45,4 +45,7 @@ class Translation extends Model
     public function getAllTranslation($type){
         return $this->whereType($type)->get();
     }
+    public function deleteTranslation($id){
+        return $this->delete($id);
+    }
 }

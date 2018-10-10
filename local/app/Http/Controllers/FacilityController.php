@@ -107,6 +107,7 @@ class FacilityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=$this->facilityRepository->deleteFacility($id);
+        return redirect()->route('facility.index')->with('success', 'Đã Xóa Thành Công');
     }
 }

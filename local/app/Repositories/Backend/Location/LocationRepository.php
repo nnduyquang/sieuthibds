@@ -78,7 +78,7 @@ class LocationRepository extends EloquentRepository implements LocationRepositor
         $data = [];
         $locale = new Locale();
         $lang=$locale->getLocaleById($locale_id);
-        $data['locations']=$this->_model->getAllParent('order');
+        $data['locations']=$this->_model->getAllParent('order', $locale_id);
         $data['lang'] = $lang;
         return $data;
     }

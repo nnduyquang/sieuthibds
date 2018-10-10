@@ -67,7 +67,7 @@
                                 @foreach($localesPost as $key2=>$item2)
 
                                     @if($item->id==$item2->locale_id)
-                                        <option data-href="{{ route('location.edit',$item2->id) }} "
+                                        <option data-href="{{ route('location.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }} "
                                                 data-post-id="{{$item2->id}}" value="{{$item->id}}"
                                                 @if($location->locale_id==$item->id) selected @endif>{{$item->name}}</option>
                                     @endif

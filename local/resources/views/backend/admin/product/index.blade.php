@@ -104,7 +104,7 @@
                                 @if(in_array($item->id,$localesPost->pluck('locale_id')->toArray()))
                                     @foreach($localesPost as $key2=>$item2)
                                         @if($item2->locale_id==$item->id)
-                                            <a href="{{ route('product.edit',$item2->id) }}"><i class="far fa-check-square"
+                                            <a href="{{ route('product.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }}"><i class="far fa-check-square"
                                                                                              style="color: green"></i>
 
                                                 @endif
@@ -141,7 +141,7 @@
                     <td>{{$data->products()->first()->is_active}}</td>
                     <td>
                         @permission(('product-edit'))
-                        <a class="btn btn-primary" href="{{ route('product.edit',$data->products()->first()->id) }}">Cập Nhật</a>
+                        <a class="btn btn-primary" href="{{ route('product.edit',['id'=>$data->products()->first()->id,'locale_id'=>$data->products()->first()->locale_id]) }}">Cập Nhật</a>
                         @endpermission
                         @permission(('product-delete'))
                         {!! Form::open(['method' => 'DELETE','route' => ['product.destroy', $data->products()->first()->id],'style'=>'display:inline']) !!}
