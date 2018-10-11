@@ -1502,6 +1502,14 @@ This class is added to the container
           transform: translateX(-50%);
 }
 
+#h_2 .owl-carousel .owl-img {
+  background-size: cover;
+  background-position: center center;
+  height: 176px;
+  width: 100%;
+  overflow: hidden;
+}
+
 #h_2 .owl-theme .owl-nav {
   height: 100%;
   margin-top: 0 !important;
@@ -1679,6 +1687,9 @@ This class is added to the container
     text-overflow: ellipsis;
     margin-right: 3px;
     font-size: 10px;
+  }
+  .owl-carousel .owl-img {
+    height: 118px !important;
   }
   .owl-theme .owl-nav [class*='owl-'] {
     opacity: 1 !important;

@@ -63,11 +63,7 @@
                                     {{--alt="sliderimg{{$j}}">--}}
                                     {{--</div>--}}
                                     <div class="owl-img"
-                                         style="background-image: url({{URL::asset($item2)}});background-size: cover;
-                                                 background-position: center center;
-                                                 height: 250px;
-                                                 width: 100%;
-                                                 overflow: hidden;">
+                                         style="background-image: url({{URL::asset($item2)}});">
                                     </div>
                                     @php
                                         $j++;

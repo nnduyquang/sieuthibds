@@ -30,11 +30,7 @@
                                                          {{--alt="sliderimg{{$j}}">--}}
                                                 {{--</div>--}}
                                                 <div class="owl-img"
-                                                     style="background-image: url({{URL::asset($item3)}});background-size: cover;
-                                                             background-position: center center;
-                                                             height: 250px;
-                                                             width: 100%;
-                                                             overflow: hidden;">
+                                                     style="background-image: url({{URL::asset($item3)}});">
                                                 </div>
                                                 @php
                                                     $j++;
@@ -87,11 +83,7 @@
                                                 @endphp
                                                 @foreach($listImage as $key3=>$item3)
                                                     <div class="owl-img"
-                                                         style="background-image: url({{URL::asset($item3)}});background-size: cover;
-                                                                 background-position: center center;
-                                                                 height: 250px;
-                                                                 width: 100%;
-                                                                 overflow: hidden;">
+                                                         style="background-image: url({{URL::asset($item3)}});">
                                                     </div>
                                                     @php
                                                         $j++;

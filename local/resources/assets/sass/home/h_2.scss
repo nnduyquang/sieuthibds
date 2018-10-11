@@ -83,6 +83,13 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    .owl-img {
+      background-size: cover;
+      background-position: center center;
+      height: 176px;
+      width: 100%;
+      overflow: hidden;
+    }
   }
 
   .owl-theme {
@@ -264,10 +271,15 @@
     }
   }
 
+  .owl-carousel {
+    .owl-img {
+      height: 118px!important;
+    }
+  }
 
   .owl-theme {
     .owl-nav [class*='owl-'] {
-      opacity: 1!important;
+      opacity: 1 !important;
       background: rgba(00, 00, 00, 0.3);
       color: #FFF;
       text-decoration: none;
