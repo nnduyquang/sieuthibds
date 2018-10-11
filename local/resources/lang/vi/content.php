@@ -2,6 +2,7 @@
 
 return [
     'home_slider_title' => 'Thuê Căn Hộ Dài Hạn Dễ Dàng',
+    'home_search' => 'TÌM KIẾM',
     'home_popular_areas' => 'khu Vực Phổ Biến',
     'home_all_project' => 'Tất Cả Dự Án',
     'home_any_bed' => 'Số Phòng Ngủ',
