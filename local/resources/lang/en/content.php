@@ -37,6 +37,8 @@ return [
     'menu_careers'=>'Carrers',
     'menu_lang'=>'Language',
     'tuyendung_culture'=>'Sieuthicanho.net Team Culture',
-    'tuyendung_joinus'=>'Join us today'
+    'tuyendung_joinus'=>'Join us today',
+    'pj_detail_view_project_info'=>'VIEW PROJECT INFO',
+    'pj_request_similar_listing'=>'REQUEST MORE INFO'
 
 ];

@@ -38,6 +38,8 @@ return [
     'menu_lang'=>'Ngôn Ngữ',
     'tuyendung_culture'=>'Văn Hóa Tại Sieuthicanho.net',
     'tuyendung_culture_content'=>'Văn Hóa Tại Sieuthicanho.net',
-    'tuyendung_joinus'=>'Hãy Gia Nhập Với Chúng Tôi'
+    'tuyendung_joinus'=>'Hãy Gia Nhập Với Chúng Tôi',
+    'pj_detail_view_project_info'=>'XEM THÔNG TIN DỰ ÁN',
+    'pj_request_similar_listing'=>'YÊU CẦU THÔNG TIN'
 
 ];

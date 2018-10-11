@@ -9,18 +9,18 @@
 
             <textarea name="" id="" cols="30" rows="5" placeholder="Enter your message"></textarea>
 
-            <button>REQUEST SIMILAR LISTING</button>
+            <button>@lang('content.pj_request_similar_listing')</button>
 
             <div class="mt-3"><a href=""><i class="fas fa-share-alt-square"></i> Share</a></div>
             <div class="img-cover">
-                <img src="http://localhost:8080/sieuthibds/images/logo/logo-bds.png" alt="">
+                <img src="{{URL::to('images/logo/logo-bds.png')}}" alt="">
             </div>
         </div>
     </div>
 
     <div class="col-12 p-3 r-relate">
         <div class="">
-            <h5>VIEW PROJECT INFO</h5>
+            <h5>@lang('content.pj_detail_view_project_info')</h5>
         </div>
 
         @foreach($data['project'] as $key=>$item)
