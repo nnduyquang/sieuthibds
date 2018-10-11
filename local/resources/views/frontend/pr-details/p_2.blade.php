@@ -75,7 +75,9 @@
                 @endphp
                 @foreach($listImage as $key=>$item)
                     <div class="img-prdetails">
-                        <a href=""><img src="{{URL::to($item)}}"
+                        <a class="fancybox"
+                           data-fancybox="gallery-cus"
+                           href="{{URL::to($item)}}"><img src="{{URL::to($item)}}"
                                         alt="">
                         </a>
                     </div>
