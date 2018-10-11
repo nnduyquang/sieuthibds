@@ -49,7 +49,10 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $product = new Product();
+
         $data['product'] = $product->findProductByPath($path);
+        $data['project']=$data['product']->categoryitems(CATEGORY_PRODUCT)->get();
+
         $data['other']=$product->findOtherProductByPath($data['product']->id);
         return $data;
     }
