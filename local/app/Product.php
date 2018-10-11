@@ -127,19 +127,28 @@ class Product extends Model
 
     public function searchProduct($request)
     {
+
         $locale_id = self::getLanguage();
         $projectId = $request->input('select-project');
         $searchText = $request->input('input-search-text');
+        $searchTextMenu = $request->input('input-search-text-menu');
         $products = $this->query();
         $category = new CategoryItem();
         $products->where('locale_id', $locale_id);
-        if ($projectId != -1) {
-            return $category->getCategoryItemById($projectId)->products()->get();
-        } else {
-            if (!is_null($searchText)){
-                $products->where('name','like','%'.$searchText.'%');
+        if (!is_null($projectId)) {
+            if ($projectId != -1) {
+                return $category->getCategoryItemById($projectId)->products()->get();
+            } else {
+                if (!is_null($searchText)) {
+                    $products->where('name', 'like', '%' . $searchText . '%');
+                }
+            }
+        }else{
+            if (!is_null($searchTextMenu)) {
+                $products->where('name', 'like', '%' . $searchTextMenu . '%');
             }
         }
+
         return $products->get();
     }
 

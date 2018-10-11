@@ -7,7 +7,7 @@
 
     @foreach($data['categories'] as $key=>$item)
         <div class="pro-items d-flex align-items-center">
-            <a href="{{URL::asset('projects-info.html')}}">
+            <a href="{{URL::to('du-an/'.$item->path)}}">
                 <div class="pro-img"
                      style="background-image:url({{URL::asset($item->image)}});">
                 </div>

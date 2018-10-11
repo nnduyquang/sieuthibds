@@ -4,10 +4,12 @@
             <a class="{{ request()->is('/') ? 'active' : '/' }}" href="{{URL::asset('/')}}">
                 <img src="{{URL::asset('images/logo/logo-bds.png')}}" alt="" id="logo">
             </a>
+            {!! Form::open(array('route' => 'frontend.search','method'=>'POST','name'=>'search-home-menu')) !!}
             <div id="search_box">
-                <input type="text" placeholder="District or Project">
-                <button><i class="fas fa-search"></i></button>
+                <input name="input-search-text-menu" type="text" placeholder="@lang('content.home_district_project')">
+                <button type="submit"><i class="fas fa-search"></i></button>
             </div>
+            {!! Form::close() !!}
         </div>
         <div id="nav-content">
             <ul>

@@ -45,4 +45,31 @@ $(document).ready(function () {
     if(plugins.owlCarouselHH2.length){
         runOwlCarouselHH2();
     }
+    $('form[name=search-home]').submit(function (e) {
+        var input_text=$('input[name=input-search-text]').val();
+        var select_project = $('select[name=select-project]').val();
+        if (input_text == '' && select_project == '-1') {
+            e.preventDefault();
+        }
+    });
+    $('form[name=search-home-menu]').submit(function (e) {
+        var input_text=$('input[name=input-search-text-menu]').val();
+        var select_project = $('select[name=select-project]').val();
+        if (input_text == '' && select_project == '-1') {
+            e.preventDefault();
+        }
+    });
+    $('input[name=input-search-text-menu]').bind("enterKey",function(e){
+        var input_text=$('input[name=input-search-text-menu]').val();
+        if (input_text == '') {
+            e.preventDefault();
+        }
+    });
+    $('input[name=input-search-text-menu]').keyup(function(e){
+        if(e.keyCode == 13)
+        {
+            $(this).trigger("enterKey");
+        }
+    });
+
 });
