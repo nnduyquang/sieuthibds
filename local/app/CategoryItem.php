@@ -95,7 +95,7 @@ class CategoryItem extends Model
     }
     public function getCategoryItemByPath($path){
         $locale_id=self::getLanguage();
-        return $this->where('path',$path)->where('locale_id',$locale_id)->first();
+        return $this->where('path',$path)->first()->translations()->first()->categoryitems()->where('locale_id',$locale_id)->first();
     }
     public function getCategoryItemById($id){
         $locale_id=self::getLanguage();
@@ -104,6 +104,10 @@ class CategoryItem extends Model
     public function getCategoryItemOther($id){
         $locale_id=self::getLanguage();
         return $this->where('id','!=',$id)->where('locale_id',$locale_id)->get();
+    }
+    public function getAllPostByCategory($path){
+        $locale_id=self::getLanguage();
+        return $this->wherePath($path)->first()->translations()->first()->categoryitems()->where('locale_id',$locale_id)->first()->posts()->get();
     }
     public function setIsActiveAttribute($value)
     {

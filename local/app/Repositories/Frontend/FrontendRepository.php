@@ -121,5 +121,16 @@ class FrontendRepository implements FrontendRepositoryInterface
         return $data;
     }
 
+    public function getAllTuyenDung()
+    {
+        $data=[];
+        $categoryItem = new CategoryItem();
+        $category=$categoryItem->getCategoryItemByPath('tuyen-dung');
+        $post=$categoryItem->getAllPostByCategory('tuyen-dung');
+        $data['post']=$post;
+        $data['category']=$category;
+        return $data;
+    }
+
 
 }

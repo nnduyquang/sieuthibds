@@ -78,7 +78,7 @@
                                 @if(in_array($item->id,$localesPost->pluck('locale_id')->toArray()))
                                     @foreach($localesPost as $key2=>$item2)
                                         @if($item2->locale_id==$item->id)
-                                            <a href="{{ route('post.edit',$item2->id) }}"><i class="far fa-check-square"
+                                            <a href="{{ route('post.edit',['id'=>$item2->id,'locale_id'=>$item2->locale_id]) }}"><i class="far fa-check-square"
                                                                                              style="color: green"></i>
 
                                                 @endif

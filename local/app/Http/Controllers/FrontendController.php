@@ -51,6 +51,10 @@ class FrontendController extends Controller
         $data = $this->frontendRepository->getSearch($request);
         return view('frontend.rent.index', compact('data'));
     }
+    public function getAllTuyenDung(){
+        $data = $this->frontendRepository->getAllTuyenDung();
+        return view('frontend.carrers.index', compact('data'));
+    }
 
 }
 

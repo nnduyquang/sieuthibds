@@ -35,6 +35,8 @@ return [
     'menu_project'=>'Project',
     'menu_blog'=>'Blog',
     'menu_careers'=>'Carrers',
-    'menu_lang'=>'Language'
+    'menu_lang'=>'Language',
+    'tuyendung_culture'=>'Sieuthicanho.net Team Culture',
+    'tuyendung_joinus'=>'Join us today'
 
 ];

@@ -22,5 +22,7 @@ interface FrontendRepositoryInterface
 
     public function getSearch($request);
 
+    public function getAllTuyenDung();
+
 
 }

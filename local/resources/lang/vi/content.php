@@ -35,6 +35,9 @@ return [
     'menu_project'=>'Dự Án',
     'menu_blog'=>'Tin Tức',
     'menu_careers'=>'Tuyển Dụng',
-    'menu_lang'=>'Ngôn Ngữ'
+    'menu_lang'=>'Ngôn Ngữ',
+    'tuyendung_culture'=>'Văn Hóa Tại Sieuthicanho.net',
+    'tuyendung_culture_content'=>'Văn Hóa Tại Sieuthicanho.net',
+    'tuyendung_joinus'=>'Hãy Gia Nhập Với Chúng Tôi'
 
 ];
