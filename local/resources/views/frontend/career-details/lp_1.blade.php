@@ -5,7 +5,7 @@
             <ul>
                 <li><a href=""><i class="fas fa-hotel"></i> HOME</a></li>
                 <li><a href="">CAREERS</a></li>
-                <li><a href="">TUYỂN DỤNG NHÂN SỰ</a></li>
+                <li><a href="">{{$data['tuyendung']->title}}</a></li>
             </ul>
         </div>
     </div>
@@ -15,66 +15,9 @@
         <img src="" alt="">
 
         <div class="col-md-12 blogs">
-            <img src="http://blog.hoozing.com/wp-content/uploads/2018/09/mid-autumn-festival-vietnam-585x390.jpg"
+            <img src="{{URL::to($data['tuyendung']->image)}}"
                  alt="">
-            <a href=""><h4>Mid-autumn Festival Activities in Vietnam</h4></a>
-            <p class="d-post">by <a href="">Hoozing </a>September 24, 2018</p>
-            <p>In this video, hear from Sofie Willemann Nielsen, Simone Borkner and Jonas Natapong Kuna Mogensen, about
-                their experiences in finding an accommodation in Vietnam and how Hoozing helped them.</p>
-
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque facere iure nobis quasi voluptate! Enim
-                explicabo iste officia soluta temporibus! Beatae debitis enim eos iste magnam mollitia neque porro
-                totam.
-            </div>
-            <br>
-            <div>Asperiores assumenda consectetur expedita illo libero placeat quasi qui quibusdam quisquam voluptates?
-                Aspernatur culpa expedita natus officia optio quae reiciendis vero vitae voluptas? Distinctio doloremque
-                ea laboriosam nemo nihil voluptas.
-            </div>
-            <div>Aperiam beatae blanditiis dolore ducimus, ipsa nulla officia pariatur qui sit. Accusamus, adipisci
-                aspernatur consequuntur cupiditate dolores dolorum illo laborum minima modi necessitatibus, quas qui quo
-                repudiandae similique vel voluptas.
-            </div>
-            <br>
-            <div class="col-12 text-center">
-            <img src="http://blog.hoozing.com/wp-content/uploads/2018/08/BLOG-technology-in-higher-education@1X.jpg" alt="" style="width: 80%;height: auto;margin: auto">
-            </div>
-
-            <p>In this video, hear from Sofie Willemann Nielsen, Simone Borkner and Jonas Natapong Kuna Mogensen, about
-                their experiences in finding an accommodation in Vietnam and how Hoozing helped them.</p>
-
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque facere iure nobis quasi voluptate! Enim
-                explicabo iste officia soluta temporibus! Beatae debitis enim eos iste magnam mollitia neque porro
-                totam.
-            </div>
-            <br>
-            <div>Asperiores assumenda consectetur expedita illo libero placeat quasi qui quibusdam quisquam voluptates?
-                Aspernatur culpa expedita natus officia optio quae reiciendis vero vitae voluptas? Distinctio doloremque
-                ea laboriosam nemo nihil voluptas.
-            </div>
-            <div>Aperiam beatae blanditiis dolore ducimus, ipsa nulla officia pariatur qui sit. Accusamus, adipisci
-                aspernatur consequuntur cupiditate dolores dolorum illo laborum minima modi necessitatibus, quas qui quo
-                repudiandae similique vel voluptas.
-            </div>
-            <br>
-
-            <p>In this video, hear from Sofie Willemann Nielsen, Simone Borkner and Jonas Natapong Kuna Mogensen, about
-                their experiences in finding an accommodation in Vietnam and how Hoozing helped them.</p>
-
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque facere iure nobis quasi voluptate! Enim
-                explicabo iste officia soluta temporibus! Beatae debitis enim eos iste magnam mollitia neque porro
-                totam.
-            </div>
-            <br>
-            <div>Asperiores assumenda consectetur expedita illo libero placeat quasi qui quibusdam quisquam voluptates?
-                Aspernatur culpa expedita natus officia optio quae reiciendis vero vitae voluptas? Distinctio doloremque
-                ea laboriosam nemo nihil voluptas.
-            </div>
-            <div>Aperiam beatae blanditiis dolore ducimus, ipsa nulla officia pariatur qui sit. Accusamus, adipisci
-                aspernatur consequuntur cupiditate dolores dolorum illo laborum minima modi necessitatibus, quas qui quo
-                repudiandae similique vel voluptas.
-            </div>
-            <br>
+            {!! $data['tuyendung']->content !!}
 
         </div>
     </div>

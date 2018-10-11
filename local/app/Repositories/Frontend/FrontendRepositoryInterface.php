@@ -24,5 +24,7 @@ interface FrontendRepositoryInterface
 
     public function getAllTuyenDung();
 
+    public function getTuyenDungDetail($path);
+
 
 }

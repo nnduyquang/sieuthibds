@@ -132,5 +132,16 @@ class FrontendRepository implements FrontendRepositoryInterface
         return $data;
     }
 
+    public function getTuyenDungDetail($path)
+    {
+        $data=[];
+        $post=new Post();
+        $tuyendung=$post->getPostByPath($path);
+        $other=$post->findPostOtherByPathAndId('tuyen-dung',$tuyendung->id);
+        $data['tuyendung']=$tuyendung;
+        $data['other']=$other;
+        return $data;
+    }
+
 
 }

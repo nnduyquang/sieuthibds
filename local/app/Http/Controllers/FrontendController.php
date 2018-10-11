@@ -55,6 +55,10 @@ class FrontendController extends Controller
         $data = $this->frontendRepository->getAllTuyenDung();
         return view('frontend.carrers.index', compact('data'));
     }
+    public function getTuyenDungDetail($path){
+        $data = $this->frontendRepository->getTuyenDungDetail($path);
+        return view('frontend.career-details.index', compact('data'));
+    }
 
 }
 

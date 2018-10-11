@@ -12,25 +12,16 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/danh-sach-san-pham/{path}','FrontendController@getDanhSachSanPhamTheoDuAn');
     Route::get('/danh-sach-san-pham.html','FrontendController@getDanhSachAllSanPham');
     Route::get('/tuyen-dung.html','FrontendController@getAllTuyenDung');
+    Route::get('/tuyen-dung/{path}','FrontendController@getTuyenDungDetail');
     Route::post('/tim-kiem','FrontendController@getSearch')->name('frontend.search');
 });
-//Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
 
-//Route::post('/tim-kiem','FrontendController@getSearch')->name('frontend.search');
-
-
-//Route::get('/tuyen-dung.html', function () {
-//    return view('frontend.carrers.index');
-//});
 
 
 Route::get('/tuyen-dung-chi-tiet.html', function () {
     return view('frontend.career-details.index');
 });
 
-Route::get('/projects.html', function () {
-    return view('frontend.list-project.index');
-});
 
 Route::get('/blogs.html', function () {
     return view('frontend.blog.index');
