@@ -7,7 +7,7 @@ return [
     'home_all_project' => 'Tất Cả Dự Án',
     'home_any_bed' => 'Số Phòng Ngủ',
     'home_any_bath' => 'Số Phòng Tắm',
-    'home_district_project' => 'Quận và Dự Án',
+    'home_district_project' => 'Tìm Kiếm Căn Hộ',
     'home_verified' => 'Đã Được Xác Minh',
     'home_easy' => 'Thuê Dễ Dàng',
     'home_relax' => 'Không Gian Thư Giãn',

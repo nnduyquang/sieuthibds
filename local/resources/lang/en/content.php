@@ -7,7 +7,7 @@ return [
     'home_all_project' => 'All Projects',
     'home_any_bed' => 'Any Bed',
     'home_any_bath' => 'Any Bath',
-    'home_district_project' => 'District and Project',
+    'home_district_project' => 'Search Apartment',
     'home_verified' => 'Verified Listing',
     'home_easy' => 'Easy to rent',
     'home_relax' => 'Relax space',

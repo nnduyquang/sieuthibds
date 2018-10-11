@@ -6,13 +6,13 @@
         </div>
         @foreach($data['categories'] as $key=>$item)
             <div class="d-flex  border align-items-center mb-3">
-                <a href="">
+                <a href="{{URL::to('du-an/'.$item->path)}}">
                 <div class="img"
                      style="background-image:url({{URL::to($item->image)}});">
                 </div>
                 </a>
                 <div class="pl-3">
-                    <a href="">
+                    <a href="{{URL::to('du-an/'.$item->path)}}">
                     <h4>{{$item->name}}</h4>
                     </a>
                     {{--<p>Summary: Located on Nguyen Huu Canh, the major ...</p>--}}
