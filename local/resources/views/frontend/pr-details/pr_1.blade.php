@@ -27,7 +27,7 @@
             <div class="d-flex  border align-items-center">
                 <a href="{{URL::to('du-an/'.$item->path)}}">
                     <div class="img"
-                         style="background-image:url({{$item->image}});">
+                         style="background-image:url({{URL::to($item->image)}});">
                     </div>
                 </a>
                 <div class="pl-3">
