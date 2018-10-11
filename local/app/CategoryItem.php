@@ -97,6 +97,10 @@ class CategoryItem extends Model
         $locale_id=self::getLanguage();
         return $this->where('path',$path)->where('locale_id',$locale_id)->first();
     }
+    public function getCategoryItemById($id){
+        $locale_id=self::getLanguage();
+        return $this->where('id',$id)->where('locale_id',$locale_id)->first();
+    }
     public function getCategoryItemOther($id){
         $locale_id=self::getLanguage();
         return $this->where('id','!=',$id)->where('locale_id',$locale_id)->get();

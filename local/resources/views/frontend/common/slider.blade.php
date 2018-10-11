@@ -44,12 +44,12 @@
                         {{--</a></li>--}}
                 </ul>
 
-
+                {!! Form::open(array('route' => 'frontend.search','method'=>'POST','name'=>'search-home')) !!}
                 <div class="content">
                     <div class="row">
                         <div class="col-md-8 mb-2 p-lg-1">
                             <div class="district-project">
-                            <input type="text" placeholder="@lang('content.home_district_project')">
+                            <input name="input-search-text" type="text" placeholder="@lang('content.home_district_project')">
                             </div>
                         </div>
                         <div class="col-md-4 p-lg-1">
@@ -138,18 +138,6 @@
 
                             </div>
                         </div>
-                        {{--<div class="col-md-4 d-none d-lg-block p-0">--}}
-                        {{--<div class="rơw">--}}
-                        {{--<div class="col-12 p-lg-1 p-0 select-box2">--}}
-                        {{--<select>--}}
-                        {{--<option value="volvo">Volvo</option>--}}
-                        {{--<option value="saab">Saab</option>--}}
-                        {{--<option value="vw">VW</option>--}}
-                        {{--<option value="audi" selected>Require Amenities</option>--}}
-                        {{--</select>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
                     </div>
                 </div>
 
@@ -162,8 +150,9 @@
                 </div>
 
                 <div class="content">
-                    <button>@lang('content.home_search')</button>
+                    <button  type="submit">@lang('content.home_search')</button>
                 </div>
+                {!! Form::close() !!}
 
 
             </div>

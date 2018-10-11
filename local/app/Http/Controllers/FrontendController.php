@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Frontend\FrontendRepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
@@ -45,6 +46,10 @@ class FrontendController extends Controller
     public function getAllDuAn(){
         $data = $this->frontendRepository->getAllDuAn();
         return view('frontend.list-project.index', compact('data'));
+    }
+    public function getSearch(Request $request){
+        $data = $this->frontendRepository->getSearch($request);
+        return view('frontend.rent.index', compact('data'));
     }
 
 }

@@ -111,5 +111,15 @@ class FrontendRepository implements FrontendRepositoryInterface
         return $data;
     }
 
+    public function getSearch($request)
+    {
+        $data=[];
+        $product = new Product();
+        $products = $product->searchProduct($request);
+        $data['type']=2;
+        $data['products']=$products;
+        return $data;
+    }
+
 
 }

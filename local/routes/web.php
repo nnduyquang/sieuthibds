@@ -11,11 +11,11 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/du-an.html', 'FrontendController@getAllDuAn');
     Route::get('/danh-sach-san-pham/{path}','FrontendController@getDanhSachSanPhamTheoDuAn');
     Route::get('/danh-sach-san-pham.html','FrontendController@getDanhSachAllSanPham');
+    Route::post('/tim-kiem','FrontendController@getSearch')->name('frontend.search');
 });
 //Route::get('/setlocale/{language}', 'FrontendController@changeLanguage')->name('user.change-language');
 
-
-
+//Route::post('/tim-kiem','FrontendController@getSearch')->name('frontend.search');
 
 
 Route::get('/tuyen-dung.html', function () {
@@ -48,7 +48,7 @@ Route::get('/blogs-details.html', function () {
 //});
 
 
-Route::post('/tim-kiem','FrontendController@getSearch')->name('search');
+//Route::post('/tim-kiem','FrontendController@getSearch')->name('search');
 
 
 
