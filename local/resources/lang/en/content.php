@@ -34,5 +34,6 @@ return [
     'menu_project'=>'Project',
     'menu_blog'=>'Blog',
     'menu_careers'=>'Carrers',
+    'menu_lang'=>'Language'
 
 ];

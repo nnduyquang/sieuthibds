@@ -4,8 +4,8 @@ return [
     'home_slider_title' => 'Thuê Căn Hộ Dài Hạn Dễ Dàng',
     'home_popular_areas' => 'khu Vực Phổ Biến',
     'home_all_project' => 'Tất Cả Dự Án',
-    'home_any_bed' => 'Chọn Số Phòng Ngủ',
-    'home_any_bath' => 'Chọn Số Phòng Tắm',
+    'home_any_bed' => 'Số Phòng Ngủ',
+    'home_any_bath' => 'Số Phòng Tắm',
     'home_district_project' => 'Quận và Dự Án',
     'home_verified' => 'Đã Được Xác Minh',
     'home_easy' => 'Thuê Dễ Dàng',
@@ -34,5 +34,6 @@ return [
     'menu_project'=>'Dự Án',
     'menu_blog'=>'Tin Tức',
     'menu_careers'=>'Tuyển Dụng',
+    'menu_lang'=>'Ngôn Ngữ'
 
 ];

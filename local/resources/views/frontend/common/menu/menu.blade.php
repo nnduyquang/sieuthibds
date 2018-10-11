@@ -21,7 +21,7 @@
                 <li class="position-relative flag-overlay">
 
                     <div class="d-flex align-items-center position-relative">
-                        <a class="li-normal" href="">Ngôn Ngữ</a>
+                        <a class="li-normal" href="">@lang('content.menu_lang')</a>
                         @php
                             $locale_id=Session::get('website_language');
                         @endphp
