@@ -23,9 +23,14 @@ Route::group(['middleware' => 'locale'], function() {
 //    return view('frontend.carrers.index');
 //});
 
-//Route::get('/projects.html', function () {
-//    return view('frontend.list-project.index');
-//});
+
+Route::get('/tuyen-dung-chi-tiet.html', function () {
+    return view('frontend.career-details.index');
+});
+
+Route::get('/projects.html', function () {
+    return view('frontend.list-project.index');
+});
 
 Route::get('/blogs.html', function () {
     return view('frontend.blog.index');
