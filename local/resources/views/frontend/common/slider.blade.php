@@ -28,18 +28,20 @@
                     <li>
                         <h5 class="">@lang('content.home_popular_areas')</h5>
                     </li>
-                    <li><a href="">
-                            District 1
+                    @foreach($data['featuredProperties'] as $key=>$item)
+                    <li><a href="#">
+                            {{$item->name}}
                         </a></li>
-                    <li><a href="">
-                            District 3
-                        </a></li>
-                    <li><a href="">
-                            District 5
-                        </a></li>
-                    <li><a href="">
-                            Bình Thạnh
-                        </a></li>
+                    @endforeach
+                    {{--<li><a href="">--}}
+                            {{--District 3--}}
+                        {{--</a></li>--}}
+                    {{--<li><a href="">--}}
+                            {{--District 5--}}
+                        {{--</a></li>--}}
+                    {{--<li><a href="">--}}
+                            {{--Bình Thạnh--}}
+                        {{--</a></li>--}}
                 </ul>
 
 
@@ -51,11 +53,11 @@
                             </div>
                         </div>
                         <div class="col-md-4 p-lg-1">
-                            <select style="padding-left: 8px!important;">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="vw">VW</option>
-                                <option value="audi" selected>@lang('content.home_all_project')</option>
+                            <select name="select-project" style="padding-left: 8px!important;">
+                                @foreach( $data['featuredProject'] as $key=>$item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                                <option value="-1" selected>@lang('content.home_all_project')</option>
                             </select>
                         </div>
                     </div>
@@ -160,7 +162,7 @@
                 </div>
 
                 <div class="content">
-                    <button>SEARCH</button>
+                    <button>@lang('content.home_search')</button>
                 </div>
 
 

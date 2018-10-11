@@ -2,6 +2,7 @@
 
 return [
     'home_slider_title' => 'Long-Term Rental Made Easy',
+    'home_search' => 'SEARCH',
     'home_popular_areas' => 'popular Areas',
     'home_all_project' => 'All Projects',
     'home_any_bed' => 'Any Bed',
