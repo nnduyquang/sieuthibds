@@ -12,7 +12,8 @@
         <div id="nav-content">
             <ul>
                 @foreach($listMenu as $key=>$item)
-                <li><a class="{{ request()->is($item->link()) ? 'active' : '/' }}" href="{{URL::to($item->link())}}">@lang($item->title)</a></li>
+                    <li><a class="{{ request()->is($item->link()) ? 'active' : '/' }}"
+                           href="{{URL::to($item->link())}}">@lang($item->title)</a></li>
                 @endforeach
                 {{--<li><a class="{{ request()->is('project*') ? 'active' : '/' }}" href="{{URL::asset('projects.html')}}">Project</a></li>--}}
                 {{--<li><a class="{{ request()->is('blog*') ? 'active' : '/' }}" href="{{URL::asset('blogs.html')}}">Blog</a></li>--}}
@@ -20,13 +21,22 @@
                 <li class="position-relative flag-overlay">
 
                     <div class="d-flex align-items-center position-relative">
-                        <a class="li-normal" href="">Ngôn Ngữ</a> <img
-                                src="{{URL::asset('images/icon/united-kingdom.png')}}" alt="" class="flag">
+                        <a class="li-normal" href="">Ngôn Ngữ</a>
+                        @php
+                            $locale_id=Session::get('website_language');
+                        @endphp
+                        @if($locale_id=='en')
+                            <img
+                                    src="{{URL::asset('images/icon/united-kingdom.png')}}" alt="" class="flag chon-nn">
+                        @else
+                            <img
+                                    src="{{URL::asset('images/icon/vietnam.png')}}" alt="" class="flag chon-nn">
+                        @endif
                     </div>
                     <div class="flag-content">
                         <ul>
                             <li>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center chon-tv">
                                     <img
                                             src="{{URL::asset('images/icon/vietnam.png')}}" alt=""
                                             class="flag pr-2">
@@ -34,7 +44,7 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center chon-eng">
                                     <img
                                             src="{{URL::asset('images/icon/united-kingdom.png')}}" alt=""
                                             class="flag pr-2">
