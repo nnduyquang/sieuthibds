@@ -14,13 +14,14 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/tuyen-dung.html','FrontendController@getAllTuyenDung');
     Route::get('/tuyen-dung/{path}','FrontendController@getTuyenDungDetail');
     Route::post('/tim-kiem','FrontendController@getSearch')->name('frontend.search');
+    Route::get('/tin-tuc.html','FrontendController@getAllTinTuc');
 });
 
 
 
-Route::get('/tuyen-dung-chi-tiet.html', function () {
-    return view('frontend.career-details.index');
-});
+//Route::get('/tuyen-dung-chi-tiet.html', function () {
+//    return view('frontend.career-details.index');
+//});
 
 
 Route::get('/blogs.html', function () {

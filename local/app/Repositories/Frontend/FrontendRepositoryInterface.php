@@ -26,5 +26,7 @@ interface FrontendRepositoryInterface
 
     public function getTuyenDungDetail($path);
 
+    public function getAllTinTuc();
+
 
 }

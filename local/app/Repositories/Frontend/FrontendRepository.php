@@ -135,6 +135,18 @@ class FrontendRepository implements FrontendRepositoryInterface
         return $data;
     }
 
+    public function getAllTinTuc()
+    {
+        $data=[];
+        $categoryItem = new CategoryItem();
+        $category=$categoryItem->getCategoryItemByPath('tin-tuc');
+        $post=$categoryItem->getAllPostByCategory('tin-tuc');
+        $data['post']=$post;
+        $data['category']=$category;
+        return $data;
+    }
+
+
     public function getTuyenDungDetail($path)
     {
         $data=[];

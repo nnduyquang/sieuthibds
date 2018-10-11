@@ -2,14 +2,14 @@
 
     <div class="col-12 p-3 r-relate">
 
-        <h6>POPULAR POSTS</h6>
+        {{--<h6>POPULAR POSTS</h6>--}}
 
-        <div class="top-1 mb-4 pb-4 border-bottom">
-            <img src="http://blog.hoozing.com/wp-content/uploads/2016/06/saveliy-bobov-535623-unsplash-1-862x575-1-585x390.jpg"
-                 alt="">
-            <a href=""><h4>Where is the largest Korea Town in HCM City?</h4></a>
-            <p>March 20, 2018</p>
-        </div>
+        {{--<div class="top-1 mb-4 pb-4 border-bottom">--}}
+            {{--<img src="http://blog.hoozing.com/wp-content/uploads/2016/06/saveliy-bobov-535623-unsplash-1-862x575-1-585x390.jpg"--}}
+                 {{--alt="">--}}
+            {{--<a href=""><h4>Where is the largest Korea Town in HCM City?</h4></a>--}}
+            {{--<p>March 20, 2018</p>--}}
+        {{--</div>--}}
         @for ($i = 0; $i < 10; $i++)
             <div class="d-flex pb-3 border-bottom align-items-center mb-3">
                 <a href="">
