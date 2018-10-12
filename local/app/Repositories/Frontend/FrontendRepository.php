@@ -27,21 +27,21 @@ class FrontendRepository implements FrontendRepositoryInterface
     public function getFrontend()
     {
         $data = [];
-        $category=new CategoryItem();
-        $location=new Location();
-        $product=new Product();
-        $featuredProject=$category->getAllCategoryByType(CATEGORY_PRODUCT);
-        $locations=$location->getLocationByLevelHasTake(6);
-        foreach ($locations as $key=>$item){
+        $category = new CategoryItem();
+        $location = new Location();
+        $product = new Product();
+        $featuredProject = $category->getAllCategoryByType(CATEGORY_PRODUCT);
+        $locations = $location->getLocationByLevelHasTake(6);
+        foreach ($locations as $key => $item) {
             $locationChildID = $location->getAllChildAndDeeperById($item->id);
             $finalId = $locationChildID->pluck('id');
             $finalId->push((int)$item->id);
-            $products=$product->getAllProductByArrayLocationId($finalId);
-            $item['products']=$products;
+            $products = $product->getAllProductByArrayLocationId($finalId);
+            $item['products'] = $products;
         }
-        $featuredProperties=$locations;
-        $data['featuredProject']=$featuredProject;
-        $data['featuredProperties']=$featuredProperties;
+        $featuredProperties = $locations;
+        $data['featuredProject'] = $featuredProject;
+        $data['featuredProperties'] = $featuredProperties;
         return $data;
     }
 
@@ -51,9 +51,9 @@ class FrontendRepository implements FrontendRepositoryInterface
         $product = new Product();
 
         $data['product'] = $product->findProductByPath($path);
-        $data['project']=$data['product']->categoryitems(CATEGORY_PRODUCT)->get();
+        $data['project'] = $data['product']->categoryitems(CATEGORY_PRODUCT)->get();
 
-        $data['other']=$product->findOtherProductByPath($data['product']->id);
+        $data['other'] = $product->findOtherProductByPath($data['product']->id);
         return $data;
     }
 
@@ -61,8 +61,8 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $categoryItem = new CategoryItem();
-        $categories=$categoryItem->getAllCategoryByType(CATEGORY_PRODUCT);
-        $data['categories']=$categories;
+        $categories = $categoryItem->getAllCategoryByType(CATEGORY_PRODUCT);
+        $data['categories'] = $categories;
         return $data;
     }
 
@@ -71,14 +71,14 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $categoryItem = new CategoryItem();
-        $facility=new Facility();
-        $category=$categoryItem->getCategoryItemByPath($path);
-        $other=$categoryItem->getCategoryItemOther($category->id);
-        $facilities=$facility->getFacilityAll();
-        $category['products']=$category->products()->get();
-        $data['category']=$category;
-        $data['other']=$other;
-        $data['facilities']=$facilities;
+        $facility = new Facility();
+        $category = $categoryItem->getCategoryItemByPath($path);
+        $other = $categoryItem->getCategoryItemOther($category->id, CATEGORY_PRODUCT);
+        $facilities = $facility->getFacilityAll();
+        $category['products'] = $category->products()->get();
+        $data['category'] = $category;
+        $data['other'] = $other;
+        $data['facilities'] = $facilities;
         return $data;
     }
 
@@ -86,10 +86,10 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $categoryItem = new CategoryItem();
-        $category=$categoryItem->getCategoryItemByPath($path);
-        $category['products']=$category->products()->get();
-        $data['category']=$category;
-        $data['type']=1;
+        $category = $categoryItem->getCategoryItemByPath($path);
+        $category['products'] = $category->products()->get();
+        $data['category'] = $category;
+        $data['type'] = 1;
         return $data;
 
     }
@@ -97,11 +97,11 @@ class FrontendRepository implements FrontendRepositoryInterface
     public function getDanhSachAllSanPham()
     {
         $data = [];
-        $product=new Product();
-        $products=$product->getAllProductByLocale();
+        $product = new Product();
+        $products = $product->getAllProductByLocale();
 
-        $data['type']=2;
-        $data['products']=$products;
+        $data['type'] = 2;
+        $data['products'] = $products;
         return $data;
     }
 
@@ -116,45 +116,48 @@ class FrontendRepository implements FrontendRepositoryInterface
 
     public function getSearch($request)
     {
-        $data=[];
+        $data = [];
         $product = new Product();
         $products = $product->searchProduct($request);
-        $data['type']=2;
-        $data['products']=$products;
+        $data['type'] = 2;
+        $data['products'] = $products;
         return $data;
     }
 
     public function getAllTuyenDung()
     {
-        $data=[];
+        $data = [];
         $categoryItem = new CategoryItem();
-        $category=$categoryItem->getCategoryItemByPath('tuyen-dung');
-        $post=$categoryItem->getAllPostByCategory('tuyen-dung');
-        $data['post']=$post;
-        $data['category']=$category;
+        $category = $categoryItem->getCategoryItemByPath('tuyen-dung');
+        $post = $categoryItem->getAllPostByCategory('tuyen-dung');
+        $data['post'] = $post;
+        $data['category'] = $category;
         return $data;
     }
 
     public function getAllTinTuc()
     {
-        $data=[];
+        $data = [];
+
         $categoryItem = new CategoryItem();
-        $category=$categoryItem->getCategoryItemByPath('tin-tuc');
-        $post=$categoryItem->getAllPostByCategory('tin-tuc');
-        $data['post']=$post;
-        $data['category']=$category;
+        $allProject = $categoryItem->getAllCategoryByType(CATEGORY_PRODUCT);
+        $category = $categoryItem->getCategoryItemByPath('tin-tuc');
+        $post = $categoryItem->getAllPostByCategory('tin-tuc');
+        $data['post'] = $post;
+        $data['category'] = $category;
+        $data['allProject'] = $allProject;
         return $data;
     }
 
 
     public function getTuyenDungDetail($path)
     {
-        $data=[];
-        $post=new Post();
-        $tuyendung=$post->getPostByPath($path);
-        $other=$post->findPostOtherByPathAndId('tuyen-dung',$tuyendung->id);
-        $data['tuyendung']=$tuyendung;
-        $data['other']=$other;
+        $data = [];
+        $post = new Post();
+        $tuyendung = $post->getPostByPath($path);
+        $other = $post->findPostOtherByPathAndId('tuyen-dung', $tuyendung->id);
+        $data['tuyendung'] = $tuyendung;
+        $data['other'] = $other;
         return $data;
     }
 

@@ -13,13 +13,18 @@
     </div>
 
     <div class="row">
-        @for ($i = 0; $i < 8; $i++)
-            <div class="col-md-3 p-0">
-                <div style="width: 98%;margin: auto">
-                    <img src="{{URL::asset('https://www.hoozing.com/Images/hoozing-team-1.jpg')}}" alt="">
+        @php
+            $listImage=explode(';',$data['category']->sub_image);
+        @endphp
+        @if(!is_null($data['category']->sub_image))
+            @foreach($listImage as $key=>$item)
+                <div class="col-md-3 p-0">
+                    <div style="width: 98%;margin: auto">
+                        <img src="{{URL::asset($item)}}" alt="">
+                    </div>
                 </div>
-            </div>
-        @endfor
+            @endforeach
+        @endif
     </div>
 
     <div class="container">
