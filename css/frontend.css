@@ -857,7 +857,7 @@ This class is added to the container
 }
 
 #footer #info .sc-nw a {
-  color: #444444;
+  color: white;
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -867,21 +867,28 @@ This class is added to the container
 }
 
 #footer #info .sc-nw a:hover i {
-  border: 2px solid #1c7430;
   background-color: #1c7430;
   color: white;
 }
 
 #footer #info .sc-nw a i {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 2px solid #444444;
-  line-height: 26px;
+  line-height: 36px;
   text-align: center;
   -webkit-transition: .3s;
   transition: .3s;
-  font-weight: bold;
+}
+
+#footer #info .sc-nw a i.fa-facebook-f {
+  background-color: #4267b2;
+}
+
+#footer #info .sc-nw a i.fa-instagram {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 #footer #info #project button {

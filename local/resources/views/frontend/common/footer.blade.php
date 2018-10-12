@@ -12,8 +12,8 @@
                     <button><i class="far fa-envelope"></i></button>
                 </div>
                 <div class="sc-nw">
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/sieuthicanho.net/"><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-instagram" style="background-image:url({{URL::asset('images/bg/bg-insta.jpg')}});"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-3">
