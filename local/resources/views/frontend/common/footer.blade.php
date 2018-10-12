@@ -31,40 +31,14 @@
             <div class="col-lg-3 col-md-6 mb-3" id="project">
                 <h5>Project</h5>
                 <ul>
-                    <li><a href="">
-                            Masteri Thao Dien
+                    @foreach($listFrontEndInfo['allProject'] as $key=>$item)
+                    <li><a href="{{URL::to('du-an/'.$item->path)}}">
+                            {{$item->name}}
                         </a>
                     </li>
-                    <li><a href="">
-                            Vinhomes Central Park
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Scenic Valley
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Saigon Pearl
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Tropic Garden
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Sunrise City
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Estella
-                        </a>
-                    </li>
-                    <li><a href="">
-                            The Manor
-                        </a>
-                    </li>
+                    @endforeach
 
-                    <button>View All</button>
+                    {{--<button>View All</button>--}}
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6">

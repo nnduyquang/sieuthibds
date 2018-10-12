@@ -17,10 +17,9 @@ class FrontendRepository implements FrontendRepositoryInterface
     public function getFrontEndInfo()
     {
         $data = [];
-        $configContact = Config::where('name', 'config-contact')->first();
-        $data['configContact'] = $configContact;
-        $categoryMain = CategoryItem::where('type', CATEGORY_PRODUCT)->where('level', MENU_GOC)->get();
-        $data['categoryMain'] = $categoryMain;
+        $categoryItem = new CategoryItem();
+        $allProject = $categoryItem->getAllCategoryByType(CATEGORY_PRODUCT);
+        $data['allProject']=$allProject;
         return $data;
     }
 
@@ -157,6 +156,20 @@ class FrontendRepository implements FrontendRepositoryInterface
         $tuyendung = $post->getPostByPath($path);
         $other = $post->findPostOtherByPathAndId('tuyen-dung', $tuyendung->id);
         $data['tuyendung'] = $tuyendung;
+        $data['other'] = $other;
+        return $data;
+    }
+
+    public function getTinTucDetail($path)
+    {
+        $data = [];
+        $post = new Post();
+        $categoryItem = new CategoryItem();
+        $allProject = $categoryItem->getAllCategoryByType(CATEGORY_PRODUCT);
+        $tintuc = $post->getPostByPath($path);
+        $other = $post->findPostOtherByPathAndId('tin-tuc', $tintuc->id);
+        $data['allProject'] = $allProject;
+        $data['tintuc'] = $tintuc;
         $data['other'] = $other;
         return $data;
     }

@@ -40,6 +40,8 @@ return [
     'tuyendung_culture_content'=>'Văn Hóa Tại Sieuthicanho.net',
     'tuyendung_joinus'=>'Hãy Gia Nhập Với Chúng Tôi',
     'pj_detail_view_project_info'=>'XEM THÔNG TIN DỰ ÁN',
-    'pj_request_similar_listing'=>'YÊU CẦU THÔNG TIN'
+    'pj_request_similar_listing'=>'YÊU CẦU THÔNG TIN',
+    'blog_news'=>'TIN TỨC',
+    'blog_dont_miss_there'=>"CÓ THỂ BẠN QUAN TÂM"
 
 ];

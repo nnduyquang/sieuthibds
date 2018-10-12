@@ -28,5 +28,7 @@ interface FrontendRepositoryInterface
 
     public function getAllTinTuc();
 
+    public function getTinTucDetail($path);
+
 
 }
