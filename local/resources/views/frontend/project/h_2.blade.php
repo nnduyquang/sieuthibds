@@ -50,7 +50,7 @@
                 <div class="col-md-3 col-6 text-left proj-items">
                     <!--Carousel-->
                     <div class="position-relative">
-                        <div id="owl-demo" class="owl-carousel owl-theme owl-h2" style="margin-top: 20px;">
+
                             <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
                                  style="margin-top: 20px;">
                                 @php
@@ -73,7 +73,7 @@
                                     @endif
                                 @endforeach
                             </div>
-                        </div>
+
                         @if(!is_null($item->price)&&!is_null($item->unit_id))
                         <div class="price">
                             {{$item->price}} {{$item->units->name}}
@@ -96,19 +96,6 @@
                 </div>
             @endforeach
 
-            {{--<div class="col-12 text-center mt-5 mb-4">--}}
-            {{--<div style="width: fit-content;margin: auto">--}}
-            {{--<nav aria-label="Page navigation example">--}}
-            {{--<ul class="pagination">--}}
-            {{--<li class="page-item"><a class="page-link" href="#">Previous</a></li>--}}
-            {{--<li class="page-item"><a class="page-link" href="#">1</a></li>--}}
-            {{--<li class="page-item"><a class="page-link" href="#">2</a></li>--}}
-            {{--<li class="page-item"><a class="page-link" href="#">3</a></li>--}}
-            {{--<li class="page-item"><a class="page-link" href="#">Next</a></li>--}}
-            {{--</ul>--}}
-            {{--</nav>--}}
-            {{--</div>--}}
-            {{--</div>--}}
 
         </div>
     </div>

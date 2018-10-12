@@ -35,34 +35,7 @@
                             Masteri Thao Dien
                         </a>
                     </li>
-                    <li><a href="">
-                            Vinhomes Central Park
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Scenic Valley
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Saigon Pearl
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Tropic Garden
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Sunrise City
-                        </a>
-                    </li>
-                    <li><a href="">
-                            Estella
-                        </a>
-                    </li>
-                    <li><a href="">
-                            The Manor
-                        </a>
-                    </li>
+                    
 
                     <button>View All</button>
                 </ul>

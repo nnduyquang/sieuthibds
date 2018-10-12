@@ -44,7 +44,7 @@
             <div class="col-md-3 col-6 text-left proj-items">
                 <!--Carousel-->
                 <div class="position-relative">
-                    <div id="owl-demo" class="owl-carousel owl-theme owl-h2" style="margin-top: 20px;">
+
                         <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
                              style="margin-top: 20px;">
                             @php
@@ -67,7 +67,7 @@
                                 @endif
                             @endforeach
                         </div>
-                    </div>
+
                     @if(!is_null($item->price)&&!is_null($item->unit_id))
                         <div class="price">
                             {{$item->price}} {{$item->units->name}}
