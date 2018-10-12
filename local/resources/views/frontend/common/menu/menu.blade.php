@@ -10,6 +10,13 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
             {!! Form::close() !!}
+            <div id="google_translate_element"></div><script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'vi', includedLanguages: 'en,vi', multilanguagePage: true}, 'google_translate_element');
+                }
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
         </div>
         <div id="nav-content">
             <ul>
@@ -20,42 +27,51 @@
                 {{--<li><a class="{{ request()->is('project*') ? 'active' : '/' }}" href="{{URL::asset('projects.html')}}">Project</a></li>--}}
                 {{--<li><a class="{{ request()->is('blog*') ? 'active' : '/' }}" href="{{URL::asset('blogs.html')}}">Blog</a></li>--}}
                 {{--<li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Careers</a></li>--}}
-                <li class="position-relative flag-overlay">
+                {{--<li class="position-relative flag-overlay">--}}
 
-                    <div class="d-flex align-items-center position-relative">
-                        <a class="li-normal" href="">@lang('content.menu_lang')</a>
-                        @php
-                            $locale_id=Session::get('website_language');
-                        @endphp
-                        @if($locale_id=='en')
-                            <img
-                                    src="{{URL::asset('images/icon/united-kingdom.png')}}" alt="" class="flag chon-nn">
-                        @else
-                            <img
-                                    src="{{URL::asset('images/icon/vietnam.png')}}" alt="" class="flag chon-nn">
-                        @endif
-                    </div>
-                    <div class="flag-content">
-                        <ul>
-                            <li>
-                                <div class="d-flex align-items-center chon-tv">
-                                    <img
-                                            src="{{URL::asset('images/icon/vietnam.png')}}" alt=""
-                                            class="flag pr-2">
-                                    <a href="{{ route('user.change-language', ['language'=>'vi'])}}">Vietnamese</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="d-flex align-items-center chon-eng">
-                                    <img
-                                            src="{{URL::asset('images/icon/united-kingdom.png')}}" alt=""
-                                            class="flag pr-2">
-                                    <a href="{{ route('user.change-language', ['language'=>'en']) }}">English</a>
-                                </div>
-                            </li>
-                        </ul>
+                    {{--<div class="d-flex align-items-center position-relative">--}}
+                        {{--<a class="li-normal" href="">@lang('content.menu_lang')</a>--}}
+                        {{--@php--}}
+                            {{--$locale_id=Session::get('website_language');--}}
+                        {{--@endphp--}}
+                        {{--@if($locale_id=='en')--}}
+                            {{--<img--}}
+                                    {{--src="{{URL::asset('images/icon/united-kingdom.png')}}" alt="" class="flag chon-nn">--}}
+                        {{--@else--}}
+                            {{--<img--}}
+                                    {{--src="{{URL::asset('images/icon/vietnam.png')}}" alt="" class="flag chon-nn">--}}
+                        {{--@endif--}}
+                    {{--</div>--}}
+                    {{--<div class="flag-content">--}}
+                        {{--<ul>--}}
+                            {{--<li>--}}
+                                {{--<div class="d-flex align-items-center chon-tv">--}}
+                                    {{--<img--}}
+                                            {{--src="{{URL::asset('images/icon/vietnam.png')}}" alt=""--}}
+                                            {{--class="flag pr-2">--}}
+                                    {{--<a href="{{ route('user.change-language', ['language'=>'vi'])}}">Vietnamese</a>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                                {{--<div class="d-flex align-items-center chon-eng">--}}
+                                    {{--<img--}}
+                                            {{--src="{{URL::asset('images/icon/united-kingdom.png')}}" alt=""--}}
+                                            {{--class="flag pr-2">--}}
+                                    {{--<a href="{{ route('user.change-language', ['language'=>'en']) }}">English</a>--}}
+                                {{--</div>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
 
-                    </div>
+                    {{--</div>--}}
+
+                {{--</li>--}}
+                <li>
+                    @php
+                        setcookie('googtrans', '/en/en');
+                    @endphp
+
+
+
                 </li>
 
             </ul>
