@@ -71,5 +71,6 @@ $(document).ready(function () {
             $(this).trigger("enterKey");
         }
     });
+    $('.goog-te-menu-value').parent().css('display','none');
 
 });

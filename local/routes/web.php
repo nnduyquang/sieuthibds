@@ -15,6 +15,7 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/tuyen-dung/{path}','FrontendController@getTuyenDungDetail');
     Route::post('/tim-kiem','FrontendController@getSearch')->name('frontend.search');
     Route::get('/tin-tuc.html','FrontendController@getAllTinTuc');
+    Route::get('/tin-tuc/{path}','FrontendController@getTinTucDetail');
 });
 
 
@@ -24,9 +25,9 @@ Route::group(['middleware' => 'locale'], function() {
 //});
 
 
-Route::get('/blogs.html', function () {
-    return view('frontend.blog.index');
-});
+//Route::get('/blogs.html', function () {
+//    return view('frontend.blog.index');
+//});
 
 Route::get('/blogs-details.html', function () {
     return view('frontend.blog-details.index');

@@ -203,6 +203,24 @@
                         @endif
                     </div>
                 </div>
+                <h3>Mạng Xã Hội</h3>
+                <div class="content">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>Chọn hình đại diện hiển thị MXH: </strong>
+                            @if(!is_null($post->seo_id))
+                                {!! Form::text('seo_image', $post->seos->seo_image, array('class' => 'form-control','id'=>'pathImageMXH')) !!}
+                            @else
+                                {!! Form::text('seo_image', null, array('class' => 'form-control','id'=>'pathImageMXH')) !!}
+                            @endif
+                            <br>
+                            {!! Form::button('Tìm', array('id' => 'btnBrowseImageMXH','class'=>'btn btn-primary')) !!}
+                        </div>
+                        <div class="form-group">
+                            {{ Html::image('','',array('id'=>'showHinhMXH','class'=>'show-image'))}}
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-12 form-group">
                 <strong>Kích Hoạt:</strong>

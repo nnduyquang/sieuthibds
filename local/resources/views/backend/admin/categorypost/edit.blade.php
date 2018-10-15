@@ -118,6 +118,30 @@
                         {{ Html::image($categoryItem->image,'',array('id'=>'showHinh','class'=>'show-image'))}}
                     </div>
                 </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Thêm Hình Mô Tả (Nếu Có) </strong>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {!! Form::button('Thêm', array('id' => 'btnBrowseMore','class'=>'btn btn-primary')) !!}
+                        </div>
+                        <div class="form-group">
+                            <div id="add-image" class="row">
+                                @php
+                                    $listImage=explode(';',$categoryItem->sub_image);
+                                @endphp
+                                @if(!is_null($categoryItem->sub_image))
+                                    @foreach($listImage as $key=>$item)
+                                        <div class="col-md-3 text-center one-image">
+                                            {{ Html::image($item,'',array('id'=>'showHinh','class'=>'image-choose'))}}
+                                            {{ Form::hidden('image-choose[]', $item) }}
+                                            <span class='remove-image'>X</span>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {{--<div class="wrap-create-edit">--}}
                 {{--<strong class="text-title-right">Hình Đại Diện Trên Mobile</strong>--}}
                 {{--<div class="form-group">--}}

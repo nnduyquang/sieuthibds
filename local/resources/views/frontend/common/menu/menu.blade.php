@@ -10,6 +10,8 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
             {!! Form::close() !!}
+
+
         </div>
         <div id="nav-content">
             <ul>
@@ -56,7 +58,9 @@
                         </ul>
 
                     </div>
+
                 </li>
+
 
             </ul>
         </div>

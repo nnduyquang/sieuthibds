@@ -10,21 +10,20 @@
             {{--<a href=""><h4>Where is the largest Korea Town in HCM City?</h4></a>--}}
             {{--<p>March 20, 2018</p>--}}
         {{--</div>--}}
-        @for ($i = 0; $i < 10; $i++)
+        @foreach($data['allProject'] as $key=>$item)
             <div class="d-flex pb-3 border-bottom align-items-center mb-3">
-                <a href="">
+                <a href="{{URL::to('du-an/'.$item->path)}}">
                     <div class="img"
-                         style="background-image:url(https://d1kurvztuo3cyi.cloudfront.net/200/Project/537/hoozing_0_vinhomes-central-park-apartment-2017-1.png);">
+                         style="background-image:url({{URL::to($item->image)}});">
                     </div>
                 </a>
                 <div class="pl-3">
-                    <a href="">
-                        <h4>Vinhomes Central Park</h4>
+                    <a href="{{URL::to('du-an/'.$item->path)}}">
+                        <h4>{{$item->name}}</h4>
                     </a>
-                    <p>March 20, 2018</p>
                 </div>
             </div>
-        @endfor
+        @endforeach
 
     </div>
 

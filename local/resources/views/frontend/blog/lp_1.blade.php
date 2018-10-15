@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-12">
             <div class="border-bottom border-dark mb-4">
-                <h6>NEWS</h6>
+                <h6>@lang('content.blog_news')</h6>
             </div>
         </div>
     </div>

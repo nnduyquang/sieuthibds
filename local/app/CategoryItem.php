@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 class CategoryItem extends Model
 {
     protected $fillable = [
-        'name','path','description','content','image','image_mobile','level','parent_id','type','seo_id','locale_id','translation_id','order','is_active'
+        'name','path','description','content','image','sub_image','image_mobile','level','parent_id','type','seo_id','locale_id','translation_id','order','is_active'
     ];
     protected $table = 'category_items';
     protected $hidden = ['id'];
@@ -52,6 +52,22 @@ class CategoryItem extends Model
             $parameters['level'] = 0;
         }else{
             $parameters['level']=self::findLevelById($parent_id)+1;
+        }
+        if ($parameters->input('image-choose')) {
+            $listImage = $parameters->input('image-choose');
+            $subImage = '';
+            if (count($listImage) != 0) {
+                foreach ($listImage as $key => $item) {
+                    if (hasHttpOrHttps($item))
+                        $subImage = $subImage . substr($item, strpos($item, 'images'), strlen($item) - 1) . ';';
+                    else {
+                        $subImage = $subImage . $item . ';';
+                    }
+                }
+                $parameters->request->add(['sub_image' => substr($subImage, 0, -1)]);
+            }
+        } else {
+            $parameters->request->add(['sub_image' => null]);
         }
         return $parameters;
     }
@@ -101,9 +117,9 @@ class CategoryItem extends Model
         $locale_id=self::getLanguage();
         return $this->where('id',$id)->where('locale_id',$locale_id)->first();
     }
-    public function getCategoryItemOther($id){
+    public function getCategoryItemOther($id,$type){
         $locale_id=self::getLanguage();
-        return $this->where('id','!=',$id)->where('locale_id',$locale_id)->get();
+        return $this->where('id','!=',$id)->where('type',$type)->where('locale_id',$locale_id)->get();
     }
     public function getAllPostByCategory($path){
         $locale_id=self::getLanguage();

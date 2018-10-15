@@ -63,7 +63,7 @@
                         <div class="row mt-5">
                             <div class="col-md-12 text-center">
                                 <button class="view-all"><a class="text-white"
-                                                            href="{{URL::asset('danh-sach-can-ho.html')}}">VIEW ALL</a>
+                                                            href="{{URL::to('danh-sach-san-pham.html')}}">@lang('content.home_view_all')</a>
                                 </button>
                             </div>
                         </div>
@@ -117,8 +117,7 @@
                             <div class="row mt-5">
                                 <div class="col-md-12 text-center">
                                     <button class="view-all"><a class="text-white"
-                                                                href="{{URL::asset('danh-sach-can-ho.html')}}">VIEW
-                                            ALL</a>
+                                                                href="{{URL::to('danh-sach-san-pham.html')}}">@lang('content.home_view_all')</a>
                                     </button>
                                 </div>
                             </div>

@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-12 text-center">
-                <button class="view-all"><a class="text-white" href="{{URL::asset('projects.html')}}">@lang('content.home_view_all')</a></button>
+                <button class="view-all"><a class="text-white" href="{{URL::to('du-an.html')}}">@lang('content.home_view_all')</a></button>
             </div>
         </div>
     </div>
