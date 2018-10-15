@@ -1,6 +1,6 @@
 <div class="pb-5 d-none d-block d-sm-none"></div>
 <div class="container-fluid mt-2" id="ca_1">
-    <img src="{{URL::asset('https://www.hoozing.com/Images/Hoozing_Our Team.png')}}" alt=""
+    <img src="{{URL::asset('images/bg/WeAreHiring.png')}}" alt=""
          style="width: 100%;height: auto;margin: auto">
 
     <div class="container mb-3">
