@@ -19,7 +19,7 @@
                     <li><a class="{{ request()->is($item->link()) ? 'active' : '/' }}"
                            href="{{URL::to($item->link())}}">@lang($item->title)</a></li>
                 @endforeach
-                <li><a class="{{ request()->is('mat-bang*') ? 'active' : '/' }}" href="{{URL::asset('mat-bang.html')}}">Apartment Floor Plan</a></li>
+                {{--<li><a class="{{ request()->is('mat-bang*') ? 'active' : '/' }}" href="{{URL::asset('mat-bang.html')}}">Apartment Floor Plan</a></li>--}}
                 {{--<li><a class="{{ request()->is('blog*') ? 'active' : '/' }}" href="{{URL::asset('blogs.html')}}">Blog</a></li>--}}
                 {{--<li><a class="{{ request()->is('tuyen-dung*') ? 'active' : '/' }}" href="{{URL::asset('tuyen-dung.html')}}">Careers</a></li>--}}
                 <li class="position-relative flag-overlay">
