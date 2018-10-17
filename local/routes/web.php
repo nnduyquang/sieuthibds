@@ -33,6 +33,11 @@ Route::get('/blogs-details.html', function () {
     return view('frontend.blog-details.index');
 });
 
+Route::get('/mat-bang.html', function () {
+    return view('frontend.ground.index');
+});
+
+
 //Route::get('/projects-info.html', function () {
 //    return view('frontend.project.index');
 //});

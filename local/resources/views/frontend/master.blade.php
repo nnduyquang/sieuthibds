@@ -151,9 +151,9 @@
                                                                             aria-hidden="true"></i></a>
     </div>
 </div>
-<div class="callback d-none d-md-block"  style="right: 12px!important;bottom: 42px;left:inherit">
+<div class="callback d-none d-md-block"  style="right: 286px!important;bottom: 0px;left:inherit">
 
-    <div class="tel-no bg-success text-center p-3" style="border-radius: 5px">
+    <div class="tel-no bg-success text-center" style="border-radius: 5px 5px 0px 0px;padding: 12px 10px 10px 10px">
         <a class="text-white" href="tel:0902806679">(+84) 902 806 679</a>
     </div>
 
