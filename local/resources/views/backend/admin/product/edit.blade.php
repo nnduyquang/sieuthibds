@@ -141,10 +141,13 @@
                 <div class="wrap-create-edit">
                     <strong class="text-title-right">Địa Điểm</strong>
                     <div class="form-group">
+                        {{--@php--}}
+                            {{--dd($city_id)--}}
+                        {{--@endphp--}}
                         <select name="select-city" class="form-control">
                             <option value="-1">Chọn Tỉnh/Thành Phố</option>
                             @foreach($cities as $key=>$item)
-                                <option {{($city_id=== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
+                                <option {{($city_id== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -152,7 +155,7 @@
                         <select name="select-district" class="form-control">
                             <option value="-1" selected>Chọn Quận/Huyện</option>
                             @foreach($districts as $key=>$item)
-                                <option {{($district_id=== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
+                                <option {{($district_id== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -161,7 +164,7 @@
                             <option value="-1" selected>Chọn Phường/Xã</option>
                             @if(!is_null($wards))
                                 @foreach($wards as $key=>$item)
-                                    <option {{($ward_id=== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
+                                    <option {{($ward_id== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                             @endif
                         </select>
@@ -181,7 +184,7 @@
                                 <select name="select-unit" class="form-control">
                                     <option value="-1">Chọn Đơn Vị Tính</option>
                                     @foreach($units as $key=>$item)
-                                        <option {{($product->unit_id=== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
+                                        <option {{($product->unit_id== $item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

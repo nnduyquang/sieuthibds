@@ -108,6 +108,7 @@ class ProductController extends Controller
     public function edit($id,$locale_id)
     {
         $data = $this->productRepository->showEditProduct($id,$locale_id);
+//        dd($data);
         $product = $data['product'];
         $cities = $data['cities'];
         $city_id = $data['city_id'];

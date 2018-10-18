@@ -18,27 +18,34 @@
                                 @foreach($item->products as $key2=>$item2)
                                     <div class="col-md-3 col-6 text-left proj-items">
                                         <!--Carousel-->
-                                        <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
-                                             style="margin-top: 20px;">
-                                            @php
-                                                $listImage=explode(';',$item2->sub_image);
-                                                $j=0
-                                            @endphp
-                                            @foreach($listImage as $key3=>$item3)
-                                                {{--<div class="item">--}}
-                                                    {{--<img  src="{{URL::asset($item3)}}"--}}
-                                                         {{--alt="sliderimg{{$j}}">--}}
-                                                {{--</div>--}}
-                                                <div class="owl-img"
-                                                     style="background-image: url({{URL::asset($item3)}});">
-                                                </div>
+                                        <div class="position-relative">
+                                            <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
+                                                 style="margin-top: 20px;">
                                                 @php
-                                                    $j++;
+                                                    $listImage=explode(';',$item2->sub_image);
+                                                    $j=0
                                                 @endphp
-                                                @if($j==3)
-                                                    @break
-                                                @endif
-                                            @endforeach
+                                                @foreach($listImage as $key3=>$item3)
+                                                    {{--<div class="item">--}}
+                                                    {{--<img  src="{{URL::asset($item3)}}"--}}
+                                                    {{--alt="sliderimg{{$j}}">--}}
+                                                    {{--</div>--}}
+                                                    <div class="owl-img"
+                                                         style="background-image: url({{URL::asset($item3)}});">
+                                                    </div>
+                                                    @php
+                                                        $j++;
+                                                    @endphp
+                                                    @if($j==3)
+                                                        @break
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                            @if(!is_null($item2->price)&&!is_null($item2->unit_id))
+                                                <div class="price">
+                                                    {{$item2->price}} {{$item2->units->name}}
+                                                </div>
+                                            @endif
                                         </div>
 
                                         <div><a href="{{URL::to('san-pham/'.$item2->path)}}"><h5>{{$item2->name}}</h5>
@@ -75,26 +82,34 @@
                                     @foreach($item->products as $key2=>$item2)
                                         <div class="col-md-3 col-6 text-left proj-items">
                                             <!--Carousel-->
-                                            <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
-                                                 style="margin-top: 20px;">
-                                                @php
-                                                    $listImage=explode(';',$item2->sub_image);
-                                                $j=0
-                                                @endphp
-                                                @foreach($listImage as $key3=>$item3)
-                                                    <div class="owl-img"
-                                                         style="background-image: url({{URL::asset($item3)}});">
-                                                    </div>
+                                            <div class="position-relative">
+                                                <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
+                                                     style="margin-top: 20px;">
                                                     @php
-                                                        $j++;
+                                                        $listImage=explode(';',$item2->sub_image);
+                                                    $j=0
                                                     @endphp
-                                                    @if($j==3)
-                                                        @break
-                                                    @endif
-                                                @endforeach
+                                                    @foreach($listImage as $key3=>$item3)
+                                                        <div class="owl-img"
+                                                             style="background-image: url({{URL::asset($item3)}});">
+                                                        </div>
+                                                        @php
+                                                            $j++;
+                                                        @endphp
+                                                        @if($j==3)
+                                                            @break
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                @if(!is_null($item2->price)&&!is_null($item2->unit_id))
+                                                    <div class="price">
+                                                        {{$item2->price}} {{$item2->units->name}}
+                                                    </div>
+                                                @endif
                                             </div>
 
-                                            <div><a href="{{URL::to('san-pham/'.$item2->path)}}"><h5>{{$item2->name}}</h5>
+                                            <div><a href="{{URL::to('san-pham/'.$item2->path)}}">
+                                                    <h5>{{$item2->name}}</h5>
                                                 </a></div>
                                             {{--<div><a href="{{URL::asset('/project-details.html')}}">Sophisticated 3--}}
                                             {{--bedroom--}}
@@ -111,6 +126,7 @@
                                         </div>
                                     @endforeach
                                 @endif
+
 
                             </div>
 
