@@ -109,45 +109,44 @@
                 <div class="col-md-12 us_US">
 
 
-                    <h1>MẶT BẰNG CĂN HỘ MASTERI THAO DIEN</h1>
+                    <h1>FURNISHED BY MASTERI THAO DIEN APARTMENT</h1>
 
 
-                    <H6 class="mb-3">MẶT BẰNG TỔNG MASTERI THẢO ĐIỀN</H6>
+                    <H6 class="mb-3">EVERY MASTERI THAO FILLED</H6>
 
-                    <P class="mb-3">Mặt bằng căn hộ được thiết kế thông thoáng và hợp lý với 04 loại căn hộ diện tích
-                        khác
-                        nhau.</P>
+                    <P class="mb-3">The flat is designed with ventilation and reasonable with 04 different types of apartments.</P>
 
                     <ul class="ml-4 mb-3">
-                        <li>1 phòng ngủ / 45m² – 52m²</li>
-                        <li>2 phòng ngủ / 59m² – 70m²</li>
-                        <li>2 phòng ngủ / 71m² – 72m²</li>
-                        <li>3 phòng ngủ / 86m² – 90m²</li>
+                        <li>1 bedroom / 45m² - 52m²</li>
+                        <li>2 bedrooms / 59m² - 70m²</li>
+                        <li>2 bedrooms / 71m² - 72m²</li>
+                        <li>3 bedrooms / 86m² - 90m²</li>
                     </ul>
 
-                    <h4>Mặt bằng tầng Tòa 1</h4>
+                    <h4>Tower T1</h4>
                     <div class="" style="width: fit-content;margin: auto;text-align: center">
                         <img src="{{URL::asset('images/ground/mat-bang-T1.png')}}" alt=""
                              style="width: 80%;margin: auto">
                     </div>
-                    <h4>Mặt bằng tầng Tòa 2</h4>
+                    <h4>Tower T2</h4>
                     <div class="" style="width: fit-content;margin: auto;text-align: center">
                         <img src="{{URL::asset('images/ground/mat-bang-T2.png')}}" alt=""
                              style="width: 80%;margin: auto">
                     </div>
-                    <h4>Mặt bằng tầng Tòa 3</h4>
+                    <h4>Tower T3</h4>
                     <div class="" style="width: fit-content;margin: auto;text-align: center">
                         <img src="{{URL::asset('images/ground/mat-bang-T3.jpg')}}" alt=""
                              style="width: 90%;margin: auto">
                     </div>
-                    <h4>Mặt bằng tầng Tòa 4</h4>
+                    <h4>Tower T4</h4>
                     <div class="" style="width: fit-content;margin: auto;text-align: center">
                         <img src="{{URL::asset('images/ground/mat-bang-T4.png')}}" alt=""
                              style="width: 90%;margin: auto">
                     </div>
 
                     <div class="text-center">
-                        <h4>Quý khách xin liện hệ Phòng Kinh Doanh <br>
+                        <h4>Please Contact Business Department
+                            <br>
                             Hotline: 0902 806 679</h4>
                     </div>
 

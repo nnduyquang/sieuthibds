@@ -10,5 +10,9 @@
         </div>
     </div>
 
-    <div id="price"><p>$1,450</p></div>
+    <div id="price">
+        @if(!is_null($data['product']->price)&&!is_null($data['product']->unit_id))
+            <p>{{$data['product']->price}} <span>{{$data['product']->units->name}}</span></p>
+        @endif
+    </div>
 </div>
