@@ -10,6 +10,7 @@ Route::group(['middleware' => 'locale'], function() {
     Route::get('/du-an/{path}','FrontendController@getDuAnDetail');
     Route::get('/du-an.html', 'FrontendController@getAllDuAn');
     Route::get('/danh-sach-san-pham/{path}','FrontendController@getDanhSachSanPhamTheoDuAn');
+    Route::get('/bat-dong-san-ban.html','FrontendController@getDanhSachAllSanPhamBan');
     Route::get('/danh-sach-san-pham.html','FrontendController@getDanhSachAllSanPham');
     Route::get('/tuyen-dung.html','FrontendController@getAllTuyenDung');
     Route::get('/tuyen-dung/{path}','FrontendController@getTuyenDungDetail');

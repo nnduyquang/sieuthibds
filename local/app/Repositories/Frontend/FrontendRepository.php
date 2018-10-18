@@ -97,7 +97,18 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $product = new Product();
-        $products = $product->getAllProductByLocale();
+        $products = $product->getAllProductByLocaleAndRentOrSell(NEED_RENT);
+
+        $data['type'] = 2;
+        $data['products'] = $products;
+        return $data;
+    }
+
+    public function getDanhSachAllSanPhamBan()
+    {
+        $data = [];
+        $product = new Product();
+        $products = $product->getAllProductByLocaleAndRentOrSell(NEED_SELL);
 
         $data['type'] = 2;
         $data['products'] = $products;

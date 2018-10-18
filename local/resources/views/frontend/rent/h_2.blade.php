@@ -17,7 +17,11 @@
                 <h6>@lang('content.rent_apartment_for_rent') <span
                             style="text-transform: uppercase">{{$data['category']->name}}</span></h6>
             @else
-                <h6>@lang('content.rent_apartment_for_rent_no_in')</h6>
+                @if(request()->is('danh-sach-san-pham.html'))
+                    <h6>@lang('content.rent_apartment_for_rent_no_in')</h6>
+                @else
+                    <h6>@lang('content.rent_apartment_for_sell_no_in')</h6>
+                @endif
             @endif
             {{--<button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">All</button>--}}
 
@@ -45,28 +49,28 @@
                 <!--Carousel-->
                 <div class="position-relative">
 
-                        <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
-                             style="margin-top: 20px;">
+                    <div id="owl-demo" class="owl-carousel owl-theme owl-h2"
+                         style="margin-top: 20px;">
+                        @php
+                            $listImage=explode(';',$item->sub_image);
+                            $j=0
+                        @endphp
+                        @foreach($listImage as $key2=>$item2)
+                            {{--<div class="item">--}}
+                            {{--<img  src="{{URL::asset($item3)}}"--}}
+                            {{--alt="sliderimg{{$j}}">--}}
+                            {{--</div>--}}
+                            <div class="owl-img"
+                                 style="background-image: url({{URL::asset($item2)}});">
+                            </div>
                             @php
-                                $listImage=explode(';',$item->sub_image);
-                                $j=0
+                                $j++;
                             @endphp
-                            @foreach($listImage as $key2=>$item2)
-                                {{--<div class="item">--}}
-                                {{--<img  src="{{URL::asset($item3)}}"--}}
-                                {{--alt="sliderimg{{$j}}">--}}
-                                {{--</div>--}}
-                                <div class="owl-img"
-                                     style="background-image: url({{URL::asset($item2)}});">
-                                </div>
-                                @php
-                                    $j++;
-                                @endphp
-                                @if($j==3)
-                                    @break
-                                @endif
-                            @endforeach
-                        </div>
+                            @if($j==3)
+                                @break
+                            @endif
+                        @endforeach
+                    </div>
 
                     @if(!is_null($item->price)&&!is_null($item->unit_id))
                         <div class="price">

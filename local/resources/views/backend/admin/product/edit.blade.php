@@ -133,7 +133,7 @@
 
                 </div>
                 <div class="wrap-create-edit">
-                    <strong class="text-title-right">Loại Sản Phẩm</strong>
+                    <strong class="text-title-right">Loại Dự Án</strong>
                     <div class="category-info">
                         @include('backend.admin.product.list-select-option-edit')
                     </div>
@@ -168,6 +168,17 @@
                                 @endforeach
                             @endif
                         </select>
+                    </div>
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Loại Bất Động Sản</strong>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" value="1" name="is_rent" @if($product->is_rent==NEED_SELL) checked @endif >Cần Bán
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="0" name="is_rent" @if($product->is_rent==NEED_RENT) checked @endif>Cho Thuê
+                        </label>
                     </div>
                 </div>
                 <div class="wrap-create-edit">

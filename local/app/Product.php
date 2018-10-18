@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class Product extends Model
 {
     protected $fillable = [
-        'id', 'name', 'path', 'description', 'content', 'code', 'image', 'sub_image', 'is_active', 'price', 'num_bath', 'num_bed', 'location_district', 'num_member', 'area', 'furniture_full', 'map', 'order', 'user_id', 'seo_id', 'unit_id', 'location_id', 'locale_id', 'translation_id', 'created_at', 'updated_at'
+        'id', 'name', 'path', 'description', 'content', 'code', 'image', 'sub_image', 'is_active', 'price', 'num_bath', 'num_bed', 'location_district', 'num_member', 'area','is_rent', 'furniture_full', 'map', 'order', 'user_id', 'seo_id', 'unit_id', 'location_id', 'locale_id', 'translation_id', 'created_at', 'updated_at'
     ];
     protected $hidden = ['id'];
 
@@ -65,6 +65,11 @@ class Product extends Model
     {
         $locale_id = self::getLanguage();
         return $this->where('locale_id', $locale_id)->get();
+    }
+    public function getAllProductByLocaleAndRentOrSell($isrentorsell)
+    {
+        $locale_id = self::getLanguage();
+        return $this->where('locale_id', $locale_id)->where('is_rent',$isrentorsell)->get();
     }
 
     public function prepareParameters($parameters)

@@ -99,7 +99,7 @@
 
                 </div>
                 <div class="wrap-create-edit">
-                    <strong class="text-title-right">Loại Sản Phẩm</strong>
+                    <strong class="text-title-right">Dự Án</strong>
                     <div class="category-info">
                         @include('backend.admin.product.list-select-option-create')
                     </div>
@@ -125,6 +125,17 @@
                         </select>
                     </div>
 
+                </div>
+                <div class="wrap-create-edit">
+                    <strong class="text-title-right">Loại Bất Động Sản</strong>
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" value="1" name="is_rent" checked>Cần Bán
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="0" name="is_rent">Cho Thuê
+                        </label>
+                    </div>
                 </div>
                 <div class="wrap-create-edit">
                     <div class="row">

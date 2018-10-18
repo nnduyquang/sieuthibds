@@ -15,7 +15,7 @@
                     <div id="London" class="tabcontent">
                         <div class="row mt-3">
                             @foreach($data['featuredProperties'] as $key=>$item)
-                                @foreach($item->products as $key2=>$item2)
+                                @foreach($item->products->where('is_rent',NEED_RENT) as $key2=>$item2)
                                     <div class="col-md-3 col-6 text-left proj-items">
                                         <!--Carousel-->
                                         <div class="position-relative">

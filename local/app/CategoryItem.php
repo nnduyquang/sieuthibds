@@ -93,6 +93,7 @@ class CategoryItem extends Model
         $locale_id=self::getLanguage();
         return $this->where('type', $type)->where('locale_id',$locale_id)->orderBy('order')->get();
     }
+
     public function getAllOrderBy($order,$type,$locale_id)
     {
         return $this->where('type', $type)->where('locale_id',$locale_id)->orderBy($order)->get();
