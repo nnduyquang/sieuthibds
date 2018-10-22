@@ -98,6 +98,11 @@
                         <img src="{{URL::asset('images/ground/mat-bang-T4.png')}}" alt=""
                              style="width: 90%;margin: auto">
                     </div>
+                    <h4>Mặt bằng tầng Tòa 5</h4>
+                    <div class="" style="width: fit-content;margin: auto;text-align: center">
+                        <img src="{{URL::asset('images/ground/mat-bang-T5.jpg')}}" alt=""
+                             style="width: 90%;margin: auto">
+                    </div>
 
                     <div class="text-center">
                         <h4>Quý khách xin liện hệ Phòng Kinh Doanh <br>
@@ -141,6 +146,11 @@
                     <h4>Tower T4</h4>
                     <div class="" style="width: fit-content;margin: auto;text-align: center">
                         <img src="{{URL::asset('images/ground/mat-bang-T4.png')}}" alt=""
+                             style="width: 90%;margin: auto">
+                    </div>
+                    <h4>Tower T5</h4>
+                    <div class="" style="width: fit-content;margin: auto;text-align: center">
+                        <img src="{{URL::asset('images/ground/mat-bang-T5.jpg')}}" alt=""
                              style="width: 90%;margin: auto">
                     </div>
 
