@@ -76,13 +76,6 @@
             </div>
         </div>
     </div>
-    <div class="container mb-4">
-        <div class="row">
-            <div class="col-12">
-                @include('frontend.common.map')
-            </div>
-        </div>
-    </div>
 
 
     <div class="container d-none" id="quick_link">

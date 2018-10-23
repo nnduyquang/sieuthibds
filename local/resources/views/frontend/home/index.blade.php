@@ -21,10 +21,10 @@
     @include('frontend.common.slider')
 @stop
 @section('container')
-    @include('frontend.home.h_1')
+    {{--@include('frontend.home.h_1')--}}
     @include('frontend.home.h_2')
     @include('frontend.home.h_3')
-    {{--@include('frontend.common.map')--}}
+    @include('frontend.common.map')
 @stop
 
 @section('jv-scripts')
