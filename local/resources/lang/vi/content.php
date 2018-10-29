@@ -32,6 +32,7 @@ return [
     'rent_apartment_for_rent'=>'CĂN HỘ CHO THUÊ TẠI',
     'rent_apartment_for_rent_no_in'=>'CĂN HỘ CHO THUÊ',
     'rent_apartment_for_sell_no_in'=>'CĂN HỘ CẦN BÁN',
+    'rent_apartment_for_search'=>'KẾT QUẢ',
     'menu_rent'=>'Căn Hộ Cho Thuê',
     'menu_sell'=>'Căn Hộ Cần Bán',
     'menu_project'=>'Dự Án',

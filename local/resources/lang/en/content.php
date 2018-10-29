@@ -32,6 +32,7 @@ return [
     'rent_apartment_for_rent'=>'APARTMENT FOR RENT IN',
     'rent_apartment_for_rent_no_in'=>'APARTMENT FOR RENT',
     'rent_apartment_for_sell_no_in'=>'APARTMENT FOR SELL',
+    'rent_apartment_for_search'=>'RESULT',
     'menu_rent'=>'Rent',
     'menu_sell'=>'Selling',
     'menu_project'=>'Project',
