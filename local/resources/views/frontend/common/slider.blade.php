@@ -73,7 +73,7 @@
                                         <span class="bed-count">@lang('content.home_any_bed')</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="Any bed">Any bed</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="-1">Any bed</li>
                                                 <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="1">1</li>
                                                 <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="2">2</li>
                                                 <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="3">3</li>
@@ -91,7 +91,7 @@
                                         <span class="bath-count">@lang('content.home_any_bath')</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"  value="Any Bath">Any Bath</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"  value="-1">Any Bath</li>
                                                 <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="1">1</li>
                                                 <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="2">2</li>
                                                 <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="3">3</li>

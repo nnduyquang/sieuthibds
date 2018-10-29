@@ -31,7 +31,8 @@
     <script>
 
         function setinfo(clinfo,valinfo,clcontent){
-            $('.'+clinfo).html(valinfo);
+            var input='<input name="'+clinfo+'" type="hidden" value="'+valinfo+'">'+valinfo;
+            $('.'+clinfo).html(input);
             $('.'+clcontent+' .select-content').css({'opacity':0,'z-index':0});
             $('.'+clcontent+' .select-content ul').css('display','none');
 

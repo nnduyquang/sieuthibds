@@ -163,7 +163,15 @@
 {{--</a>--}}
 {{--</div>--}}
 
+<!-- Global site tag (gtag.js) - AdWords: 868688063 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-868688063"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'AW-868688063');
+</script>
 </body>
 
 </Html>

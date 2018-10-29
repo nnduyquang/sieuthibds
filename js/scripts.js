@@ -1,7 +1,7 @@
 var plugins = {
     menuSideBar: $('.sidebar'),
     slider: $('#slider'),
-    owlCarouselHH2:$('.hh2')
+    owlCarouselHH2: $('.hh2')
 };
 $(document).ready(function () {
     function sidebar() {
@@ -18,7 +18,9 @@ $(document).ready(function () {
             }
         })
     }
+
     sidebar();
+
     function runSlider() {
         plugins.slider.nivoSlider({
             effect: 'fade',
@@ -28,49 +30,53 @@ $(document).ready(function () {
             controlNav: false,
         });
     }
+
     function runOwlCarouselHH2() {
         plugins.owlCarouselHH2.owlCarousel({
-            lazyLoad:true,
-            items:1,
+            lazyLoad: true,
+            items: 1,
             autoplay: true,
             smartSpeed: 1500,
-            nav:true,
+            nav: true,
             dots: true,
-            loop : true,
+            loop: true,
         });
     }
+
     if (plugins.slider.length) {
         runSlider();
     }
-    if(plugins.owlCarouselHH2.length){
+    if (plugins.owlCarouselHH2.length) {
         runOwlCarouselHH2();
     }
     $('form[name=search-home]').submit(function (e) {
-        var input_text=$('input[name=input-search-text]').val();
+        var input_text = $('input[name=input-search-text]').val();
         var select_project = $('select[name=select-project]').val();
-        if (input_text == '' && select_project == '-1') {
+        var num_bed = $('input[name=bed-count]').val();
+        var num_bath = $('input[name=bath-count]').val();
+        if (input_text == '' && select_project == '-1'&& num_bed == '-1' && num_bath == '-1') {
             e.preventDefault();
         }
     });
     $('form[name=search-home-menu]').submit(function (e) {
-        var input_text=$('input[name=input-search-text-menu]').val();
+        var input_text = $('input[name=input-search-text-menu]').val();
         var select_project = $('select[name=select-project]').val();
+        alert(num_bed);
         if (input_text == '' && select_project == '-1') {
             e.preventDefault();
         }
     });
-    $('input[name=input-search-text-menu]').bind("enterKey",function(e){
-        var input_text=$('input[name=input-search-text-menu]').val();
+    $('input[name=input-search-text-menu]').bind("enterKey", function (e) {
+        var input_text = $('input[name=input-search-text-menu]').val();
         if (input_text == '') {
             e.preventDefault();
         }
     });
-    $('input[name=input-search-text-menu]').keyup(function(e){
-        if(e.keyCode == 13)
-        {
+    $('input[name=input-search-text-menu]').keyup(function (e) {
+        if (e.keyCode == 13) {
             $(this).trigger("enterKey");
         }
     });
-    $('.goog-te-menu-value').parent().css('display','none');
+
 
 });
