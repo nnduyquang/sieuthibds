@@ -1925,14 +1925,202 @@ This class is added to the container
   border-bottom: 1px solid #919191;
 }
 
+#search_bar .content input {
+  padding: 11px 12px 10px 12px !important;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+#search_bar .content input:focus {
+  outline: none;
+}
+
+#search_bar .content .select-box {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  padding: 12px 0px 12px 36px !important;
+  height: 38px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#search_bar .content .select-box span {
+  font-size: 15px;
+}
+
+#search_bar .content .select-box:after {
+  position: absolute;
+  content: '\F0D7';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  right: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #8b8989;
+  z-index: 10;
+}
+
+#search_bar .content .select-box:before {
+  position: absolute;
+  content: '\F236';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  left: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #1b1e21;
+  z-index: 10;
+}
+
+#search_bar .content .select-box .select-content {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#search_bar .content .select-box .select-content ul {
+  display: none;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+#search_bar .content .select-box .select-content ul li {
+  padding: 6px 14px;
+  display: block;
+  cursor: pointer;
+}
+
+#search_bar .content .select-box .select-content ul li:hover {
+  color: #1c7430;
+  background-color: #d9d9d9;
+}
+
+#search_bar .content .select-box-bath:before {
+  content: '\F2CD';
+}
+
+#search_bar .content .select-box-min {
+  padding-left: 42px !important;
+}
+
+#search_bar .content .select-box-min:before {
+  content: 'Min $' !important;
+}
+
+#search_bar .content .select-box-max {
+  padding-left: 45px !important;
+}
+
+#search_bar .content .select-box-max:before {
+  content: 'Max $' !important;
+}
+
+#search_bar .content button {
+  padding: 15px 32px 14px 32px;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  background-color: #e2260d;
+  border-radius: 3px;
+  color: white;
+}
+
+#search_bar .content .district-project {
+  position: relative;
+}
+
+#search_bar .content .district-project input {
+  width: 100%;
+  border: none;
+  padding: 11px 10px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+#search_bar .content .district-project:after {
+  position: absolute;
+  content: '\F3C5';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  right: 5px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #8b8989;
+  z-index: 10;
+}
+
+#search_bar .content select {
+  border-radius: 0px !important;
+  position: relative;
+  border: none;
+  width: 100% !important;
+  padding: 11px 10px 11px 38px;
+  font-size: 14px;
+  background-color: #fff;
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900;
+  color: #6b6b6b;
+}
+
+#search_bar .content .select-box2 {
+  position: relative;
+  width: 100%;
+}
+
+#search_bar .content .select-box2:before {
+  position: absolute;
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 900;
+  color: #6b6b6b;
+  left: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 10;
+}
+
+#search_bar .content .show-box:before {
+  content: '\F2CD' !important;
+}
+
+#search_bar .content .show-bed:before {
+  content: '\F236' !important;
+}
+
+#search_bar .content .show-min:before {
+  content: 'Min' !important;
+}
+
+#search_bar .content .show-max:before {
+  content: 'Max' !important;
+}
+
+#search_bar .content a {
+  color: white;
+  text-decoration: underline !important;
+}
+
 #search_bar button.btn-filter {
-  padding: 10px 14px 9px 14px;
+  padding: 13px 16px 13px 16px;
   font-size: 14px;
   background-color: #fff;
   border-radius: 3px;
   border: 1px solid #777676;
   font-weight: bold;
   cursor: pointer;
+  margin-left: 16px;
 }
 
 #search_bar .items {

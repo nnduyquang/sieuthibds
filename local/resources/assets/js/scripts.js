@@ -3,6 +3,66 @@ var plugins = {
     slider: $('#slider'),
     owlCarouselHH2: $('.hh2')
 };
+
+function setinfo(clinfo,valinfo,clcontent){
+    var input='<input name="'+clinfo+'" type="hidden" value="'+valinfo+'">'+valinfo;
+    $('.'+clinfo).html(input);
+    $('.'+clcontent+' .select-content').css({'opacity':0,'z-index':0});
+    $('.'+clcontent+' .select-content ul').css('display','none');
+
+}
+
+
+$('.select-box-bed').mousemove(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':1,'z-index':11});
+    $(this).children('.select-content').children(' ul').css('display','block');
+});
+$('.select-box-bed').mouseout(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':0,'z-index':1});
+    $(this).children('.select-content').children(' ul').css('display','none');
+});
+
+$('.select-box-bath').mousemove(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':1,'z-index':11});
+    $(this).children('.select-content').children(' ul').css('display','block');
+});
+$('.select-box-bath').mouseout(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':0,'z-index':1});
+    $(this).children('.select-content').children(' ul').css('display','none');
+});
+$('.select-box-min').mousemove(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':1,'z-index':11});
+    $(this).children('.select-content').children(' ul').css('display','block');
+});
+$('.select-box-min').mouseout(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':0,'z-index':1});
+    $(this).children('.select-content').children(' ul').css('display','none');
+});
+$('.select-box-max').mousemove(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':1,'z-index':11});
+    $(this).children('.select-content').children(' ul').css('display','block');
+});
+$('.select-box-max').mouseout(function () {
+    // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+    // $('.select-box-bed .select-content ul').css('display','block');
+    $(this).children('.select-content').css({'opacity':0,'z-index':1});
+    $(this).children('.select-content').children(' ul').css('display','none');
+});
+
 $(document).ready(function () {
     function sidebar() {
         var trigger = $('#trigger,#close');

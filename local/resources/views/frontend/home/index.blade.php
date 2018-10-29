@@ -30,75 +30,65 @@
 @section('jv-scripts')
     <script>
 
-        function setinfo(clinfo,valinfo,clcontent){
-            var input='<input name="'+clinfo+'" type="hidden" value="'+valinfo+'">'+valinfo;
-            $('.'+clinfo).html(input);
-            $('.'+clcontent+' .select-content').css({'opacity':0,'z-index':0});
-            $('.'+clcontent+' .select-content ul').css('display','none');
-
-        }
-
-
-        $('.select-box-bed').mousemove(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':1,'z-index':11});
-            $(this).children('.select-content').children(' ul').css('display','block');
-        });
-        $('.select-box-bed').mouseout(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':0,'z-index':1});
-            $(this).children('.select-content').children(' ul').css('display','none');
-        });
-
-        $('.select-box-bath').mousemove(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':1,'z-index':11});
-            $(this).children('.select-content').children(' ul').css('display','block');
-        });
-        $('.select-box-bath').mouseout(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':0,'z-index':1});
-            $(this).children('.select-content').children(' ul').css('display','none');
-        });
-        $('.select-box-min').mousemove(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':1,'z-index':11});
-            $(this).children('.select-content').children(' ul').css('display','block');
-        });
-        $('.select-box-min').mouseout(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':0,'z-index':1});
-            $(this).children('.select-content').children(' ul').css('display','none');
-        });
-        $('.select-box-max').mousemove(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':1,'z-index':11});
-            $(this).children('.select-content').children(' ul').css('display','block');
-        });
-        $('.select-box-max').mouseout(function () {
-            // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
-            // $('.select-box-bed .select-content ul').css('display','block');
-            $(this).children('.select-content').css({'opacity':0,'z-index':1});
-            $(this).children('.select-content').children(' ul').css('display','none');
-        });
-
-        // $('.chon-tv').click(function () {
-        //     $('.chon-nn').attr("src","http://localhost:8080/sieuthibds/images/icon/vietnam.png");
-        //     // alert (123);
-        // });
+        // function setinfo(clinfo,valinfo,clcontent){
+        //     var input='<input name="'+clinfo+'" type="hidden" value="'+valinfo+'">'+valinfo;
+        //     $('.'+clinfo).html(input);
+        //     $('.'+clcontent+' .select-content').css({'opacity':0,'z-index':0});
+        //     $('.'+clcontent+' .select-content ul').css('display','none');
         //
-        // $('.chon-eng').click(function () {
+        // }
+        //
+        //
+        // $('.select-box-bed').mousemove(function () {
         //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
         //     // $('.select-box-bed .select-content ul').css('display','block');
-        //     $('.chon-nn').src('http://localhost:8080/sieuthibds/images/icon/united-kingdom.png')
+        //     $(this).children('.select-content').css({'opacity':1,'z-index':11});
+        //     $(this).children('.select-content').children(' ul').css('display','block');
         // });
+        // $('.select-box-bed').mouseout(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':0,'z-index':1});
+        //     $(this).children('.select-content').children(' ul').css('display','none');
+        // });
+        //
+        // $('.select-box-bath').mousemove(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':1,'z-index':11});
+        //     $(this).children('.select-content').children(' ul').css('display','block');
+        // });
+        // $('.select-box-bath').mouseout(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':0,'z-index':1});
+        //     $(this).children('.select-content').children(' ul').css('display','none');
+        // });
+        // $('.select-box-min').mousemove(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':1,'z-index':11});
+        //     $(this).children('.select-content').children(' ul').css('display','block');
+        // });
+        // $('.select-box-min').mouseout(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':0,'z-index':1});
+        //     $(this).children('.select-content').children(' ul').css('display','none');
+        // });
+        // $('.select-box-max').mousemove(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':1,'z-index':11});
+        //     $(this).children('.select-content').children(' ul').css('display','block');
+        // });
+        // $('.select-box-max').mouseout(function () {
+        //     // $('.select-box-bed .select-content').css({'opacity':1,'z-index':11});
+        //     // $('.select-box-bed .select-content ul').css('display','block');
+        //     $(this).children('.select-content').css({'opacity':0,'z-index':1});
+        //     $(this).children('.select-content').children(' ul').css('display','none');
+        // });
+
 
 
         function openCity(evt, cityName) {
