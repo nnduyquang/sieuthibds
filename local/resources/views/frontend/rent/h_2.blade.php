@@ -19,9 +19,9 @@
             @else
                 @if(request()->is('danh-sach-san-pham.html'))
                     <h6>@lang('content.rent_apartment_for_rent_no_in')</h6>
-                @elseif(request()->is('bat-dong-san-ban'))
+                @elseif(request()->is('bat-dong-san-ban.html'))
                     <h6>@lang('content.rent_apartment_for_sell_no_in')</h6>
-                    @else
+                @else
                     <h6>@lang('content.rent_apartment_for_search')</h6>
                 @endif
             @endif

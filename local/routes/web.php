@@ -5,7 +5,7 @@ Route::group(['middleware' => 'locale'], function() {
 //    Route::get('/', function(){
 //        return view('frontend.home.index');
 //    });
-    Route::get('/', 'FrontendController@getFrontend');
+    Route::get('/', 'FrontendController@getFrontend')->name('homepage');
     Route::get('/san-pham/{path}', 'FrontendController@getSanPhamDetail');
     Route::get('/du-an/{path}','FrontendController@getDuAnDetail');
     Route::get('/du-an.html', 'FrontendController@getAllDuAn');
