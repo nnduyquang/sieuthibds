@@ -144,7 +144,8 @@ class Product extends Model
         $products->where('locale_id', $locale_id);
         if (!is_null($projectId)) {
             if ($projectId != -1) {
-                return $category->getCategoryItemById($projectId)->products()->get();
+//                return $category->getCategoryItemById($projectId)->products()->get();
+                $products=$category->getCategoryItemById($projectId)->products();
             } else {
                 if (!is_null($searchText)) {
                     $products->where('name', 'like', '%' . $searchText . '%');
@@ -155,10 +156,10 @@ class Product extends Model
                 $products->where('name', 'like', '%' . $searchTextMenu . '%');
             }
         }
-        if($numBed!=-1){
+        if($numBed!=-1&&!is_null($numBed)){
             $products->where('num_bed',$numBed);
         }
-        if($numBath!=-1){
+        if($numBath!=-1&&!is_null($numBath)){
             $products->where('num_bath',$numBath);
         }
 
