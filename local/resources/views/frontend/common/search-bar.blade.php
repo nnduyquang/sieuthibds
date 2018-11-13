@@ -71,11 +71,13 @@
 {{--</style>--}}
 <div class="container-fluid border-bottom d-lg-block d-md-block d-none" id="search_bar">
     {!! Form::open(array('route' => 'frontend.search','method'=>'POST','name'=>'search-home')) !!}
-        @if(request()->is('danh-sach-san-pham.html'))
-            {{ Form::hidden('select-type', 0) }}
-        @elseif(request()->is('bat-dong-san-ban.html'))
-            {{ Form::hidden('select-type', 1) }}
-        @endif
+    @if(request()->is('danh-sach-san-pham.html'))
+        {{ Form::hidden('select-type', 0) }}
+    @elseif(request()->is('bat-dong-san-ban.html'))
+        {{ Form::hidden('select-type', 1) }}
+    @else
+        {{ Form::hidden('select-type',  $data['selectType']) }}
+    @endif
     <div class="row">
         <div class="col-md-12 d-flex justify-content-center content" id="">
 
