@@ -139,11 +139,13 @@
                             <span class="min-price align-items-center">100</span>
                             <div class="select-content">
                                 <ul>
-                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="100">100</li>
-                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="200">200</li>
-                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="300">300</li>
-                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="400">400</li>
-                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="500">500</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="100">400</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="200">500</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="300">600</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="400">700</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="500">800</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="500">900</li>
+                                    <li onclick="setinfo('min-price',this.value,'select-box-min')" value="500">1000</li>
                                 </ul>
                             </div>
                         </div>
@@ -164,6 +166,8 @@
                                     <li onclick="setinfo('max-price',this.value,'select-box-max')" value="4000">4000
                                     </li>
                                     <li onclick="setinfo('max-price',this.value,'select-box-max')" value="5000">5000
+                                    </li>
+                                    <li onclick="setinfo('max-price',this.value,'select-box-max')" value="5000">6000
                                     </li>
                                 </ul>
                             </div>
