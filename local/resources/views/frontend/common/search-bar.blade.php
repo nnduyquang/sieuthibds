@@ -71,87 +71,16 @@
 {{--</style>--}}
 <div class="container-fluid border-bottom d-lg-block d-md-block d-none" id="search_bar">
     {!! Form::open(array('route' => 'frontend.search','method'=>'POST','name'=>'search-home')) !!}
+        @if(request()->is('danh-sach-san-pham.html'))
+            {{ Form::hidden('select-type', 0) }}
+        @elseif(request()->is('bat-dong-san-ban.html'))
+            {{ Form::hidden('select-type', 1) }}
+        @endif
     <div class="row">
         <div class="col-md-12 d-flex justify-content-center content" id="">
 
             <div class="col-md-10 text-center">
                 <div class="row">
-                    {{--<div class="col-2 p-0">--}}
-                    {{--<div class="items">--}}
-                    {{--<select>--}}
-                    {{--<option value="volvo">Volvo</option>--}}
-                    {{--<option value="saab">Saab</option>--}}
-                    {{--<option value="vw">VW</option>--}}
-                    {{--<option value="audi" selected>Select Project</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-2 position-relative">--}}
-                    {{--<div class=" items"><p><i class="fas fa-bed"></i> +</p>--}}
-                    {{--<div class="items-content">--}}
-                    {{--<ul>--}}
-                    {{--<li><a href="">All properties</a></li>--}}
-                    {{--<li><a href="">2+1 (office)</a></li>--}}
-                    {{--<li><a href="">Duplex</a></li>--}}
-                    {{--<li><a href="">Apartment</a></li>--}}
-                    {{--<li><a href="">Officetel</a></li>--}}
-                    {{--<li><a href="">Other</a></li>--}}
-                    {{--<li><a href="">Penthouse</a></li>--}}
-                    {{--<li><a href="">Shophouse</a></li>--}}
-                    {{--<li><a href="">Villa</a></li>--}}
-                    {{--</ul>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--</div>--}}
-                    {{--<div class="col-2 p-0">--}}
-                    {{--<div class=" items bed">--}}
-                    {{--<select>--}}
-                    {{--<option value="volvo">Volvo</option>--}}
-                    {{--<option value="saab">Saab</option>--}}
-                    {{--<option value="vw">VW</option>--}}
-                    {{--<option value="audi" selected>Any bed</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-2 p-0">--}}
-                    {{--<div class=" items bath">--}}
-                    {{--<select>--}}
-                    {{--<option value="volvo">Volvo</option>--}}
-                    {{--<option value="saab">Saab</option>--}}
-                    {{--<option value="vw">VW</option>--}}
-                    {{--<option value="audi" selected>Any bath</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-2 p-0">--}}
-                    {{--<div class=" items min">--}}
-                    {{--<select>--}}
-                    {{--<option value="volvo">Volvo</option>--}}
-                    {{--<option value="saab">Saab</option>--}}
-                    {{--<option value="vw">VW</option>--}}
-                    {{--<option value="audi" selected>$ 100</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="col-2 p-0">--}}
-                    {{--<div class=" items max">--}}
-                    {{--<select>--}}
-                    {{--<option value="volvo">Volvo</option>--}}
-                    {{--<option value="saab">Saab</option>--}}
-                    {{--<option value="vw">VW</option>--}}
-                    {{--<option value="audi" selected>$ 500</option>--}}
-                    {{--</select>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    {{--<div class="col-2 p-0">--}}
-                    {{--<button class="btn-filter">--}}
-                    {{--TÌM KIẾM--}}
-                    {{--</button>--}}
-                    {{--</div>--}}
-
                     <div class="col-md-2 col-6 p-lg-1 pl-3 pr-3 pt-0 pb-0">
 
                         {{--<input name="input-search-text" type="text" placeholder="@lang('content.home_district_project')">--}}

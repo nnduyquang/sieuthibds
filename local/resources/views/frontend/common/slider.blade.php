@@ -54,12 +54,10 @@
                             </div>
                         </div>
                         <div class="col-md-3 p-lg-1">
-                            <select name="select-project" style="padding-left: 8px!important;">
-                                @foreach( $data['featuredProject'] as $key=>$item)
-                                @endforeach
-                                <option value="">Rent</option>
-                                    <option value="">Sell</option>
-                                <option value="-1" selected>Sell and Rent</option>
+                            <select name="select-type" style="padding-left: 8px!important;">
+                                <option value="0">@lang('content.home_search_for_rent')</option>
+                                <option value="1">@lang('content.home_search_for_sell')</option>
+                                <option value="-1" selected>@lang('content.home_search_rent_sell')</option>
                             </select>
                         </div>
                         <div class="col-md-3 p-lg-1">

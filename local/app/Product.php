@@ -136,6 +136,7 @@ class Product extends Model
         $locale_id = self::getLanguage();
         $projectId = $request->input('select-project');
         $searchText = $request->input('input-search-text');
+        $selectType=$request->input('select-type');
         $searchTextMenu = $request->input('input-search-text-menu');
         $numBed = $request->input('bed-count');
         $numBath = $request->input('bath-count');
@@ -162,6 +163,10 @@ class Product extends Model
         if($numBath!=-1&&!is_null($numBath)){
             $products->where('num_bath',$numBath);
         }
+        if($selectType!=-1&&!is_null($selectType)){
+            $products->where('is_rent',$selectType);
+        }
+
 
         return $products->get();
     }
