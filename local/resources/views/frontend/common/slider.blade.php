@@ -29,33 +29,43 @@
                         <h5 class="">@lang('content.home_popular_areas')</h5>
                     </li>
                     @foreach($data['featuredProperties'] as $key=>$item)
-                    <li><a href="#">
-                            {{$item->name}}
-                        </a></li>
+                        <li><a href="#">
+                                {{$item->name}}
+                            </a></li>
                     @endforeach
                     {{--<li><a href="">--}}
-                            {{--District 3--}}
-                        {{--</a></li>--}}
+                    {{--District 3--}}
+                    {{--</a></li>--}}
                     {{--<li><a href="">--}}
-                            {{--District 5--}}
-                        {{--</a></li>--}}
+                    {{--District 5--}}
+                    {{--</a></li>--}}
                     {{--<li><a href="">--}}
-                            {{--Bình Thạnh--}}
-                        {{--</a></li>--}}
+                    {{--Bình Thạnh--}}
+                    {{--</a></li>--}}
                 </ul>
 
                 {!! Form::open(array('route' => 'frontend.search','method'=>'POST','name'=>'search-home')) !!}
                 <div class="content">
                     <div class="row">
-                        <div class="col-md-8 mb-2 p-lg-1">
+                        <div class="col-md-6 mb-2 p-lg-1">
                             <div class="district-project">
-                            <input name="input-search-text" type="text" placeholder="@lang('content.home_district_project')">
+                                <input name="input-search-text" type="text"
+                                       placeholder="@lang('content.home_district_project')">
                             </div>
                         </div>
-                        <div class="col-md-4 p-lg-1">
+                        <div class="col-md-3 p-lg-1">
                             <select name="select-project" style="padding-left: 8px!important;">
                                 @foreach( $data['featuredProject'] as $key=>$item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                @endforeach
+                                <option value="">Rent</option>
+                                    <option value="">Sell</option>
+                                <option value="-1" selected>Sell and Rent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 p-lg-1">
+                            <select name="select-project" style="padding-left: 8px!important;">
+                                @foreach( $data['featuredProject'] as $key=>$item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                                 <option value="-1" selected>@lang('content.home_all_project')</option>
                             </select>
@@ -73,12 +83,24 @@
                                         <span class="bed-count">@lang('content.home_any_bed')</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="-1">Any bed</li>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="1">1</li>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="2">2</li>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="3">3</li>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="4">4</li>
-                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')" value="5">5</li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')"
+                                                    value="-1">Any bed
+                                                </li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')"
+                                                    value="1">1
+                                                </li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')"
+                                                    value="2">2
+                                                </li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')"
+                                                    value="3">3
+                                                </li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')"
+                                                    value="4">4
+                                                </li>
+                                                <li onclick="setinfo('bed-count',this.value,'select-box-bed')"
+                                                    value="5">5
+                                                </li>
                                             </ul>
                                         </div>
 
@@ -91,12 +113,24 @@
                                         <span class="bath-count">@lang('content.home_any_bath')</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"  value="-1">Any Bath</li>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="1">1</li>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="2">2</li>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="3">3</li>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="4">4</li>
-                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')" value="5">5</li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"
+                                                    value="-1">Any Bath
+                                                </li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"
+                                                    value="1">1
+                                                </li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"
+                                                    value="2">2
+                                                </li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"
+                                                    value="3">3
+                                                </li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"
+                                                    value="4">4
+                                                </li>
+                                                <li onclick="setinfo('bath-count',this.value,'select-box-bath')"
+                                                    value="5">5
+                                                </li>
                                             </ul>
                                         </div>
 
@@ -109,11 +143,27 @@
                                         <span class="min-price align-items-center">100</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="100">100</li>
-                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="200">200</li>
-                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="300">300</li>
-                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="400">400</li>
-                                                <li onclick="setinfo('min-price',this.value,'select-box-min')" value="500">500</li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="100">400
+                                                </li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="200">500
+                                                </li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="300">600
+                                                </li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="400">700
+                                                </li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="500">800
+                                                </li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="500">900
+                                                </li>
+                                                <li onclick="setinfo('min-price',this.value,'select-box-min')"
+                                                    value="500">1000
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -125,11 +175,27 @@
                                         <span class="max-price align-items-center">1000</span>
                                         <div class="select-content">
                                             <ul>
-                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="1000">1000</li>
-                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="2000">2000</li>
-                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="3000">3000</li>
-                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="4000">4000</li>
-                                                <li onclick="setinfo('max-price',this.value,'select-box-max')" value="5000">5000</li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="1000">900
+                                                </li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="1000">1000
+                                                </li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="2000">2000
+                                                </li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="3000">3000
+                                                </li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="4000">4000
+                                                </li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="5000">5000
+                                                </li>
+                                                <li onclick="setinfo('max-price',this.value,'select-box-max')"
+                                                    value="1000">6000
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -150,7 +216,7 @@
                 </div>
 
                 <div class="content">
-                    <button  type="submit">@lang('content.home_search')</button>
+                    <button type="submit">@lang('content.home_search')</button>
                 </div>
                 {!! Form::close() !!}
 

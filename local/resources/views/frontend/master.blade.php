@@ -143,7 +143,7 @@
     })();
 </script>
 <!--End of Tawk.to Script-->
-<div class="callback d-lg-none d-md-none">
+<div class="callback d-lg-none d-md-none" style="left: -38px!important;bottom: -50px;right:inherit">
     <div class="phone_animation">
         <div class="phone_animation_circle"></div>
         <div class="phone_animation_circle_fill"></div>
