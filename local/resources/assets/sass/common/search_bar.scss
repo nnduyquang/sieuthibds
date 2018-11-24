@@ -4,6 +4,190 @@
   margin-top: 4px;
   border-bottom: 1px solid #919191;
 
+  .content {
+    //margin-bottom: 10px;
+
+    input{
+      padding: 11px 12px 10px 12px!important;
+      font-size: 14px;
+      width: 100%;
+      border: none;
+      overflow: hidden;
+      &:focus{
+        outline: none;
+      }
+    }
+    .select-box {
+      width: 100%;
+      background-color: #fff;
+      position: relative;
+      padding: 12px 0px 12px 36px !important;
+      height: 38px;
+      font-size: 14px;
+      cursor: pointer;
+      span {
+        font-size: 15px;
+      }
+      &:after {
+        position: absolute;
+        content: '\f0d7';
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8b8989;
+        z-index: 10;
+      }
+      &:before {
+        position: absolute;
+        content: '\f236';
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #1b1e21;
+        z-index: 10;
+      }
+      .select-content {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        z-index: 1;
+        opacity: 0;
+        transition: .3s;
+        ul {
+          display: none;
+          max-height: 100px;
+          overflow-y: scroll;
+          li {
+            padding: 6px 14px;
+            display: block;
+            cursor: pointer;
+            &:hover {
+              color: #1c7430;
+              background-color: #d9d9d9;
+            }
+          }
+        }
+      }
+    }
+
+    .select-box-bath {
+      &:before {
+        content: '\f2cd';
+      }
+    }
+
+    .select-box-min {
+      padding-left: 42px !important;
+      &:before {
+        content: 'Min $' !important;
+      }
+    }
+
+    .select-box-max {
+      padding-left: 45px !important;
+      &:before {
+        content: 'Max $' !important;
+      }
+    }
+    button {
+      padding: 15px 32px 14px 32px;
+      cursor: pointer;
+      font-size: 15px;
+      border: none;
+      background-color: #e2260d;
+      border-radius: 3px;
+      color: white;
+    }
+    .district-project {
+      position: relative;
+      input {
+        width: 100%;
+        border: none;
+        padding: 11px 10px;
+        font-size: 14px;
+        z-index: 1;
+      }
+      &:after {
+        position: absolute;
+        content: '\f3c5';
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #8b8989;
+        z-index: 10;
+      }
+
+    }
+
+    select {
+      border-radius: 0px !important;
+      position: relative;
+      border: none;
+      //background-color: transparent;
+      width: 100% !important;
+      padding: 11px 10px 11px 38px;
+      font-size: 14px;
+      background-color: #fff;
+      font-family: 'Font Awesome\ 5 Free' !important;
+      font-weight: 900;
+      color: #6b6b6b;
+    }
+
+    .select-box2 {
+      position: relative;
+      width: 100%;
+      //background-color: #fff;
+      &:before {
+        //content: '\f236';
+        position: absolute;
+        font-family: 'Font Awesome\ 5 Free' !important;
+        font-weight: 900;
+        color: #6b6b6b;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+      }
+
+    }
+    .show-box {
+      &:before {
+        content: '\f2cd' !important;
+      }
+    }
+    .show-bed {
+      &:before {
+        content: '\f236' !important;
+      }
+    }
+
+    .show-min {
+      //font-size: 13px;
+      &:before {
+        content: 'Min' !important;
+      }
+    }
+
+    .show-max {
+      //font-size: 13px;
+      &:before {
+        content: 'Max' !important;
+      }
+    }
+    a {
+      color: white;
+      text-decoration: underline !important;
+    }
+  }
+
   //}.items {
   //   width: 110%;
   //   border: 1px solid #919191;
@@ -49,13 +233,15 @@
   //
   //
   button.btn-filter {
-    padding: 10px 14px 9px 14px;
+    padding: 13px 16px 13px 16px;
     font-size: 14px;
     background-color: #fff;
     border-radius: 3px;
     border: 1px solid #777676;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 16px;
+    //height: 100%;
   }
 
   .items {

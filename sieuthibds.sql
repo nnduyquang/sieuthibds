@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
+<<<<<<< HEAD
 -- Thời gian đã tạo: Th10 27, 2018 lúc 09:05 AM
+=======
+-- Thời gian đã tạo: Th10 29, 2018 lúc 08:44 AM
+>>>>>>> fecbcddc7424e641b6e4fcf2892fd07b5b60c171
 -- Phiên bản máy phục vụ: 5.6.41-cll-lve
 -- Phiên bản PHP: 5.6.30
 

@@ -97,10 +97,12 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $product = new Product();
+        $category = new CategoryItem();
         $products = $product->getAllProductByLocaleAndRentOrSell(NEED_RENT);
-
+        $featuredProject = $category->getAllCategoryByType(CATEGORY_PRODUCT);
         $data['type'] = 2;
         $data['products'] = $products;
+        $data['featuredProject'] = $featuredProject;
         return $data;
     }
 
@@ -108,10 +110,12 @@ class FrontendRepository implements FrontendRepositoryInterface
     {
         $data = [];
         $product = new Product();
+        $category = new CategoryItem();
         $products = $product->getAllProductByLocaleAndRentOrSell(NEED_SELL);
-
+        $featuredProject = $category->getAllCategoryByType(CATEGORY_PRODUCT);
         $data['type'] = 2;
         $data['products'] = $products;
+        $data['featuredProject'] = $featuredProject;
         return $data;
     }
 
@@ -126,11 +130,16 @@ class FrontendRepository implements FrontendRepositoryInterface
 
     public function getSearch($request)
     {
+        $selectType=$request->input('select-type');
         $data = [];
         $product = new Product();
+        $category = new CategoryItem();
         $products = $product->searchProduct($request);
+        $featuredProject = $category->getAllCategoryByType(CATEGORY_PRODUCT);
         $data['type'] = 2;
+        $data['selectType']=$selectType;
         $data['products'] = $products;
+        $data['featuredProject'] = $featuredProject;
         return $data;
     }
 

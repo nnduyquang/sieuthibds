@@ -19,8 +19,10 @@
             @else
                 @if(request()->is('danh-sach-san-pham.html'))
                     <h6>@lang('content.rent_apartment_for_rent_no_in')</h6>
-                @else
+                @elseif(request()->is('bat-dong-san-ban.html'))
                     <h6>@lang('content.rent_apartment_for_sell_no_in')</h6>
+                @else
+                    <h6>@lang('content.rent_apartment_for_search')</h6>
                 @endif
             @endif
             {{--<button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">All</button>--}}

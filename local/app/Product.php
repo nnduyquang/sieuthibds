@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class Product extends Model
 {
     protected $fillable = [
-        'id', 'name', 'path', 'description', 'content', 'code', 'image', 'sub_image', 'is_active', 'price', 'num_bath', 'num_bed', 'location_district', 'num_member', 'area','is_rent', 'furniture_full', 'map', 'order', 'user_id', 'seo_id', 'unit_id', 'location_id', 'locale_id', 'translation_id', 'created_at', 'updated_at'
+        'id', 'name', 'path', 'description', 'content', 'code', 'image', 'sub_image', 'is_active', 'price', 'num_bath', 'num_bed', 'location_district', 'num_member', 'area', 'is_rent', 'furniture_full', 'map', 'order', 'user_id', 'seo_id', 'unit_id', 'location_id', 'locale_id', 'translation_id', 'created_at', 'updated_at'
     ];
     protected $hidden = ['id'];
 
@@ -66,10 +66,11 @@ class Product extends Model
         $locale_id = self::getLanguage();
         return $this->where('locale_id', $locale_id)->get();
     }
+
     public function getAllProductByLocaleAndRentOrSell($isrentorsell)
     {
         $locale_id = self::getLanguage();
-        return $this->where('locale_id', $locale_id)->where('is_rent',$isrentorsell)->get();
+        return $this->where('locale_id', $locale_id)->where('is_rent', $isrentorsell)->get();
     }
 
     public function prepareParameters($parameters)
@@ -132,27 +133,40 @@ class Product extends Model
 
     public function searchProduct($request)
     {
-
         $locale_id = self::getLanguage();
         $projectId = $request->input('select-project');
         $searchText = $request->input('input-search-text');
+        $selectType=$request->input('select-type');
         $searchTextMenu = $request->input('input-search-text-menu');
+        $numBed = $request->input('bed-count');
+        $numBath = $request->input('bath-count');
         $products = $this->query();
         $category = new CategoryItem();
         $products->where('locale_id', $locale_id);
         if (!is_null($projectId)) {
             if ($projectId != -1) {
-                return $category->getCategoryItemById($projectId)->products()->get();
+//                return $category->getCategoryItemById($projectId)->products()->get();
+                $products=$category->getCategoryItemById($projectId)->products();
             } else {
                 if (!is_null($searchText)) {
                     $products->where('name', 'like', '%' . $searchText . '%');
                 }
             }
-        }else{
+        } else {
             if (!is_null($searchTextMenu)) {
                 $products->where('name', 'like', '%' . $searchTextMenu . '%');
             }
         }
+        if($numBed!=-1&&!is_null($numBed)){
+            $products->where('num_bed',$numBed);
+        }
+        if($numBath!=-1&&!is_null($numBath)){
+            $products->where('num_bath',$numBath);
+        }
+        if($selectType!=-1&&!is_null($selectType)){
+            $products->where('is_rent',$selectType);
+        }
+
 
         return $products->get();
     }

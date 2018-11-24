@@ -143,7 +143,7 @@
     })();
 </script>
 <!--End of Tawk.to Script-->
-<div class="callback d-lg-none d-md-none">
+<div class="callback d-lg-none d-md-none" style="left: -38px!important;bottom: -50px;right:inherit">
     <div class="phone_animation">
         <div class="phone_animation_circle"></div>
         <div class="phone_animation_circle_fill"></div>
@@ -163,7 +163,15 @@
 {{--</a>--}}
 {{--</div>--}}
 
+<!-- Global site tag (gtag.js) - AdWords: 868688063 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-868688063"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'AW-868688063');
+</script>
 </body>
 
 </Html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Frontend\FrontendRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
@@ -17,10 +18,17 @@ class FrontendController extends Controller
 
     public function changeLanguage($language)
     {
+
         if (Session::has('website_language')) {
             Session::put('website_language', $language);
         }
         app()->setLocale(Session::get('website_language'));
+        $array=explode('/',back()->getTargetUrl());
+        $end=end($array);
+        if($end=='tim-kiem'){
+
+            return redirect()->route('homepage');
+        }
         return back();
     }
     public function getFrontend(){

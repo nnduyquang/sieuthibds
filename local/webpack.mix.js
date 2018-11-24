@@ -27,6 +27,7 @@ mix
         'bower_components/waypoints/lib/noframework.waypoints.min.js',
         'bower_components/countUp.js/dist/countUp.min.js',
     ], '../js/core.frontend.js')
+
     .styles([
         'bower_components/admin-lte/dist/js/adminlte.min.js',
         'bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js',
@@ -43,6 +44,7 @@ mix
         'bower_components/owl.carousel/dist/assets/owl.theme.default.css',
         'bower_components/animate.css/animate.min.css',
     ], '../css/core.frontend.css')
+
     //CSS CORE BACKEND
     .styles([
         'bower_components/admin-lte/dist/css/adminlte.min.css',
